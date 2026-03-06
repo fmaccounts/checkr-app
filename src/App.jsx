@@ -976,12 +976,36 @@ const CSS = `
 .light-mode {
   --bg:#F5F4F0;--bg2:#EDECEA;--bg3:#E5E3DE;--bg4:#DDDBD5;--bg5:#D5D2CB;
   --ln:#D0CEC8;--ln2:#C8C5BE;--ln3:#B8B5AE;
-  --ink:#1A1917;--ink2:#4A4845;--ink3:#7A7874;
-  --lime:#7AAE00;--lime2:rgba(122,174,0,.12);--lime3:rgba(122,174,0,.06);
-  --red:#C82020;--red2:rgba(200,32,32,.1);
-  --amr:#B07000;--amr2:rgba(176,112,0,.1);
-  --grn:#1A8040;--grn2:rgba(26,128,64,.1);
+  --ink:#1A1917;--ink2:#3A3835;--ink3:#5A5653;
+  --lime:#6A9800;--lime2:rgba(106,152,0,.12);--lime3:rgba(106,152,0,.06);
+  --red:#B81818;--red2:rgba(184,24,24,.1);
+  --amr:#966000;--amr2:rgba(150,96,0,.1);
+  --grn:#156830;--grn2:rgba(21,104,48,.1);
 }
+/* Light mode explicit overrides for readability */
+.light-mode .fc-text{color:#1A1917}
+.light-mode .fc-tip-btn{color:#5A5653}
+.light-mode .fc-tip{color:#3A3835;background:#DDDBD5;border-left-color:#C8C5BE}
+.light-mode .fca{color:#3A3835;background:#DDDBD5;border-color:#C8C5BE}
+.light-mode .fca:hover{color:#1A1917;background:#D0CEC8}
+.light-mode .mdl-card-lbl{color:#1A1917}
+.light-mode .mdl-btn{color:#3A3835;background:#DDDBD5;border-color:#C8C5BE}
+.light-mode .ph-title{color:#1A1917}
+.light-mode .ph-short{color:#5A5653}
+.light-mode .ph-text{color:#3A3835}
+.light-mode .grp-title{color:#5A5653}
+.light-mode .crit-section{background:rgba(184,24,24,.06);border-color:rgba(184,24,24,.18)}
+.light-mode .nb-body{color:#3A3835}
+.light-mode .sum-sec-hd{color:#1A1917}
+.light-mode .si-txt{color:#1A1917}
+.light-mode .si-phase{color:#5A5653}
+.light-mode .garage-empty{color:#5A5653}
+.light-mode .gc-meta{color:#5A5653}
+.light-mode .neg-body{color:#3A3835}
+.light-mode .calc-lbl{color:#1A1917}
+.light-mode .save-note{color:#5A5653}
+.light-mode .sum-disclaimer{color:#5A5653}
+.light-mode .wlc-how-row{color:#3A3835}
 html,body{background:var(--bg);color:var(--ink);font-family:var(--fb);font-size:15px;-webkit-font-smoothing:antialiased;min-height:100dvh}
 .app{max-width:430px;min-height:100dvh;margin:0 auto;background:var(--bg);display:flex;flex-direction:column}
 
@@ -1578,34 +1602,8 @@ export default function CHECKR() {
       <div className="wlc">
         <div className="wlc-bg"/><div className="wlc-grid"/>
         <div className="wlc-body">
-          <div style={{display:"flex",justifyContent:"flex-end",marginBottom:16,position:"relative"}}>
-            <button onClick={()=>setShowLangPicker(p=>!p)}
-              style={{background:"var(--bg3)",border:"1px solid var(--ln2)",borderRadius:10,
-                padding:"6px 10px",fontSize:20,cursor:"pointer",lineHeight:1,display:"flex",
-                alignItems:"center",gap:6}}>
-              {LANG_FLAGS[onboard?.lang||"de"]}
-              <span style={{fontSize:11,color:"var(--ink3)",fontFamily:"var(--fb)"}}>▾</span>
-            </button>
-            {showLangPicker && (
-              <div style={{position:"absolute",top:"100%",right:0,marginTop:6,background:"var(--bg2)",
-                border:"1px solid var(--ln2)",borderRadius:12,overflow:"hidden",zIndex:100,minWidth:140,
-                boxShadow:"0 8px 24px rgba(0,0,0,.3)"}}>
-                {Object.entries(LANG_FLAGS).map(([code, flag]) => (
-                  <button key={code} onClick={()=>{
-                    const ob = {...(onboard||{name:"du"}), lang:code};
-                    setOnboard(ob); saveOnboard(ob);
-                    setShowLangPicker(false);
-                  }} style={{width:"100%",display:"flex",alignItems:"center",gap:10,
-                    padding:"11px 14px",background:onboard?.lang===code?"var(--lime2)":"transparent",
-                    border:"none",borderBottom:"1px solid var(--ln)",cursor:"pointer",
-                    fontFamily:"var(--fb)",fontSize:13,
-                    color:onboard?.lang===code?"var(--lime)":"var(--ink2)",textAlign:"left"}}>
-                    <span style={{fontSize:18}}>{flag}</span>
-                    {LANG_LABELS[code]}
-                  </button>
-                ))}
-              </div>
-            )}
+          <div style={{display:"flex",justifyContent:"flex-end",marginBottom:16}}>
+            <ControlBar lang={lang} dark={dark} setDark={setDark} onboard={onboard} setOnboard={setOnboard} saveOnboard={saveOnboard} showLangPicker={showLangPicker} setShowLangPicker={setShowLangPicker} LANG_FLAGS={LANG_FLAGS} LANG_LABELS={LANG_LABELS}/>
           </div>
           <div className="wlc-badge"><div className="wlc-dot"/>{t.badgeLabel}</div>
           <h1 className="wlc-title">{t.appTagline.split(".")[0]}.<br/><em>{t.appTagline.split(".").slice(1).join(".").trim()}</em></h1>
@@ -1641,6 +1639,9 @@ export default function CHECKR() {
     <div className={`app${dark?"":" light-mode"}`}><style>{CSS}</style>
       <div className="vpk">
         <div className="vpk-hdr">
+          <div style={{display:"flex",justifyContent:"flex-end",marginBottom:8}}>
+            <ControlBar lang={lang} dark={dark} setDark={setDark} onboard={onboard} setOnboard={setOnboard} saveOnboard={saveOnboard} showLangPicker={showLangPicker} setShowLangPicker={setShowLangPicker} LANG_FLAGS={LANG_FLAGS} LANG_LABELS={LANG_LABELS}/>
+          </div>
           <div className="step-lbl">{t.vehicleStepLabel}</div>
           <div className="vpk-title">{t.vehicleTitle}</div>
           <div className="vpk-sub">{t.vehicleSub}</div>
@@ -1703,35 +1704,7 @@ export default function CHECKR() {
       <div className={`app${dark?"":" light-mode"}`}><style>{CSS}</style>
         <div className="ph-screen">
           <div className="topbar">
-            <div style={{display:"flex",alignItems:"center",gap:6}}>
-              <div style={{position:"relative"}}>
-                <button onClick={()=>setShowLangPicker(p=>!p)}
-                  style={{background:"none",border:"1px solid var(--ln2)",borderRadius:8,padding:"5px 8px",
-                    fontSize:16,cursor:"pointer",lineHeight:1}}>
-                  {LANG_FLAGS[lang]}
-                </button>
-                {showLangPicker && (
-                  <div style={{position:"absolute",top:"calc(100% + 4px)",left:0,background:"var(--bg2)",
-                    border:"1px solid var(--ln2)",borderRadius:10,overflow:"hidden",zIndex:100,minWidth:130,
-                    boxShadow:"0 8px 24px rgba(0,0,0,.3)"}}>
-                    {Object.entries(LANG_FLAGS).map(([code,flag])=>(
-                      <button key={code} onClick={()=>{
-                        const ob={...(onboard||{name:""}),lang:code};
-                        setOnboard(ob);saveOnboard(ob);setShowLangPicker(false);
-                      }} style={{width:"100%",display:"flex",alignItems:"center",gap:8,
-                        padding:"10px 12px",background:lang===code?"var(--lime2)":"transparent",
-                        border:"none",borderBottom:"1px solid var(--ln)",cursor:"pointer",
-                        fontFamily:"var(--fb)",fontSize:12,color:lang===code?"var(--lime)":"var(--ink2)"}}>
-                        <span style={{fontSize:16}}>{flag}</span>{LANG_LABELS[code]}
-                      </button>
-                    ))}
-                  </div>
-                )}
-              </div>
-              <button onClick={()=>setDark(d=>!d)} style={{background:"none",border:"1px solid var(--ln2)",borderRadius:8,padding:"5px 10px",color:"var(--ink2)",fontSize:13,cursor:"pointer",fontFamily:"var(--fb)"}}>
-                {dark?"☀️":"🌙"}
-              </button>
-            </div>
+            <ControlBar lang={lang} dark={dark} setDark={setDark} onboard={onboard} setOnboard={setOnboard} saveOnboard={saveOnboard} showLangPicker={showLangPicker} setShowLangPicker={setShowLangPicker} LANG_FLAGS={LANG_FLAGS} LANG_LABELS={LANG_LABELS}/>
             {editingId && <span style={{fontSize:11,color:"var(--lime)",fontWeight:700,background:"var(--lime2)",padding:"3px 8px",borderRadius:6}}>{t.editingLabel}</span>}
             <div className="tb-back" onClick={()=>{ if(phaseIdx===0){ if(editingId){setEditingId(null);resetSession();setScreen("garage");}else{setScreen("vehicle");} } else { setPhaseIdx(i=>i-1); } }}>
               {IC.back} <span>{phaseIdx===0?t.vehicleStepLabel:phases[phaseIdx-1].label}</span>
@@ -1843,7 +1816,7 @@ export default function CHECKR() {
       <div className="sum">
         <div className="topbar">
           <div className="tb-back" onClick={()=>{ setPhaseIdx(phases.length-1); setScreen("phase"); }}>{IC.back} {t.backLabel}</div>
-          <span style={{fontSize:12,color:"var(--lime)",fontWeight:700}}>{t.summaryLabel}</span>
+          <ControlBar lang={lang} dark={dark} setDark={setDark} onboard={onboard} setOnboard={setOnboard} saveOnboard={saveOnboard} showLangPicker={showLangPicker} setShowLangPicker={setShowLangPicker} LANG_FLAGS={LANG_FLAGS} LANG_LABELS={LANG_LABELS}/>
         </div>
         <div className="sum-scroll" ref={scrollRef}>
           <div className="sum-verdict">
@@ -1989,7 +1962,7 @@ export default function CHECKR() {
       <div className="garage">
         <div className="topbar">
           <div className="tb-back" onClick={()=>setScreen("welcome")}>{IC.back} {t.startLabel}</div>
-          <span style={{fontSize:12,color:"var(--lime)",fontWeight:700}}>{t.myGarageLabel(garage.length)}</span>
+          <ControlBar lang={lang} dark={dark} setDark={setDark} onboard={onboard} setOnboard={setOnboard} saveOnboard={saveOnboard} showLangPicker={showLangPicker} setShowLangPicker={setShowLangPicker} LANG_FLAGS={LANG_FLAGS} LANG_LABELS={LANG_LABELS}/>
         </div>
         <div className="garage-scroll" ref={scrollRef}>
           {garage.length===0 ? (
@@ -2099,7 +2072,7 @@ export default function CHECKR() {
         <div className="compare">
           <div className="topbar">
             <div className="tb-back" onClick={()=>setScreen("garage")}>{IC.back} {t.garageLabel}</div>
-            <span style={{fontSize:12,color:"var(--lime)",fontWeight:700}}>{t.compareTitle}</span>
+            <ControlBar lang={lang} dark={dark} setDark={setDark} onboard={onboard} setOnboard={setOnboard} saveOnboard={saveOnboard} showLangPicker={showLangPicker} setShowLangPicker={setShowLangPicker} LANG_FLAGS={LANG_FLAGS} LANG_LABELS={LANG_LABELS}/>
           </div>
           <div className="compare-scroll" ref={scrollRef}>
 
@@ -2206,6 +2179,44 @@ export default function CHECKR() {
     );
   }
   return null;
+}
+
+
+// ─── CONTROL BAR (Lang + Dark on all screens) ─────────────────────────────
+function ControlBar({ lang, dark, setDark, onboard, setOnboard, saveOnboard, showLangPicker, setShowLangPicker, LANG_FLAGS, LANG_LABELS }) {
+  return (
+    <div style={{display:"flex",alignItems:"center",gap:6}}>
+      <div style={{position:"relative"}}>
+        <button onClick={()=>setShowLangPicker(p=>!p)}
+          style={{background:"none",border:"1px solid var(--ln2)",borderRadius:8,padding:"5px 8px",
+            fontSize:16,cursor:"pointer",lineHeight:1}}>
+          {LANG_FLAGS[lang]}
+        </button>
+        {showLangPicker && (
+          <div style={{position:"absolute",top:"calc(100% + 4px)",left:0,background:"var(--bg2)",
+            border:"1px solid var(--ln2)",borderRadius:10,overflow:"hidden",zIndex:200,minWidth:130,
+            boxShadow:"0 8px 24px rgba(0,0,0,.25)"}}>
+            {Object.entries(LANG_FLAGS).map(([code,flag])=>(
+              <button key={code} onClick={()=>{
+                const ob={...(onboard||{name:""}),lang:code};
+                setOnboard(ob);saveOnboard(ob);setShowLangPicker(false);
+              }} style={{width:"100%",display:"flex",alignItems:"center",gap:8,
+                padding:"10px 12px",background:lang===code?"var(--lime2)":"transparent",
+                border:"none",borderBottom:"1px solid var(--ln)",cursor:"pointer",
+                fontFamily:"var(--fb)",fontSize:12,color:lang===code?"var(--lime)":"var(--ink2)"}}>
+                <span style={{fontSize:16}}>{flag}</span>{LANG_LABELS[code]}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+      <button onClick={()=>setDark(d=>!d)}
+        style={{background:"none",border:"1px solid var(--ln2)",borderRadius:8,padding:"5px 10px",
+          color:"var(--ink2)",fontSize:13,cursor:"pointer",fontFamily:"var(--fb)"}}>
+        {dark?"☀️":"🌙"}
+      </button>
+    </div>
+  );
 }
 
 // ─── FLAG CARD COMPONENT ──────────────────────────────────────────────────────
