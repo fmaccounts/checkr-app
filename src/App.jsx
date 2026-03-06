@@ -641,23 +641,23 @@ const BASE_PHASES = [
         {id:"b6",crit:false,text:"Rost an Schwellern, Radkästen oder Türunterkanten",tip:"Oberflächenrost ist verhandelbar. Durchrostung an tragenden Teilen ist ein ernstes Problem — das Auto besteht dann keine Hauptuntersuchung."},
       ]},
       { label:"Reifen", flags:[
-        {id:"b7",crit:true, text:"Verschiedene Reifenmarken auf derselben Achse",tip:"Vorne links und rechts müssen gleich sein — ebenso hinten. Mischbereifung auf einer Achse ist ein Sicherheitsrisiko und zeigt unsystematische Wartung."},
+        
         {id:"b8",crit:true, text:"Reifenalter über 6 Jahre — unabhängig vom Profil",tip:"Auf der Reifenflanke gibt es 4 Ziffern: die ersten 2 = Woche, die letzten 2 = Jahr. Beispiel: 2319 = 23. Woche 2019. Alte Reifen verhärten und verlieren Grip."},
-        {id:"b9",crit:false,text:"Profil unter 3mm oder ungleichmässiger Verschleiß",tip:"Einseitiger Verschleiß zeigt ein Fahrwerk- oder Achsproblem. Nicht nur ein Verschleißproblem."},
+        
       ]},
       { label:"Bremsen", flags:[
-        {id:"b10",crit:true, text:"Bremsscheiben: tiefe Rillen oder starker Rostrand sichtbar",tip:"Durch die Felgenspeichen schauen. Tiefe Rillen und dicker Rostrand bedeuten verschlissene Scheiben. Austausch: ca. CHF 400–1'200."},
+        
         
       ]},
       { label:"Unterboden & Motorraum", flags:[
-        {id:"b12",crit:true, text:"Unterboden-Inspektion nicht möglich oder verweigert",tip:"Rost, Unfallschäden und Reparaturen sind von unten am deutlichsten sichtbar. Kein Unterboden-Check = kein Kauf."},
+        
         {id:"b13",crit:true, text:"Öl- oder Kühlwasserspuren im Motorraum",tip:"Ein Ölfleck ist oft harmlos. Ein nasser Motorraum oder weisser Belag beim Kühlwasser ist ernst. Deutet auf Leckagen hin."},
         
       ]},
       { label:"Innenraum", flags:[
-        {id:"b15",crit:true, text:"Geruch nach Feuchtigkeit oder Schimmel",tip:"Feuchtigkeitsgeruch bedeutet Wassereintritt — durch Dach, Türdichtungen oder Heizungskasten. Das ist aufwändig zu reparieren."},
+        
         {id:"b16",crit:true, text:"Verschleiß passt nicht zum Kilometerstand",tip:"Fahrerpedal, Lenkrad und Fahrersitz zeigen den wahren Kilometerstand. Stark abgenutzt bei wenig km = Tachobetrug."},
-        {id:"b17",crit:false,text:"Warnleuchten bleiben nach dem Start an",tip:"Airbag- oder ABS-Leuchte an = Sicherheitssystem defekt. Oft nach Unfällen deaktiviert oder beschädigt."},
+        
       ]},
     ]
   },
@@ -678,7 +678,7 @@ const BASE_PHASES = [
       ]},
       { label:"Fahrwerk & Bremsen", flags:[
         {id:"p8",crit:true, text:"Beim Bremsen: Fahrzeug zieht zur Seite oder pulsiert",tip:"Ziehen = ein Bremssattel klemmt oder Beläge ungleich. Pulsieren = verbogene Bremsscheibe. Beides muss repariert werden."},
-        {id:"p9",crit:false,text:"Klappern oder Poltern bei Bodenwellen und Kurven",tip:"Meist Stoßdämpfer, Lager oder Stabilisatoren. Ortung wichtig: kommt es vorne links oder hinten rechts?"},
+        
         
       ]},
     ]
@@ -1191,7 +1191,7 @@ export default function CHECKR() {
   const resetSession = () => {
     setFlagR({}); setMdlR({}); setMdlNotes({}); setNoteFor(null); setTipOpen({});
     setAskPrice(""); setDmg({}); setSelMake(null); setSelModel(null);
-    setCustMake(""); setCustModel(""); setPhaseIdx(0); setShowPhaseEnd(false);
+    setCustMake(""); setCustModel(""); setPhaseIdx(0);
   };
 
   const startNew = () => { resetSession(); setScreen("vehicle"); };
@@ -1377,75 +1377,6 @@ export default function CHECKR() {
   );
 
   // ─── PHASE END (between phases) ──────────────────────────────────────────
-  if (screen==="phaseend") {
-    const ph = phases[phaseIdx];
-    const allPh = phaseAllFlags(ph);
-    const pStops = allPh.filter(f=>flagR[f.id]==="stop").map(f=>({...f,kind:"stop"}));
-    const pNotes = allPh.filter(f=>flagR[f.id]==="note").map(f=>({...f,kind:"note"}));
-    const issues = [...pStops,...pNotes];
-    const checkedCount = allPh.filter(f=>flagR[f.id]).length + ((ph.modelChecks||[]).filter(c=>mdlR[c.id]).length);
-    const totalCount   = allPh.length + (ph.modelChecks?.length||0);
-    const nothingChecked = checkedCount === 0;
-    const isLast = phaseIdx === phases.length-1;
-    return (
-      <div className={`app${dark?"":" light-mode"}`}><style>{CSS}</style>
-        <div className="ph-end">
-          <div className="topbar">
-            <div className="tb-back" onClick={()=>setScreen("phase")}>{IC.back} Zurück</div>
-            <span style={{fontSize:12,color:"var(--lime)",fontWeight:700}}>{ph.label} — Zusammenfassung</span>
-          </div>
-          <div className="ph-end-scroll" ref={scrollRef}>
-            {nothingChecked ? (
-              <div style={{padding:"28px 20px"}}>
-                <div style={{background:"rgba(232,160,32,.1)",border:"1px solid rgba(232,160,32,.3)",borderRadius:14,padding:"20px 18px",marginBottom:16}}>
-                  <div style={{fontSize:13,fontWeight:700,color:"var(--amr)",marginBottom:8}}>Nichts geprüft</div>
-                  <div style={{fontSize:13,color:"var(--ink2)",lineHeight:1.65}}>
-                    Du hast in dieser Phase keinen einzigen Punkt bewertet. Bist du sicher, dass du alle {totalCount} Punkte überspringen möchtest?
-                  </div>
-                </div>
-                <div style={{fontSize:13,color:"var(--ink3)",lineHeight:1.65}}>
-                  Nicht geprüfte Punkte fliessen nicht in die Auswertung ein — mögliche Probleme bleiben unentdeckt.
-                </div>
-              </div>
-            ) : issues.length===0 ? (
-              <div className="ph-end-ok">
-                <div className="ph-end-ok-icon" style={{color:"var(--grn)",fontSize:28,marginBottom:10}}>✓</div>
-                <div style={{color:"var(--grn)",fontWeight:700,fontSize:15,marginBottom:6}}>Alles geprüft — alles gut</div>
-                <div style={{fontSize:13,color:"var(--ink3)"}}>{checkedCount} von {totalCount} Punkten bewertet, keine Auffälligkeiten.</div>
-              </div>
-            ) : (
-              <>
-                <div className="ph-end-title">{ph.label} abgeschlossen</div>
-                <div className="ph-end-sub">{issues.length} Punkt{issues.length!==1?"e":""} zum Merken — {checkedCount} von {totalCount} geprüft:</div>
-                {issues.map(f=>(
-                  <div className="ph-end-item" key={f.id}>
-                    <div className={`pei-icon ${f.kind==="stop"?"pei-stop":"pei-note"}`}>
-                      {f.kind==="stop"?"!":"·"}
-                    </div>
-                    <div className="pei-text">{f.text}</div>
-                  </div>
-                ))}
-              </>
-            )}
-            <div className="spacer"/>
-          </div>
-          <div className="bbar">
-            <button className="btn btn-g btn-icon" onClick={()=>setScreen("phase")}>{IC.back}</button>
-            {!isLast ? (
-              <button className="btn btn-p" onClick={()=>{ setPhaseIdx(i=>i+1); setShowPopup(true); setScreen("phase"); }}>
-                Weiter: {phases[phaseIdx+1].label} {IC.fwd}
-              </button>
-            ) : (
-              <button className="btn btn-p" onClick={()=>setScreen("summary")}>
-                Gesamtauswertung {IC.fwd}
-              </button>
-            )}
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   // ─── PHASE ───────────────────────────────────────────────────────────────
   if (screen==="phase") {
     const ph = curPhase;
@@ -1553,8 +1484,12 @@ export default function CHECKR() {
             <div className="bbar-info">
               <span className="bbar-count">{doneInPh}/{totalInPh}</span>
             </div>
-            <button className="btn btn-p" onClick={()=>setScreen("phaseend")}>
-              Abschliessen {IC.fwd}
+            <button className="btn btn-p" onClick={()=>{
+              const isLast = phaseIdx === phases.length-1;
+              if(isLast){ setScreen("summary"); }
+              else { setPhaseIdx(i=>i+1); setShowPopup(true); setScreen("phase"); }
+            }}>
+              {phaseIdx === phases.length-1 ? `Auswertung ${IC.fwd}` : `Weiter ${IC.fwd}`}
             </button>
           </div>
         </div>
