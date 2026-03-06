@@ -1114,10 +1114,13 @@ export default function CHECKR() {
   const [onboard, setOnboard] = useState(loadOnboard); // {name, lang} or null
   const [obStep, setObStep]   = useState("lang"); // lang | name
   const [obLang, setObLang]   = useState("de");
+  const [showLangPicker, setShowLangPicker] = useState(false);
   const [obName, setObName]   = useState("");
 
   const [dark, setDark] = useState(true);
   const t = T[onboard?.lang || "de"];
+  const LANG_FLAGS = { de: "🇩🇪", fr: "🇫🇷", en: "🇺🇸" };
+  const LANG_LABELS = { de: "Deutsch", fr: "Français", en: "English" };
   const userName = onboard?.name || "";
 
   const [screen, setScreen] = useState(onboard ? "welcome" : "onboard");
@@ -1419,6 +1422,35 @@ export default function CHECKR() {
       <div className="wlc">
         <div className="wlc-bg"/><div className="wlc-grid"/>
         <div className="wlc-body">
+          <div style={{display:"flex",justifyContent:"flex-end",marginBottom:16,position:"relative"}}>
+            <button onClick={()=>setShowLangPicker(p=>!p)}
+              style={{background:"var(--bg3)",border:"1px solid var(--ln2)",borderRadius:10,
+                padding:"6px 10px",fontSize:20,cursor:"pointer",lineHeight:1,display:"flex",
+                alignItems:"center",gap:6}}>
+              {LANG_FLAGS[onboard?.lang||"de"]}
+              <span style={{fontSize:11,color:"var(--ink3)",fontFamily:"var(--fb)"}}>▾</span>
+            </button>
+            {showLangPicker && (
+              <div style={{position:"absolute",top:"100%",right:0,marginTop:6,background:"var(--bg2)",
+                border:"1px solid var(--ln2)",borderRadius:12,overflow:"hidden",zIndex:100,minWidth:140,
+                boxShadow:"0 8px 24px rgba(0,0,0,.3)"}}>
+                {Object.entries(LANG_FLAGS).map(([code, flag]) => (
+                  <button key={code} onClick={()=>{
+                    const ob = {...(onboard||{name:"du"}), lang:code};
+                    setOnboard(ob); saveOnboard(ob);
+                    setShowLangPicker(false);
+                  }} style={{width:"100%",display:"flex",alignItems:"center",gap:10,
+                    padding:"11px 14px",background:onboard?.lang===code?"var(--lime2)":"transparent",
+                    border:"none",borderBottom:"1px solid var(--ln)",cursor:"pointer",
+                    fontFamily:"var(--fb)",fontSize:13,
+                    color:onboard?.lang===code?"var(--lime)":"var(--ink2)",textAlign:"left"}}>
+                    <span style={{fontSize:18}}>{flag}</span>
+                    {LANG_LABELS[code]}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
           <div className="wlc-badge"><div className="wlc-dot"/>Gebrauchtwagen-Begleitung</div>
           <h1 className="wlc-title">Kein Risiko.<br/><em>Nur Klarheit.</em></h1>
           <p className="wlc-sub">{t.appSub}</p>
