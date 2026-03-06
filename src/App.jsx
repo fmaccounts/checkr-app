@@ -11,322 +11,380 @@ const saveOnboard    = (o)  => { try { localStorage.setItem(ONBOARD_KEY, JSON.st
 // ─── I18N ─────────────────────────────────────────────────────────────────────
 const T = {
   de: {
-    appTagline: "Schlau kaufen. Nichts übersehen.",
-    appSub: "CHECKR begleitet dich durch den Kauf — von der ersten Anzeige bis zur Unterschrift.",
-    startBtn: "Kaufprozess starten",
-    myAutos: "Meine Autos",
+    appTagline: "Gebrauchtwagen kaufen. Ohne böse Überraschungen.",
+    appSub: "CHECKR führt dich Schritt für Schritt durch die Besichtigung. Du siehst sofort, worauf es ankommt.",
+    startBtn: "Check starten",
+    myAutos: "Meine Checks",
     howTitle: "So funktioniert's",
     how: [
-      "Fahrzeug eingeben — wir laden passende Schwachstellen.",
-      "Jede Phase Schritt für Schritt — oder überspringen.",
-      "Automatische Auswertung: Alles gut / Mit Vorsicht / Nicht kaufen.",
-      "Auto speichern und mehrere Autos vergleichen.",
+      "Auto eingeben. Bekannte Schwachstellen des Modells werden automatisch geladen.",
+      "Jede Frage mit Ja oder Nein beantworten. So schnell oder gründlich wie du willst.",
+      "Am Ende siehst du alle Auffälligkeiten auf einen Blick und bekommst eine klare Empfehlung.",
+      "Mehrere Autos speichern und direkt vergleichen.",
     ],
-    disclaimer: "CHECKR ersetzt keine professionelle Begutachtung. Alle Checks sind unverbindlich.",
-    onboardLang: "Sprache wählen",
+    disclaimer: "CHECKR ersetzt keine professionelle Fahrzeugprüfung. Bei ernstem Zweifel empfehlen wir DEKRA oder TCS.",
+    onboardLang: "Wähle deine Sprache",
     onboardName: "Wie soll ich dich nennen?",
     onboardNamePlaceholder: "Dein Name",
     onboardNameHint: "So mache ich die Checks persönlicher.",
     onboardStart: "Los geht's",
-    phasePopupCta: "Verstanden — los geht's",
+    phasePopupCta: "Verstanden. Weiter",
     phasePopups: {
       inserat: (n) => ({
-        intro: `Hey ${n}, bevor du überhaupt zum Auto fährst, prüfen wir gemeinsam das Inserat. Viele Probleme erkennst du schon hier.`,
+        intro: `Bevor du zum Auto fährst, prüf zuerst das Inserat. Viele Probleme erkennst du schon hier.`,
         tips: [
-          "Preis auf AutoScout24 oder mobile.de vergleichen — 3 ähnliche Angebote reichen für eine Einschätzung.",
+          "Preis auf AutoScout24 oder mobile.de vergleichen. 3 ähnliche Angebote reichen für eine Einschätzung.",
           "Alle Inserat-Fotos lokal speichern. Verkäufer löschen das Inserat nach dem Kauf.",
           "Fahrgestellnummer (FIN/VIN) im Inserat suchen und online auf Unfälle und Rückrufe prüfen.",
-          "Erste Kontaktaufnahme per Nachricht statt Telefon — so hast du alles schriftlich.",
+          "Erste Kontaktaufnahme per Nachricht statt Telefon. So hast du alles schriftlich.",
         ]
       }),
       kontakt: (n) => ({
-        intro: `${n}, wie jemand auf Fragen reagiert sagt mehr als die Antworten selbst. Hör genau hin.`,
+        intro: `Wie jemand auf Fragen reagiert, sagt mehr als die Antworten selbst. Hör genau hin.`,
         tips: [
           "Fragen die ein ehrlicher Verkäufer leicht beantworten kann: 'Warum verkaufst du?', 'War das Auto je in einem Unfall?'",
-          "Wer ausweicht, ablenkt oder unter Druck setzt, hat meist etwas zu verbergen — Termin absagen.",
+          "Wer ausweicht, ablenkt oder unter Druck setzt, hat meist etwas zu verbergen. Termin absagen.",
           "Nur bei Tageslicht besichtigen. Rost, Dellen und Farbunterschiede verschwinden im Schatten.",
           "Vollständigen Namen und Adresse des Verkäufers vorab verlangen. Wer das verweigert: Finger weg.",
         ]
       }),
       haendler: (n) => ({
-        intro: `${n}, diese Phase ist nur für gewerbliche Händler relevant. Privatverkäufer können sie überspringen.`,
+        intro: `Diese Phase ist nur für gewerbliche Händler relevant. Privatverkäufer können sie überspringen.`,
         tips: [
           "Händler im Handelsregister prüfen: uid.admin.ch (CH) oder handelsregister.de (DE).",
-          "Kein festes Ladenlokal, kein Firmenschild, nur Parkplatz oder Hinterhof — kein seriöser Betrieb.",
-          "Bei Händlern gilt gesetzliche Gewährleistung von 2 Jahren — lass dir das schriftlich bestätigen.",
-          "Finanzierungsangebote immer mit deiner Hausbank vergleichen — Händlerkonditionen sind selten die besten.",
+          "Kein festes Ladenlokal, kein Firmenschild, nur Parkplatz oder Hinterhof: kein seriöser Betrieb.",
+          "Bei Händlern gilt gesetzliche Gewährleistung von 2 Jahren. Lass dir das schriftlich bestätigen.",
+          "Finanzierungsangebote immer mit deiner Hausbank vergleichen. Händlerkonditionen sind selten die besten.",
         ]
       }),
       besichtigung: (n) => ({
-        intro: `Jetzt stehst du beim Auto, ${n}. Nimm dir mindestens 30 Minuten — kein seriöser Verkäufer macht echten Druck.`,
+        intro: `Jetzt stehst du beim Auto. Nimm dir mindestens 30 Minuten. Kein seriöser Verkäufer macht echten Druck.`,
         tips: [
-          "Geh zu zweit — vier Augen sehen mehr. Dein Begleiter kann den Verkäufer beschäftigen während du prüfst.",
+          "Zu zweit gehen. Vier Augen sehen mehr. Dein Begleiter kann den Verkäufer beschäftigen während du prüfst.",
           "Nur bei Tageslicht prüfen: Rost, Dellen und Lackschäden sind im Schatten kaum zu sehen.",
           "Systematisch vorgehen: erst aussen rundherum, dann Unterboden, dann Motorraum, dann Innenraum.",
-          "Smartphone-Taschenlampe mitnehmen — Motorraum, Kofferraumecken und Unterboden ausleuchten.",
+          "Smartphone-Taschenlampe mitnehmen. Motorraum, Kofferraumecken und Unterboden ausleuchten.",
           "Alles fotografieren: Schäden, Serviceheft-Einträge, Typenschild, Reifenbezeichnungen. Beweise für später.",
         ]
       }),
       probefahrt: (n) => ({
-        intro: `${n}, die Probefahrt ist deine wichtigste Chance. Mindestens 20 Minuten, konzentriert — kein Gespräch.`,
+        intro: `Die Probefahrt ist deine wichtigste Chance. Mindestens 20 Minuten, konzentriert. Kein Gespräch.`,
         tips: [
           "Eigene Strecke bestimmen: Autobahn (Vibrationen), Stadtverkehr (Getriebe und Bremsen), Parkplatz (Lenkanschlag).",
-          "Musik aus, Fenster zu — hören ist genauso wichtig wie sehen.",
+          "Musik aus, Fenster zu. Hören ist genauso wichtig wie sehen.",
           "Alle Funktionen einzeln testen: Klimaanlage, jedes Fenster, alle USB-Ports, Sitzheizung, Rückfahrkamera.",
-          "Beim Bremsen kurz die Hände lockern — zieht das Auto zur Seite? Deutet auf Bremsfehler hin.",
+          "Beim Bremsen kurz die Hände lockern. Zieht das Auto zur Seite? Das deutet auf einen Bremsfehler hin.",
           "Nach der Fahrt: Motor abstellen, 2 Minuten warten. Kommt Rauch? Tropft etwas unter dem Auto?",
         ]
       }),
       dokumente: (n) => ({
-        intro: `${n}, die Papiere erzählen die Geschichte des Autos. Was nicht belegt ist, existiert nicht.`,
+        intro: `Die Papiere erzählen die Geschichte des Autos. Was nicht dokumentiert ist, existiert nicht.`,
         tips: [
-          "Serviceheft Stempel für Stempel durchgehen — Lücken von über 2 Jahren sind ein klares Warnsignal.",
+          "Serviceheft Stempel für Stempel durchgehen. Lücken von über 2 Jahren sind ein klares Warnsignal.",
           "Kilometerstand in jedem Stempel notieren und mit dem aktuellen Tacho vergleichen. Er muss immer steigen.",
-          "Fahrzeugbrief (Teil II / Zulassungsbescheinigung) muss im Original vorliegen — keine Kopien akzeptieren.",
+          "Fahrzeugbrief (Teil II / Zulassungsbescheinigung) muss im Original vorliegen. Keine Kopien akzeptieren.",
           "Rückrufe für das Modell prüfen: recalls.ch (CH) oder kba.de (DE) mit der Fahrgestellnummer.",
-          "Anzahl Vorbesitzer steht im Fahrzeugausweis — mehr als 3 bei jungen Autos genau hinterfragen.",
+          "Anzahl Vorbesitzer steht im Fahrzeugausweis. Mehr als 3 bei jungen Autos genau hinterfragen.",
         ]
       }),
       kaufvertrag: (n) => ({
-        intro: `Letzte Phase, ${n}. Nach der Unterschrift gelten andere Regeln — nimm dir Zeit, du musst nicht sofort unterschreiben.`,
+        intro: `Letzte Phase. Nach der Unterschrift gelten andere Regeln. Nimm dir Zeit, du musst nicht sofort unterschreiben.`,
         tips: [
-          "Du darfst den Vertrag mitnehmen und zuhause in Ruhe lesen — das ist dein gutes Recht.",
+          "Den Vertrag darf man mitnehmen und zuhause in Ruhe lesen. Das ist dein gutes Recht.",
           "Alle mündlichen Zusagen schriftlich in den Vertrag aufnehmen lassen: Reparaturen, Zubehör, Lieferdatum.",
-          "Alle bekannten Mängel im Vertrag aufführen lassen — auch kleine Kratzer oder fehlende Teile.",
-          "Zahlung nur bei Übergabe — nie vorab, nie per Überweisung auf unbekannte Konten.",
+          "Alle bekannten Mängel im Vertrag aufführen lassen. Auch kleine Kratzer oder fehlende Teile.",
+          "Zahlung nur bei Übergabe. Nie vorab, nie per Überweisung auf unbekannte Konten.",
           "Übergabeprotokoll unterschreiben lassen: Zustand, Kilometerstand, Schlüssel, alle Dokumente.",
         ]
       }),
     },
-    verdictLabels: { stop:"Nicht kaufen", warn:"Mit Vorsicht", go:"Positiv" },
+    verdictLabels: { stop:"Finger weg", warn:"Vorsicht", go:"Sieht gut aus" },
     verdictDesc: {
-      stop: "Mindestens ein Abbruchgrund gefunden. Externe Begutachtung verlangen oder zum nächsten Auto.",
-      warnIncomplete: "Du hast weniger als die Hälfte der Punkte geprüft. Das reicht nicht für ein verlässliches Urteil.",
-      warn: "Auffällige Punkte gefunden. Klären, schriftlich festhalten oder Preisreduktion verlangen.",
-      go:   "Mindestens die Hälfte aller Punkte geprüft — keine Auffälligkeiten. Kaufvertrag sorgfältig lesen.",
+      stop: "Mindestens ein ernstes Problem gefunden. Wir empfehlen diesen Kauf nicht. Bei Interesse: zuerst eine unabhängige Fachprüfung verlangen.",
+      warnIncomplete: "Zu wenige Punkte geprüft für eine verlässliche Einschätzung. Bitte noch mehr Punkte durchgehen.",
+      warn: "Es gibt offene Punkte. Sprich sie direkt an und lass sie schriftlich im Kaufvertrag festhalten.",
+      go:   "Keine Probleme gefunden. Lies den Kaufvertrag sorgfältig und lass alle bekannten Mängel schriftlich festhalten.",
     },
-    compareTitle: "Vergleich",
-    compareRec: (n) => `Unsere Empfehlung für dich, ${n}:`,
-    compareRecBest: (name) => `${name} schneidet am besten ab.`,
-    compareRecWarn: "Keines der Autos ist ohne Vorbehalt empfehlenswert.",
+    compareTitle: "Autos vergleichen",
+    compareRec: () => `Unsere Einschätzung:`,
+    compareRecBest: (name) => `${name} hat am wenigsten Probleme.`,
+    compareRecWarn: "Bei allen Autos gibt es offene Punkte. Nochmals gründlich prüfen.",
     ansOk: "Ja", ansStop: "Nein",
-    nothingChecked: "Nichts geprüft",
-    nothingCheckedDesc: (n) => `Du hast in dieser Phase keinen Punkt bewertet, ${n}. Bist du sicher, dass du alle Punkte überspringen möchtest?`,
-    nothingCheckedHint: "Nicht geprüfte Punkte fliessen nicht in die Auswertung ein.",
-    backCheck: "Zurück — Punkte prüfen",
-    saveBtn: "Speichern & nächstes Auto prüfen",
+    nothingChecked: "Keine Antworten",
+    nothingCheckedDesc: () => `In dieser Phase wurde noch keine Frage beantwortet. Trotzdem weitermachen?`,
+    nothingCheckedHint: "Übersprungene Fragen werden nicht bewertet.",
+    backCheck: "Zurück zu den Fragen",
+    saveBtn: "Speichern und weiteres Auto prüfen",
     newAuto: "Neues Auto",
     compare: "Vergleichen",
     nextStep: "Nächster Schritt",
-    actionPoints: "Jetzt klären",
-    allStopsLabel: "Kritische Punkte",
-    allNotesLabel: "Probleme",
-    editingLabel: "Bearbeitung",
-    badgeLabel: "Gebrauchtwagen-Begleitung",
+    actionPoints: "Diese Punkte klären",
+    allStopsLabel: "Ernste Probleme",
+    allNotesLabel: "Auffälligkeiten",
+    editingLabel: "Wird bearbeitet",
+    badgeLabel: "Gebrauchtwagen-Check",
     editBtnTitle: "Bearbeiten",
-    summaryLabel: "Auswertung",
-    myGarageLabel: (n) => `Meine Autos (${n})`,
-    proTipsLabel: "Profi-Tipps für diese Phase",
-    phaseOf: (a,b) => `Phase ${a} von ${b}`,
-    weaknessesLabel: (name) => `${name} — Bekannte Schwachstellen`,
+    summaryLabel: "Ergebnis",
+    myGarageLabel: (n) => `Gespeicherte Autos (${n})`,
+    proTipsLabel: "Worauf du achten solltest",
+    phaseOf: (a,b) => `Schritt ${a} von ${b}`,
+    weaknessesLabel: (name) => `Bekannte Schwachstellen: ${name}`,
     generalChecksLabel: "Allgemeine Fahrzeug-Checks",
-    verdictWarnText: (n) => `Offene Punkte klären. Alle markierten Punkte direkt beim Händler ansprechen und schriftlich im Kaufvertrag festhalten.`,
-    verdictGoText: "Gutes Zeichen. Kaufvertrag sorgfältig lesen. Alle bekannten Punkte schriftlich in den Vertrag aufnehmen.",
-    verdictStopText: "Abbrechen oder externe Begutachtung. Mit so vielen kritischen Punkten empfehlen wir diesen Kauf nicht.",
-    nextStepHd: "Nächster Schritt",
-    secActionPoints: "Jetzt klären",
-    secAllStops: "Alle Abbruchgründe",
-    secAllNotes: "Auffällige Punkte",
-    secModelIssues: (name) => `Fahrzeug-Mängel — ${name}`,
-    secCosts: "Kosten schätzen",
-    chipAllOk: "Alles OK",
-    chipStop: (n) => `${n} Abbruchgrund${n>1?"e":""}`,
-    chipNote: (n) => `${n} Auffällig`,
-    statsStop: "Stopp",
-    statsNote: "Auffällig",
+    verdictWarnText: () => `Alle markierten Punkte direkt mit dem Verkäufer besprechen. Was nicht im Kaufvertrag steht, zählt rechtlich nicht.`,
+    verdictGoText: "Soweit sieht es gut aus. Lies den Kaufvertrag sorgfältig und lass alle bekannten Mängel schriftlich festhalten.",
+    verdictStopText: "Wir raten von diesem Kauf ab. Verlange eine unabhängige Fachprüfung oder suche ein anderes Auto.",
+    nextStepHd: "Was jetzt?",
+    secActionPoints: "Diese Punkte klären",
+    secAllStops: "Ernste Probleme",
+    secAllNotes: "Weitere Auffälligkeiten",
+    secModelIssues: (name) => `Fahrzeugmängel: ${name}`,
+    secCosts: "Reparaturkosten einschätzen",
+    chipAllOk: "Alles in Ordnung",
+    chipStop: (n) => `${n} ernstes Problem${n>1?"e":""}`,
+    chipNote: (n) => `${n} Auffälligkeit${n>1?"en":""}`,
+    statsStop: "Probleme",
+    statsNote: "Hinweise",
     statsPhases: "Phasen",
     mdlBtnNote: "Auffällig",
     fcaOk: "Ja",
     fcaStop: "Nein",
-    garageChipNote: (n) => `${n} Auffällig`,
-    garageChipOk: "Alles OK",
-    compareColNote: "Auffällig",
-    disclaimerFull: "CHECKR ersetzt keine professionelle Begutachtung durch eine Fachperson oder einen DEKRA/TCS-Stützpunkt. Alle Einschätzungen sind unverbindlich.",
+    garageChipNote: (n) => `${n} Hinweis${n>1?"e":""}`,
+    garageChipOk: "Keine Probleme",
+    compareColNote: "Hinweise",
+    disclaimerFull: "CHECKR ersetzt keine professionelle Fahrzeugprüfung. Bei ernstem Zweifel empfehlen wir eine Kontrolle beim DEKRA, TCS oder einer unabhängigen Werkstatt.",
     cancelBtnInline: "Nein",
-    tipHide: "▲ Ausblenden",
-    tipShow: "▼ Was bedeutet das?",
+    tipHide: "▲ Weniger",
+    tipShow: "▼ Warum ist das wichtig?",
     unknownVehicle: "Unbekanntes Fahrzeug",
-    compareColStop: "Abbruch",
-    compareColVerdict: "Urteil",
-    compareHint: (n) => `${n} Autos ausgewählt`,
-    compareHintDefault: "Die 3 neuesten Autos werden verglichen.",
+    compareColStop: "Probleme",
+    compareColVerdict: "Ergebnis",
+    compareHint: (n) => `${n} Autos im Vergleich`,
+    compareHintDefault: "Die 3 zuletzt gespeicherten Autos werden verglichen.",
     renameHint: "Tippen zum Umbenennen",
     deleteBtnLabel: "Löschen",
     cancelBtnLabel: "Nein",
-    noGarageText: "Noch keine Autos gespeichert.",
-    startBtnFull: "Kaufprozess starten",
+    noGarageText: "Noch kein Auto geprüft. Starte jetzt deinen ersten Check.",
+    startBtnFull: "Check starten",
     vehicleStepLabel: "Fahrzeug wählen",
-    vehicleTitle: "Welches Auto?",
-    vehicleSub: "Für bekannte Modelle laden wir automatisch die häufigsten Schwachstellen.",
+    makeLabel: "Marke",
+    modelLabel: "Modell",
+    modelNotListed: "Modell nicht dabei?",
+    enterManually: "Oder direkt eingeben",
+    skipModel: "Ohne Modell fortfahren",
+    goBtn: "Los geht's",
+    critSectionTitle: "Diese Punkte zuerst prüfen",
+    optionalPhase: "Diese Phase ist optional",
+    nextPhase: "Weiter",
+    backLabel: "Zurück",
+    startLabel: "Start",
+    garageLabel: "Meine Checks",
+    compareBtn: "Vergleichen",
+    newCarBtn: "Neues Auto",
+    allStopsHd: "Ernste Probleme",
+    allNotesHd: "Auffälligkeiten",
+    costsHd: "Reparaturkosten schätzen",
+    repairCostsTitle: "Reparaturkosten",
+    totalLabel: "Gesamt",
+    askPriceLabel: "Verlangter Preis (CHF)",
+    negotiationHd: "Verhandlungsvorschlag",
+    saveNote: "Auto gespeichert. Du kannst es jetzt mit anderen vergleichen.",
+    saveBtnShort: "Speichern",
+    bestChoice: "Beste Wahl",
+    scoreLabel: "Bewertung",
+    noIssueNote: "Keine Probleme oder Auffälligkeiten.",
+    notePlaceholder: "Notiz...",
+    stopsChip: (n) => `${n} Problem${n>1?"e":""}`,
+    disclaimer2: "CHECKR ersetzt keine professionelle Fahrzeugprüfung. Bei ernstem Zweifel empfehlen wir eine Kontrolle beim DEKRA, TCS oder einer unabhängigen Werkstatt.",
+    vehicleTitle: "Um welches Auto geht es?",
+    vehicleSub: "Bei bekannten Modellen zeigen wir dir zusätzlich die typischen Problemstellen.",
   },
   en: {
-    appTagline: "Buy smart. Miss nothing.",
-    appSub: "CHECKR guides you through the purchase — from the first listing to signing.",
-    startBtn: "Start buying process",
-    myAutos: "My cars",
+    appTagline: "Buy used cars. Without nasty surprises.",
+    appSub: "CHECKR walks you through every step of the inspection. You see immediately what matters.",
+    startBtn: "Start check",
+    myAutos: "My checks",
     howTitle: "How it works",
     how: [
-      "Enter vehicle — we load known weak points.",
-      "Work through each phase — or skip.",
-      "Automatic verdict: All good / Caution / Don't buy.",
-      "Save and compare multiple cars.",
+      "Enter the car. Known weak points for that model load automatically.",
+      "Answer each question with Yes or No. Go as fast or thorough as you like.",
+      "At the end you see all issues at a glance and get a clear recommendation.",
+      "Save multiple cars and compare them directly.",
     ],
-    disclaimer: "CHECKR does not replace a professional inspection. All checks are non-binding.",
-    onboardLang: "Choose language",
+    disclaimer: "CHECKR does not replace a professional vehicle inspection. When in serious doubt, we recommend DEKRA or TCS.",
+    onboardLang: "Choose your language",
     onboardName: "What should I call you?",
     onboardNamePlaceholder: "Your name",
     onboardNameHint: "This makes the checks feel more personal.",
     onboardStart: "Let's go",
-    phasePopupCta: "Got it — let's go",
+    phasePopupCta: "Got it. Continue",
     phasePopups: {
       inserat: (n) => ({
-        intro: `Hey ${n}, before you drive there, let's check the listing together. Many problems are already visible here.`,
+        intro: `Before you drive there, check the listing first. Many problems are already visible here.`,
         tips: [
-          "Compare the price on AutoScout24 or mobile.de — 3 similar listings are enough.",
+          "Compare the price on AutoScout24 or mobile.de. Three similar listings are enough for a reference.",
           "Save all listing photos locally. Sellers delete them after the sale.",
           "Find the VIN in the listing and check it online for accidents and recalls.",
-          "First contact by message rather than phone — everything stays in writing.",
+          "First contact by message rather than phone. Everything stays in writing.",
         ]
       }),
       kontakt: (n) => ({
-        intro: `${n}, how someone responds says more than the answers themselves. Listen carefully.`,
+        intro: `How someone responds says more than the answers themselves. Listen carefully.`,
         tips: [
           "Simple questions an honest seller can easily answer: 'Why are you selling?', 'Has the car ever been in an accident?'",
-          "Anyone who evades, distracts or pressures you usually has something to hide — cancel the appointment.",
+          "Anyone who evades, distracts or pressures you usually has something to hide. Cancel the appointment.",
           "Only view in daylight. Rust, dents and paint differences disappear in poor light.",
           "Ask for the seller's full name and address in advance. Anyone who refuses: walk away.",
         ]
       }),
       haendler: (n) => ({
-        intro: `${n}, this phase only applies to commercial dealers. Private sellers can skip it.`,
+        intro: `This phase only applies to commercial dealers. Private sellers can skip it.`,
         tips: [
           "Check the dealer in the trade register: uid.admin.ch (CH) or handelsregister.de (DE).",
-          "No fixed premises, no sign, just a parking lot or backyard — not a serious business.",
-          "Dealers are legally required to provide 2 years warranty — get this confirmed in writing.",
+          "No fixed premises, no sign, just a parking lot or backyard: not a serious business.",
+          "Dealers are legally required to provide 2 years warranty. Get this confirmed in writing.",
           "Always compare the dealer's financing offer with your own bank.",
         ]
       }),
       besichtigung: (n) => ({
-        intro: `You're at the car now, ${n}. Take at least 30 minutes — no serious seller will rush you.`,
+        intro: `You're at the car. Take at least 30 minutes. No serious seller will rush you.`,
         tips: [
-          "Bring someone with you — four eyes see more. Your companion can keep the seller occupied while you inspect.",
+          "Bring someone with you. Four eyes see more. Your companion can keep the seller occupied while you inspect.",
           "Always inspect in daylight: rust, dents and paint differences disappear in the shade.",
           "Work systematically: outside first, then underneath, then engine bay, then interior.",
-          "Bring your phone torch — light up the engine bay, boot corners and undercarriage.",
+          "Bring your phone torch. Light up the engine bay, boot corners and undercarriage.",
           "Photograph everything: damage, service book entries, type plate, tyre age. Evidence for later.",
         ]
       }),
       probefahrt: (n) => ({
-        intro: `${n}, the test drive is your most important chance. At least 20 minutes, focused — no talking.`,
+        intro: `The test drive is your most important chance. At least 20 minutes, focused. No talking.`,
         tips: [
           "Choose your own route: motorway (vibrations at speed), town (gearbox and brakes), car park (full steering lock).",
-          "Music off, windows up — listening is just as important as looking.",
+          "Music off, windows up. Listening is just as important as looking.",
           "Test everything individually: air con, every window, all USB ports, seat heating, reversing camera.",
-          "While braking, briefly loosen your grip — does the car pull to one side?",
+          "While braking, briefly loosen your grip. Does the car pull to one side? That points to a brake issue.",
           "After the drive: switch off the engine, wait 2 minutes. Any smoke? Anything dripping underneath?",
         ]
       }),
       dokumente: (n) => ({
-        intro: `${n}, the paperwork tells the car's story. What isn't documented doesn't exist.`,
+        intro: `The paperwork tells the car's story. What isn't documented doesn't exist.`,
         tips: [
-          "Go through the service book stamp by stamp — gaps of more than 2 years are a warning sign.",
+          "Go through the service book stamp by stamp. Gaps of more than 2 years are a warning sign.",
           "Note the mileage on each stamp and compare with the current odometer. It must always go up.",
-          "The vehicle registration document (Part II) must be the original — no copies accepted.",
+          "The vehicle registration document (Part II) must be the original. No copies accepted.",
           "Check recalls for the model: recalls.ch (CH) or kba.de (DE) with the VIN number.",
-          "Number of previous owners is in the registration document — more than 3 on a young car needs explaining.",
+          "Number of previous owners is in the registration document. More than 3 on a young car needs explaining.",
         ]
       }),
       kaufvertrag: (n) => ({
-        intro: `Last phase, ${n}. Different rules apply after signing — take your time, you don't have to sign immediately.`,
+        intro: `Last phase. Different rules apply after signing. Take your time, you don't have to sign immediately.`,
         tips: [
-          "You can take the contract home and read it at your leisure — that is your right.",
+          "You can take the contract home and read it at your leisure. That is your right.",
           "All verbal promises must be in the contract: repairs, accessories, delivery date.",
-          "Have all known defects listed in the contract — even small scratches.",
-          "Payment only on handover — never in advance, never by transfer to unknown accounts.",
+          "Have all known defects listed in the contract. Even small scratches count.",
+          "Payment only on handover. Never in advance, never by transfer to unknown accounts.",
           "Have a handover protocol signed: condition, mileage, keys, all documents.",
         ]
       }),
     },
-    verdictLabels: { stop:"Don't buy", warn:"With caution", go:"Positive" },
+    verdictLabels: { stop:"Walk away", warn:"Caution", go:"Looks good" },
     verdictDesc: {
-      stop: "At least one deal-breaker found. Request expert inspection or move on.",
-      warnIncomplete: "You checked less than half the points. Not enough for a reliable verdict.",
-      warn: "Suspicious points found. Clarify, document in writing or request price reduction.",
-      go:   "At least half of all points checked — no issues. Read the contract carefully.",
+      stop: "At least one serious problem found. We do not recommend this purchase. Request an independent inspection before proceeding.",
+      warnIncomplete: "Too few questions answered for a reliable result. Please go through more points.",
+      warn: "Some points need clarification. Raise them with the seller and get everything noted in writing.",
+      go:   "No problems found. Read the purchase contract carefully and make sure all known defects are noted in writing.",
     },
-    compareTitle: "Comparison",
-    compareRec: (n) => `Our recommendation for you, ${n}:`,
-    compareRecBest: (name) => `${name} comes out on top.`,
-    compareRecWarn: "None of the cars is recommendable without reservations.",
+    compareTitle: "Compare cars",
+    compareRec: () => `Our assessment:`,
+    compareRecBest: (name) => `${name} has the fewest issues.`,
+    compareRecWarn: "All cars have open points. Check them again carefully.",
     ansOk: "Yes", ansStop: "No",
-    nothingChecked: "Nothing checked",
-    nothingCheckedDesc: (n) => `You didn't rate a single point in this phase, ${n}. Are you sure you want to skip everything?`,
-    nothingCheckedHint: "Unchecked points don't count in the evaluation.",
-    backCheck: "Back — check points",
-    saveBtn: "Save & check next car",
+    nothingChecked: "No answers yet",
+    nothingCheckedDesc: () => `No questions answered in this phase yet. Continue anyway?`,
+    nothingCheckedHint: "Skipped questions are not included in the result.",
+    backCheck: "Back to questions",
+    saveBtn: "Save and check another car",
     newAuto: "New car",
     compare: "Compare",
     nextStep: "Next step",
     actionPoints: "Clarify now",
-    allStopsLabel: "All deal-breakers",
-    allNotesLabel: "Problems",
-    editingLabel: "Editing",
-    badgeLabel: "Used car guide",
+    allStopsLabel: "Serious problems",
+    allNotesLabel: "Observations",
+    editingLabel: "Editing mode",
+    badgeLabel: "Used car check",
     editBtnTitle: "Edit",
-    summaryLabel: "Summary",
-    myGarageLabel: (n) => `My cars (${n})`,
-    proTipsLabel: "Pro tips for this phase",
-    phaseOf: (a,b) => `Phase ${a} of ${b}`,
-    weaknessesLabel: (name) => `${name} — Known weak points`,
+    summaryLabel: "Results",
+    myGarageLabel: (n) => `Saved cars (${n})`,
+    proTipsLabel: "What to look out for",
+    phaseOf: (a,b) => `Step ${a} of ${b}`,
+    weaknessesLabel: (name) => `Known weak points: ${name}`,
     generalChecksLabel: "General vehicle checks",
-    verdictWarnText: () => `Clarify open points. Address all flagged issues directly with the seller and have them noted in writing in the purchase contract.`,
-    verdictGoText: "Good sign. Read the contract carefully. Have all known points noted in writing in the contract.",
-    verdictStopText: "Stop or request an independent inspection. With this many critical points, we don't recommend proceeding.",
-    nextStepHd: "Next step",
-    secActionPoints: "Clarify now",
-    secAllStops: "All deal-breakers",
-    secAllNotes: "Suspicious points",
-    secModelIssues: (name) => `Vehicle issues — ${name}`,
-    secCosts: "Estimate costs",
-    chipAllOk: "All good",
-    chipStop: (n) => `${n} deal-breaker${n>1?"s":""}`,
-    chipNote: (n) => `${n} suspicious`,
-    statsStop: "Stop",
-    statsNote: "Suspicious",
+    verdictWarnText: () => `Discuss all flagged points with the seller. Anything not in the purchase contract has no legal weight.`,
+    verdictGoText: "Looks good so far. Read the contract carefully and make sure all known defects are noted in writing.",
+    verdictStopText: "We advise against this purchase. Get an independent inspection or look for another car.",
+    nextStepHd: "What now?",
+    secActionPoints: "Points to clarify",
+    secAllStops: "Serious problems",
+    secAllNotes: "Further observations",
+    secModelIssues: (name) => `Vehicle issues: ${name}`,
+    secCosts: "Estimate repair costs",
+    chipAllOk: "All clear",
+    chipStop: (n) => `${n} serious problem${n>1?"s":""}`,
+    chipNote: (n) => `${n} observation${n>1?"s":""}`,
+    statsStop: "Problems",
+    statsNote: "Observations",
     statsPhases: "Phases",
     mdlBtnNote: "Suspicious",
     fcaOk: "Yes",
     fcaStop: "No",
-    garageChipNote: (n) => `${n} suspicious`,
-    garageChipOk: "All good",
-    compareColNote: "Suspicious",
-    disclaimerFull: "CHECKR does not replace a professional inspection. All assessments are non-binding.",
+    garageChipNote: (n) => `${n} observation${n>1?"s":""}`,
+    garageChipOk: "No issues",
+    compareColNote: "Observations",
+    disclaimerFull: "CHECKR does not replace a professional vehicle inspection. When in serious doubt, we recommend a check by DEKRA, TCS or an independent garage.",
     cancelBtnInline: "No",
-    tipHide: "▲ Hide",
-    tipShow: "▼ What does this mean?",
+    tipHide: "▲ Less",
+    tipShow: "▼ Why does this matter?",
     unknownVehicle: "Unknown vehicle",
-    compareColStop: "Stop",
-    compareColVerdict: "Verdict",
-    compareHint: (n) => `${n} cars selected`,
-    compareHintDefault: "The 3 most recent cars are compared.",
+    compareColStop: "Problems",
+    compareColVerdict: "Result",
+    compareHint: (n) => `${n} cars compared`,
+    compareHintDefault: "The 3 most recently saved cars are compared.",
     renameHint: "Tap to rename",
     deleteBtnLabel: "Delete",
     cancelBtnLabel: "No",
-    noGarageText: "No cars saved yet.",
-    startBtnFull: "Start buying process",
+    noGarageText: "No cars checked yet. Start your first check now.",
+    startBtnFull: "Start check",
     vehicleStepLabel: "Choose vehicle",
-    vehicleTitle: "Which car?",
-    vehicleSub: "For known models, we automatically load the most common weak points.",
+    makeLabel: "Make",
+    modelLabel: "Model",
+    modelNotListed: "Model not listed?",
+    enterManually: "Or enter manually",
+    skipModel: "Continue without model",
+    goBtn: "Let's go",
+    critSectionTitle: "Check these first",
+    optionalPhase: "This phase is optional",
+    nextPhase: "Next",
+    backLabel: "Back",
+    startLabel: "Start",
+    garageLabel: "My checks",
+    compareBtn: "Compare",
+    newCarBtn: "New car",
+    allStopsHd: "Serious problems",
+    allNotesHd: "Observations",
+    costsHd: "Estimate repair costs",
+    repairCostsTitle: "Repair costs",
+    totalLabel: "Total",
+    askPriceLabel: "Asking price (CHF)",
+    negotiationHd: "Negotiation suggestion",
+    saveNote: "Car saved. You can now compare it with others.",
+    saveBtnShort: "Save",
+    bestChoice: "Best choice",
+    scoreLabel: "Score",
+    noIssueNote: "No problems or observations.",
+    notePlaceholder: "Note...",
+    stopsChip: (n) => `${n} problem${n>1?"s":""}`,
+    disclaimer2: "CHECKR does not replace a professional vehicle inspection. When in serious doubt, we recommend a check by DEKRA, TCS or an independent garage.",
+    vehicleTitle: "Which car are you checking?",
+    vehicleSub: "For known models, we also show you the typical problem areas to watch out for.",
   },
 };
 
@@ -361,7 +419,7 @@ const MODELS = {
     "Polo (AW)": { years:"2017–heute", weaknesses:["TSI Steuerkette EA211","DSG-Ruckeln","Lackqualität"],
       besichtigung:[
         {id:"m1",label:"Lack: Kratzer, Dellen oder Farbabweichungen an Stossstangen?",crit:false},
-        {id:"m2",label:"Innenraum: Sitzbezüge und Lenkrad — Verschleiß passt zum km-Stand?",crit:false},
+        {id:"m2",label:"Innenraum: Passt der Verschleiß von Sitzbezügen und Lenkrad zum km-Stand?",crit:false},
         {id:"m3",label:"Motorraum: Öl sauber, keine Leckagespuren?",crit:false},
       ],
       probefahrt:[
@@ -1416,7 +1474,7 @@ export default function CHECKR() {
           <div className="wlc-bg"/><div className="wlc-grid"/>
           <div className="wlc-body">
             <div className="wlc-badge"><div className="wlc-dot"/>CHECKR</div>
-            <h1 className="wlc-title">Schlau kaufen.<br/><em>Nichts übersehen.</em></h1>
+            <h1 className="wlc-title">{tob.appTagline.split(".")[0]}.<br/><em>{tob.appTagline.split(".").slice(1).join(".").trim()}</em></h1>
 
             {obStep==="lang" && (<>
               <p style={{fontSize:14,color:"var(--ink2)",marginBottom:20,lineHeight:1.6}}>
@@ -1550,7 +1608,7 @@ export default function CHECKR() {
             )}
           </div>
           <div className="wlc-badge"><div className="wlc-dot"/>{t.badgeLabel}</div>
-          <h1 className="wlc-title">Schlau kaufen.<br/><em>Nichts übersehen.</em></h1>
+          <h1 className="wlc-title">{t.appTagline.split(".")[0]}.<br/><em>{t.appTagline.split(".").slice(1).join(".").trim()}</em></h1>
           <p className="wlc-sub">{t.appSub}</p>
           <div className="wlc-how">
             <div className="wlc-how-title">{t.howTitle}</div>
@@ -1588,7 +1646,7 @@ export default function CHECKR() {
           <div className="vpk-sub">{t.vehicleSub}</div>
         </div>
         <div className="vpk-body">
-          <div className="pk-lbl">Marke</div>
+          <div className="pk-lbl">{t.makeLabel}</div>
           <div className="pk-grid">
             {makes.map(m=>(
               <button key={m} className={`pk-btn${selMake===m?" sel":""}`}
@@ -1596,7 +1654,7 @@ export default function CHECKR() {
             ))}
           </div>
           {selMake && (<>
-            <div className="pk-lbl">Modell</div>
+            <div className="pk-lbl">{t.modelLabel}</div>
             {models.map(m=>{
               const d=MODELS[selMake][m];
               return (
@@ -1606,16 +1664,16 @@ export default function CHECKR() {
                 </button>
               );
             })}
-            <div className="pk-lbl" style={{marginTop:16}}>Modell nicht dabei?</div>
-            <input className="cust-inp" placeholder={`${selMake} Modell eingeben`} value={custModel} onChange={e=>setCustModel(e.target.value)}/>
+            <div className="pk-lbl" style={{marginTop:16}}>{t.modelNotListed}</div>
+            <input className="cust-inp" placeholder={`${selMake} ${t.modelLabel}`} value={custModel} onChange={e=>setCustModel(e.target.value)}/>
           </>)}
           {!selMake && (<>
-            <div className="pk-lbl" style={{marginTop:20}}>Oder manuell eingeben</div>
-            <input className="cust-inp" placeholder="Marke" value={custMake} onChange={e=>setCustMake(e.target.value)} style={{marginBottom:8}}/>
-            <input className="cust-inp" placeholder="Modell" value={custModel} onChange={e=>setCustModel(e.target.value)}/>
+            <div className="pk-lbl" style={{marginTop:20}}>{t.enterManually}</div>
+            <input className="cust-inp" placeholder={t.makeLabel} value={custMake} onChange={e=>setCustMake(e.target.value)} style={{marginBottom:8}}/>
+            <input className="cust-inp" placeholder={t.modelLabel} value={custModel} onChange={e=>setCustModel(e.target.value)}/>
           </>)}
           <button className="skip-lnk" onClick={()=>{ setPhaseIdx(0); setScreen("phase"); }}>
-            Ohne Modell fortfahren
+            {t.skipModel}
           </button>
           <div style={{height:20}}/>
         </div>
@@ -1624,7 +1682,7 @@ export default function CHECKR() {
           <button className="btn btn-p"
             disabled={!(selModel||(custMake&&custModel)||(selMake&&custModel))}
             onClick={()=>{ setPhaseIdx(0); setShowPopup(true); setScreen("phase"); }}>
-            Los geht's {IC.fwd}
+            {t.goBtn} {IC.fwd}
           </button>
         </div>
       </div>
@@ -1676,7 +1734,7 @@ export default function CHECKR() {
             </div>
             {editingId && <span style={{fontSize:11,color:"var(--lime)",fontWeight:700,background:"var(--lime2)",padding:"3px 8px",borderRadius:6}}>{t.editingLabel}</span>}
             <div className="tb-back" onClick={()=>{ if(phaseIdx===0){ if(editingId){setEditingId(null);resetSession();setScreen("garage");}else{setScreen("vehicle");} } else { setPhaseIdx(i=>i-1); } }}>
-              {IC.back} <span>{phaseIdx===0?"Fahrzeug":phases[phaseIdx-1].label}</span>
+              {IC.back} <span>{phaseIdx===0?t.vehicleStepLabel:phases[phaseIdx-1].label}</span>
             </div>
             <div className="tb-dots">
               {phases.map((_,i)=>(
@@ -1688,19 +1746,19 @@ export default function CHECKR() {
           <PhasePopup phase={ph} onClose={()=>setShowPopup(false)}/>
           <div className="ph-scroll" ref={scrollRef}>
             <div className="ph-intro">
-              <div className="ph-eyebrow">Phase {phaseIdx+1} / {phases.length} — {ph.label}</div>
+              <div className="ph-eyebrow">{t.phaseOf(phaseIdx+1, phases.length)} — {ph.label}</div>
               <div className="ph-title">{ph.label}</div>
               <div className="ph-short">{ph.short}</div>
               <div className="ph-text">{ph.intro}</div>
               {ph.optional && (
-                <div className="ph-optional-badge">{IC.info} Diese Phase kannst du überspringen</div>
+                <div className="ph-optional-badge">{IC.info} {t.optionalPhase}</div>
               )}
             </div>
 
             {/* Critical flags first */}
             {critFlags.length>0 && (
               <div className="crit-section">
-                <div className="crit-title">Wichtigste Punkte zuerst</div>
+                <div className="crit-title">{t.critSectionTitle}</div>
                 {critFlags.map(flag=>(
                   <FlagCard key={flag.id} flag={flag} t={t} result={flagR[flag.id]} tipOpen={tipOpen[flag.id]}
                     onToggleTip={()=>toggleTip(flag.id)} onSet={(v)=>setFlag(flag.id,v)}/>
@@ -1732,16 +1790,16 @@ export default function CHECKR() {
                       {c.crit && <div className="mdl-crit-dot"/>}
                     </div>
                     <div className="mdl-btns">
-                      <button className={`mdl-btn${mdlR[c.id]==="ok"?" ok":""}`} onClick={()=>setMdl(c.id,"ok")}>{IC.chk} OK</button>
+                      <button className={`mdl-btn${mdlR[c.id]==="ok"?" ok":""}`} onClick={()=>setMdl(c.id,"ok")}>{IC.chk} {t.fcaOk}</button>
                       <button className={`mdl-btn${mdlR[c.id]==="note"?" note":""}`} onClick={()=>setMdl(c.id,"note")}>{IC.warn} {t.mdlBtnNote}</button>
                       <button className={`mdl-btn${mdlR[c.id]==="stop"?" stop":""}`} onClick={()=>setMdl(c.id,"stop")}>{IC.x} {t.ansStop}</button>
                     </div>
                     {(noteFor===c.id||mdlNotes[c.id])
-                      ? <textarea className="mdl-note" rows={2} placeholder="Notiz..."
+                      ? <textarea className="mdl-note" rows={2} placeholder={t.notePlaceholder}
                           value={mdlNotes[c.id]||""} onChange={e=>setMdlNotes(n=>({...n,[c.id]:e.target.value}))}
                           onFocus={()=>setNoteFor(c.id)}/>
                       : (mdlR[c.id]==="note"||mdlR[c.id]==="stop") &&
-                        <button className="mdl-note-btn" onClick={()=>setNoteFor(c.id)}>{IC.info} Notiz</button>
+                        <button className="mdl-note-btn" onClick={()=>setNoteFor(c.id)}>{IC.info} {t.notePlaceholder.replace("...", "")}</button>
                     }
                   </div>
                 ))}
@@ -1771,7 +1829,7 @@ export default function CHECKR() {
               if(isLast){ setScreen("summary"); }
               else { setPhaseIdx(i=>i+1); setShowPopup(true); setScreen("phase"); }
             }}>
-              {phaseIdx === phases.length-1 ? <>{t.summaryLabel} {IC.fwd}</> : <>Weiter {IC.fwd}</>}
+              {phaseIdx === phases.length-1 ? <>{t.summaryLabel} {IC.fwd}</> : <>{t.nextPhase} {IC.fwd}</>}
             </button>
           </div>
         </div>
@@ -1784,7 +1842,7 @@ export default function CHECKR() {
     <div className={`app${dark?"":" light-mode"}`}><style>{CSS}</style>
       <div className="sum">
         <div className="topbar">
-          <div className="tb-back" onClick={()=>{ setPhaseIdx(phases.length-1); setScreen("phase"); }}>{IC.back} Zurück</div>
+          <div className="tb-back" onClick={()=>{ setPhaseIdx(phases.length-1); setScreen("phase"); }}>{IC.back} {t.backLabel}</div>
           <span style={{fontSize:12,color:"var(--lime)",fontWeight:700}}>{t.summaryLabel}</span>
         </div>
         <div className="sum-scroll" ref={scrollRef}>
@@ -1809,7 +1867,7 @@ export default function CHECKR() {
 
           {actionPoints.length>0 && (
             <div className="sum-sec">
-              <div className="sum-sec-hd">Jetzt klären</div>
+              <div className="sum-sec-hd">{t.secActionPoints}</div>
               {actionPoints.map(f=>(
                 <div className="sum-item" key={f.id}>
                   <div className={`si-ico ${flagR[f.id]==="stop"?"red":"amr"}`}>{flagR[f.id]==="stop"?"!":"·"}</div>
@@ -1821,7 +1879,7 @@ export default function CHECKR() {
 
           {allStops.length>0 && (
             <div className="sum-sec">
-              <div className="sum-sec-hd">Alle Abbruchgründe</div>
+              <div className="sum-sec-hd">{t.allStopsHd}</div>
               {allStops.map(f=>(
                 <div className="sum-item" key={f.id}>
                   <div className="si-ico red">!</div>
@@ -1833,7 +1891,7 @@ export default function CHECKR() {
 
           {allNotes.length>0 && (
             <div className="sum-sec">
-              <div className="sum-sec-hd">Auffällige Punkte</div>
+              <div className="sum-sec-hd">{t.allNotesHd}</div>
               {allNotes.map(f=>(
                 <div className="sum-item" key={f.id}>
                   <div className="si-ico amr">·</div>
@@ -1860,10 +1918,10 @@ export default function CHECKR() {
           )}
 
           {mdlFailItems.length>0 && (<>
-            <div className="sum-sec"><div className="sum-sec-hd">Kosten schätzen</div></div>
+            <div className="sum-sec"><div className="sum-sec-hd">{t.costsHd}</div></div>
             <div className="calc-sec">
               <div className="calc-card">
-                <div className="calc-title">Reparaturkosten</div>
+                <div className="calc-title">{t.repairCostsTitle}</div>
                 {mdlFailItems.map(c=>(
                   <div className="calc-row" key={c.id}>
                     <div className="calc-lbl">{c.label.split(":")[0].trim().slice(0,36)}</div>
@@ -1872,15 +1930,15 @@ export default function CHECKR() {
                   </div>
                 ))}
                 {totalDmg>0 && (
-                  <div className="calc-total"><span className="ct-l">Gesamt</span><span className="ct-v">CHF {totalDmg.toLocaleString("de-CH")}</span></div>
+                  <div className="calc-total"><span className="ct-l">{t.totalLabel}</span><span className="ct-v">CHF {totalDmg.toLocaleString("de-CH")}</span></div>
                 )}
               </div>
               {totalDmg>0&&(<>
-                <div className="ask-lbl">Verlangter Preis (CHF)</div>
+                <div className="ask-lbl">{t.askPriceLabel}</div>
                 <input type="text" className="ask-inp" placeholder="z.B. 28500" value={askPrice} onChange={e=>setAskPrice(e.target.value)}/>
                 {askNum>0&&(
                   <div className="neg-card">
-                    <div className="neg-hd">Verhandlungsempfehlung</div>
+                    <div className="neg-hd">{t.negotiationHd}</div>
                     <div className="neg-prices">
                       <span className="neg-ask">CHF {askNum.toLocaleString("de-CH")}</span>
                       <span className="neg-offer">CHF {offer.toLocaleString("de-CH")}</span>
@@ -1905,23 +1963,21 @@ export default function CHECKR() {
             </div>
           </div>
 
-          <div className="sum-disclaimer">
-            CHECKR ersetzt keine professionelle Begutachtung durch eine Fachperson oder einen DEKRA/TCS-Stützpunkt. Alle Einschätzungen sind unverbindlich.
-          </div>
+          <div className="sum-disclaimer">{t.disclaimer2}</div>
 
           <div className="save-btn-row">
             <button className="save-btn" onClick={saveToGarage}>
               {IC.save} {t.saveBtn}
             </button>
           </div>
-          <div className="save-note">Auto wird gespeichert — du kannst es danach mit anderen vergleichen.</div>
+          <div className="save-note">{t.saveNote}</div>
 
           <div className="spacer"/>
         </div>
 
         <div className="bbar">
           <button className="btn btn-g" onClick={()=>{ resetSession(); setScreen("welcome"); }}>{IC.reset}</button>
-          <button className="btn btn-p" onClick={saveToGarage}>{IC.save} Speichern</button>
+          <button className="btn btn-p" onClick={saveToGarage}>{IC.save} {t.saveBtnShort}</button>
         </div>
       </div>
     </div>
@@ -1932,14 +1988,14 @@ export default function CHECKR() {
     <div className={`app${dark?"":" light-mode"}`}><style>{CSS}</style>
       <div className="garage">
         <div className="topbar">
-          <div className="tb-back" onClick={()=>setScreen("welcome")}>{IC.back} Start</div>
+          <div className="tb-back" onClick={()=>setScreen("welcome")}>{IC.back} {t.startLabel}</div>
           <span style={{fontSize:12,color:"var(--lime)",fontWeight:700}}>{t.myGarageLabel(garage.length)}</span>
         </div>
         <div className="garage-scroll" ref={scrollRef}>
           {garage.length===0 ? (
             <div className="garage-empty">
               <div className="garage-empty-icon">🚗</div>
-              <div>Noch keine Autos gespeichert.</div>
+              <div>{t.noGarageText}</div>
             </div>
           ) : garage.map(g=>(
             <div className="garage-card" key={g.id}>
@@ -1977,7 +2033,7 @@ export default function CHECKR() {
                   )}
                   <div className="gc-meta">{g.date}</div>
                   <div className="gc-chips">
-                    {g.stops>0&&<span className="gc-chip gc-chip-red">{g.stops} Stopp</span>}
+                    {g.stops>0&&<span className="gc-chip gc-chip-red">{t.stopsChip(g.stops)}</span>}
                     {g.notes>0&&<span className="gc-chip gc-chip-amr">{t.garageChipNote(g.notes)}</span>}
                     {g.stops===0&&g.notes===0&&<span className="gc-chip gc-chip-grn">{t.garageChipOk}</span>}
                   </div>
@@ -2018,9 +2074,9 @@ export default function CHECKR() {
         </div>
         <div className="bbar">
           {garage.length>=2&&(
-            <button className="btn btn-g" onClick={()=>setScreen("compare")}>{IC.cmp} Vergleichen</button>
+            <button className="btn btn-g" onClick={()=>setScreen("compare")}>{IC.cmp} {t.compareBtn}</button>
           )}
-          <button className="btn btn-p" onClick={startNew}>{IC.plus} Neues Auto</button>
+          <button className="btn btn-p" onClick={startNew}>{IC.plus} {t.newCarBtn}</button>
         </div>
       </div>
     </div>
@@ -2042,7 +2098,7 @@ export default function CHECKR() {
       <div className={`app${dark?"":" light-mode"}`}><style>{CSS}</style>
         <div className="compare">
           <div className="topbar">
-            <div className="tb-back" onClick={()=>setScreen("garage")}>{IC.back} Garage</div>
+            <div className="tb-back" onClick={()=>setScreen("garage")}>{IC.back} {t.garageLabel}</div>
             <span style={{fontSize:12,color:"var(--lime)",fontWeight:700}}>{t.compareTitle}</span>
           </div>
           <div className="compare-scroll" ref={scrollRef}>
@@ -2052,13 +2108,13 @@ export default function CHECKR() {
               background:"linear-gradient(135deg,rgba(200,236,58,.08),rgba(200,236,58,.03))",
               border:"1px solid rgba(200,236,58,.2)",borderRadius:14}}>
               <div style={{fontSize:11,color:"var(--lime)",textTransform:"uppercase",letterSpacing:"1px",marginBottom:6}}>
-                {t.compareRec(userName)}
+                {t.compareRec()}
               </div>
               <div style={{fontSize:15,fontWeight:700,color:"var(--ink)"}}>
                 {allBad ? t.compareRecWarn : t.compareRecBest(best.name)}
               </div>
               {!allBad && best.issues.length===0 && (
-                <div style={{fontSize:12,color:"var(--ink3)",marginTop:4}}>Keine Abbruchgründe oder Auffälligkeiten.</div>
+                <div style={{fontSize:12,color:"var(--ink3)",marginTop:4}}>{t.noIssueNote}</div>
               )}
               {!allBad && best.issues.length>0 && (
                 <div style={{fontSize:12,color:"var(--ink3)",marginTop:4}}>Trotzdem: {best.issues[0].slice(0,60)}</div>
@@ -2096,7 +2152,7 @@ export default function CHECKR() {
                   {/* Score bar */}
                   <div style={{padding:"0 14px 12px"}}>
                     <div style={{display:"flex",justifyContent:"space-between",fontSize:10,color:"var(--ink3)",marginBottom:5}}>
-                      <span>Bewertung</span>
+                      <span>{t.scoreLabel}</span>
                       <span style={{fontWeight:700,color:pct>=70?"var(--grn)":pct>=40?"var(--amr)":"var(--red)"}}>{pct}%</span>
                     </div>
                     <div style={{height:6,background:"var(--ln2)",borderRadius:3,overflow:"hidden"}}>
@@ -2143,7 +2199,7 @@ export default function CHECKR() {
           </div>
           <div className="bbar">
             <button className="btn btn-g" onClick={()=>setScreen("garage")}>{IC.back}</button>
-            <button className="btn btn-p" onClick={()=>{ resetSession(); setScreen("vehicle"); }}>{IC.plus} {t.newAuto}</button>
+            <button className="btn btn-p" onClick={()=>{ resetSession(); setScreen("vehicle"); }}>{IC.plus} {t.newCarBtn}</button>
           </div>
         </div>
       </div>
