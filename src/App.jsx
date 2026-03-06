@@ -586,7 +586,7 @@ const BASE_PHASES = [
       { label:"Fotos & Inhalt", flags:[
         {id:"i4",crit:true, text:"Fotos bei schlechtem Licht, in Halle oder unscharf",tip:"Dunkle oder unscharfe Fotos verbergen Dellen, Rost und Lackschäden. Immer auf klare Tageslichtfotos bestehen."},
         {id:"i5",crit:false,text:"Keine Fotos vom Innenraum, Motorraum oder Unterboden",tip:"Wer einen guten Zustand hat, zeigt ihn. Fehlende Fotos sind kein Versehen."},
-        {id:"i6",crit:true, text:"Kilometerstand passt nicht zum Alter des Autos",tip:"Richtwert: ca. 15'000 km pro Jahr. 8 Jahre alt und 40'000 km — sehr unwahrscheinlich. Passt der Innenraum dazu?"},
+        
       ]},
       { label:"Verkäufer", flags:[
         {id:"i7",crit:true, text:"Privat-Inserat wirkt wie professioneller Händler",tip:"Mehrere Inserate, professionelle Fotos, Händlersprache — aber als Privat deklariert. Gewerblich als Privat verkaufen ist illegal. Du verlierst Gewährleistungsrechte."},
@@ -601,7 +601,7 @@ const BASE_PHASES = [
       { label:"Druck & Taktik", flags:[
         {id:"k1",crit:true, text:"Zeitdruck: andere Interessenten, nur heute verfügbar",tip:"Klassische Drucktaktik. Seriöse Verkäufer lassen dir Zeit. Unter Druck entscheidet man schlecht."},
         {id:"k2",crit:true, text:"Anzahlung oder Reservierung vor Besichtigung verlangt",tip:"Niemals Geld überweisen bevor du das Auto live gesehen hast. Das ist die häufigste Betrugsmasche."},
-        {id:"k3",crit:false,text:"Besichtigung nur nachts oder bei schlechtem Licht möglich",tip:"Rost, Dellen und Lackschäden sind bei schlechtem Licht kaum erkennbar. Auf Tageslicht bestehen."},
+        
       ]},
       { label:"Auskunft & Identität", flags:[
         {id:"k4",crit:true, text:"Ausweichende Antworten auf direkte Fragen zum Zustand",tip:"Wer das Auto kennt und nichts zu verbergen hat, antwortet klar. Wer ausweicht, weiß etwas."},
@@ -632,12 +632,12 @@ const BASE_PHASES = [
     groups:[
       { label:"Situation", flags:[
         {id:"b1",crit:true, text:"Motor läuft bereits beim Ankommen",tip:"Beim Kaltstart hört man viele Probleme, die danach verschwinden. Darauf bestehen, dass der Motor kalt ist — sonst neu terminieren."},
-        {id:"b2",crit:true, text:"Zeitdruck oder Ablenkung durch den Verkäufer",tip:"Du hast das Recht, so lange zu schauen wie du möchtest. Wer dich unter Druck setzt, hat etwas zu verbergen."},
+        
         
       ]},
       { label:"Karosserie & Lack", flags:[
-        {id:"b4",crit:true, text:"Spaltmaße ungleichmässig an Türen, Kotflügeln oder Haube",tip:"Halte die Münze neben den Spalt — er sollte überall gleich breit sein. Unterschiede deuten auf Unfallschäden hin."},
-        {id:"b5",crit:true, text:"Farbunterschiede zwischen Karosserie-Teilen sichtbar",tip:"Im Tageslicht aus verschiedenen Winkeln schauen. Selbst gute Lackierungen sind selten perfekt. Unterschiede = Reparatur nach Unfall."},
+        {id:"b4",crit:true, text:"Spaltmaße oder Farbton ungleichmässig an Karosserie-Teilen",tip:"Spalt an Türen und Kotflügeln sollte überall gleich breit sein. Farbunterschiede im Tageslicht = Unfallreparatur. Beides aus verschiedenen Winkeln prüfen."},
+        
         {id:"b6",crit:false,text:"Rost an Schwellern, Radkästen oder Türunterkanten",tip:"Oberflächenrost ist verhandelbar. Durchrostung an tragenden Teilen ist ein ernstes Problem — das Auto besteht dann keine Hauptuntersuchung."},
       ]},
       { label:"Reifen", flags:[
@@ -688,7 +688,7 @@ const BASE_PHASES = [
     intro:"Was nicht belegt ist, existiert nicht. Nimm dir Zeit für die Papiere — sie erzählen die Geschichte des Autos.",
     groups:[
       { label:"Fahrzeugpapiere", flags:[
-        {id:"d1",crit:true, text:"Fahrzeugbrief fehlt oder liegt bei einer Bank",tip:"Ohne Fahrzeugbrief kein Kauf. Liegt er bei einer Bank, ist das Auto noch kreditfinanziert — du kaufst die Schulden mit."},
+        {id:"d1",crit:true, text:"Fahrzeugbrief fehlt, liegt bei einer Bank oder Leasing-Gesellschaft",tip:"Ohne Fahrzeugbrief kein Kauf. Brief bei Bank = Auto noch kreditfinanziert. Du kaufst die Schulden mit. Schriftlich bestätigen lassen dass keine Belastungen bestehen."},
         {id:"d2",crit:false,text:"Hauptuntersuchung läuft in den nächsten 3 Monaten ab",tip:"Bald fällige Prüfung kann Mängel offenbaren. Frische Prüfung verlangen oder den Preis entsprechend reduzieren."},
       ]},
       { label:"Servicehistorie", flags:[
@@ -704,7 +704,7 @@ const BASE_PHASES = [
       { label:"Import & Belastungen", flags:[
         {id:"d9",crit:true, text:"Ausländische Papiere ohne geklärten Import-Status",tip:"Import aus DE/AT in die Schweiz: Zollabgaben, Mehrwertsteuer-Nachzahlung und COC-Dokument nötig. Kann CHF 500–2'000 zusätzlich kosten."},
         {id:"d10",crit:true, text:"Tacho in Meilen — Kilometerstand möglicherweise falsch",tip:"Meilen × 1.609 = Kilometer. 60'000 Meilen = knapp 100'000 km. Immer im Serviceheft gegenchecken."},
-        {id:"d11",crit:true, text:"Anzeichen auf laufende Kreditfinanzierung oder Leasing",tip:"Solange Kredit läuft, gehört das Auto rechtlich der Bank. Vor dem Kauf schriftlich bestätigen lassen, dass keine Belastungen bestehen."},
+        
       ]},
     ]
   },
@@ -723,8 +723,8 @@ const BASE_PHASES = [
         {id:"v6",crit:false,text:"Keine Rücktrittsklausel bei versteckten Mängeln",tip:"Bei Händlern gilt in CH/DE 2 Jahre Gewährleistung. Bei Privatkauf: zumindest auf schriftlicher Unfallfreiheit bestehen."},
       ]},
       { label:"Zahlung & Übergabe", flags:[
-        {id:"v7",crit:true, text:"Anzahlung vor Vertragsunterzeichnung verlangt",tip:"Niemals. Erst unterschreiben, dann zahlen — oder beides gleichzeitig bei der Übergabe."},
-        {id:"v8",crit:true, text:"Fahrzeugbrief wird nicht sofort übergeben",tip:"Fahrzeugbrief = vollständiges Eigentum. Wer ihn zurückhält, behält rechtlich die Kontrolle."},
+        
+        
         
         
       ]},
@@ -1080,6 +1080,8 @@ export default function CHECKR() {
   const [dmg, setDmg]        = useState({});
 
   // garage
+  const [renameId, setRenameId]   = useState(null);
+  const [renameVal, setRenameVal] = useState("");
   const [garage, setGarage] = useState(loadGarage);
   const [selCompare, setSelCompare] = useState([]); // ids selected for compare
 
@@ -1186,6 +1188,12 @@ export default function CHECKR() {
     const updated = garage.filter(g=>g.id!==id);
     setGarage(updated);
     saveGarage(updated);
+  };
+  const startRename = (g) => { setRenameId(g.id); setRenameVal(g.name); };
+  const commitRename = () => {
+    if (!renameVal.trim()) { setRenameId(null); return; }
+    const updated = garage.map(g=>g.id===renameId?{...g,name:renameVal.trim()}:g);
+    setGarage(updated); saveGarage(updated); setRenameId(null);
   };
 
   const resetSession = () => {
@@ -1666,7 +1674,33 @@ export default function CHECKR() {
                   {g.verdict==="go"?"GO":g.verdict==="warn"?"!":"STOP"}
                 </div>
                 <div className="gc-info">
-                  <div className="gc-name">{g.name}</div>
+                  {renameId===g.id ? (
+                    <div style={{display:"flex",gap:6,alignItems:"center",marginBottom:2}}>
+                      <input
+                        autoFocus
+                        value={renameVal}
+                        onChange={e=>setRenameVal(e.target.value)}
+                        onKeyDown={e=>{if(e.key==="Enter")commitRename();if(e.key==="Escape")setRenameId(null);}}
+                        style={{flex:1,background:"var(--bg4)",border:"1px solid var(--lime)",borderRadius:7,
+                          padding:"4px 8px",fontSize:13,color:"var(--ink)",fontFamily:"var(--fb)",outline:"none"}}
+                      />
+                      <button onClick={commitRename}
+                        style={{background:"var(--lime)",color:"#09090B",border:"none",borderRadius:7,
+                          padding:"4px 10px",fontSize:12,fontWeight:700,cursor:"pointer",fontFamily:"var(--fb)"}}>
+                        OK
+                      </button>
+                      <button onClick={()=>setRenameId(null)}
+                        style={{background:"var(--bg5)",color:"var(--ink2)",border:"1px solid var(--ln2)",borderRadius:7,
+                          padding:"4px 8px",fontSize:12,cursor:"pointer",fontFamily:"var(--fb)"}}>
+                        ✕
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="gc-name" onClick={()=>startRename(g)} style={{cursor:"pointer"}}
+                      title="Tippen zum Umbenennen">
+                      {g.name} <span style={{fontSize:10,color:"var(--ink3)",marginLeft:4}}>✎</span>
+                    </div>
+                  )}
                   <div className="gc-meta">{g.date}</div>
                   <div className="gc-chips">
                     {g.stops>0&&<span className="gc-chip gc-chip-red">{g.stops} Stopp</span>}
