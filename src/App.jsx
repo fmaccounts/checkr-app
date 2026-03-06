@@ -22,7 +22,7 @@ const T = {
       "Am Ende siehst du alle Auffälligkeiten auf einen Blick und bekommst eine klare Empfehlung.",
       "Mehrere Autos speichern und direkt vergleichen.",
     ],
-    disclaimer: "CHECKR ersetzt keine professionelle Fahrzeugprüfung. Bei ernstem Zweifel empfehlen wir DEKRA oder TCS.",
+    disclaimer: "CHECKR deckt die häufigsten Betrugsmaschen und Mängel ab, kann jedoch keinen vollständigen Schutz garantieren. Kein Kaufcheck ersetzt eine professionelle Fahrzeugprüfung.",
     onboardLang: "Wähle deine Sprache",
     onboardName: "Wie soll ich dich nennen?",
     onboardNamePlaceholder: "Dein Name",
@@ -30,41 +30,24 @@ const T = {
     onboardStart: "Los geht's",
     phasePopupCta: "Verstanden. Weiter",
     phasePopups: {
-      inserat: (n) => ({
-        intro: `Bevor du zum Auto fährst, prüf zuerst das Inserat. Viele Probleme erkennst du schon hier.`,
+      vortermin: (n) => ({
+        intro: `Bevor du hinfährst: Prüf das Inserat kritisch und kläre offene Fragen per Nachricht. Viele Probleme erkennst du schon hier.`,
         tips: [
           "Preis auf AutoScout24 oder mobile.de vergleichen. 3 ähnliche Angebote reichen für eine Einschätzung.",
-          "Alle Inserat-Fotos lokal speichern. Verkäufer löschen das Inserat nach dem Kauf.",
           "Fahrgestellnummer (FIN/VIN) im Inserat suchen und online auf Unfälle und Rückrufe prüfen.",
           "Erste Kontaktaufnahme per Nachricht statt Telefon. So hast du alles schriftlich.",
-        ]
-      }),
-      kontakt: (n) => ({
-        intro: `Wie jemand auf Fragen reagiert, sagt mehr als die Antworten selbst. Hör genau hin.`,
-        tips: [
-          "Fragen die ein ehrlicher Verkäufer leicht beantworten kann: 'Warum verkaufst du?', 'War das Auto je in einem Unfall?'",
-          "Wer ausweicht, ablenkt oder unter Druck setzt, hat meist etwas zu verbergen. Termin absagen.",
-          "Nur bei Tageslicht besichtigen. Rost, Dellen und Farbunterschiede verschwinden im Schatten.",
-          "Vollständigen Namen und Adresse des Verkäufers vorab verlangen. Wer das verweigert: Finger weg.",
-        ]
-      }),
-      haendler: (n) => ({
-        intro: `Diese Phase ist nur für gewerbliche Händler relevant. Privatverkäufer können sie überspringen.`,
-        tips: [
-          "Händler im Handelsregister prüfen: uid.admin.ch (CH) oder handelsregister.de (DE).",
-          "Kein festes Ladenlokal, kein Firmenschild, nur Parkplatz oder Hinterhof: kein seriöser Betrieb.",
-          "Bei Händlern gilt gesetzliche Gewährleistung von 2 Jahren. Lass dir das schriftlich bestätigen.",
-          "Finanzierungsangebote immer mit deiner Hausbank vergleichen. Händlerkonditionen sind selten die besten.",
+          "Wer ausweicht, Druck macht oder eine Anzahlung verlangt: Finger weg.",
+          "Bei Händlerkauf: Handelsregister prüfen unter uid.admin.ch (CH) oder handelsregister.de (DE).",
         ]
       }),
       besichtigung: (n) => ({
         intro: `Jetzt stehst du beim Auto. Nimm dir mindestens 30 Minuten. Kein seriöser Verkäufer macht echten Druck.`,
         tips: [
-          "Zu zweit gehen. Vier Augen sehen mehr. Dein Begleiter kann den Verkäufer beschäftigen während du prüfst.",
-          "Nur bei Tageslicht prüfen: Rost, Dellen und Lackschäden sind im Schatten kaum zu sehen.",
-          "Systematisch vorgehen: erst aussen rundherum, dann Unterboden, dann Motorraum, dann Innenraum.",
+          "Zu zweit gehen. Vier Augen sehen mehr.",
+          "Nur bei Tageslicht prüfen. Rost, Dellen und Lackschäden verschwinden im Schatten.",
+          "Systematisch vorgehen: aussen → Unterboden → Motorraum → Innenraum.",
           "Smartphone-Taschenlampe mitnehmen. Motorraum, Kofferraumecken und Unterboden ausleuchten.",
-          "Alles fotografieren: Schäden, Serviceheft-Einträge, Typenschild, Reifenbezeichnungen. Beweise für später.",
+          "Alles fotografieren: Schäden, Serviceheft, Typenschild, Reifenbezeichnungen.",
         ]
       }),
       probefahrt: (n) => ({
@@ -72,27 +55,16 @@ const T = {
         tips: [
           "Eigene Strecke bestimmen: Autobahn (Vibrationen), Stadtverkehr (Getriebe und Bremsen), Parkplatz (Lenkanschlag).",
           "Musik aus, Fenster zu. Hören ist genauso wichtig wie sehen.",
-          "Alle Funktionen einzeln testen: Klimaanlage, jedes Fenster, alle USB-Ports, Sitzheizung, Rückfahrkamera.",
-          "Beim Bremsen kurz die Hände lockern. Zieht das Auto zur Seite? Das deutet auf einen Bremsfehler hin.",
+          "Beim Bremsen kurz die Hände lockern. Zieht das Auto zur Seite? Deutet auf einen Bremsfehler hin.",
           "Nach der Fahrt: Motor abstellen, 2 Minuten warten. Kommt Rauch? Tropft etwas unter dem Auto?",
         ]
       }),
-      dokumente: (n) => ({
-        intro: `Die Papiere erzählen die Geschichte des Autos. Was nicht dokumentiert ist, existiert nicht.`,
+      abschluss: (n) => ({
+        intro: `Letzte Phase. Was nicht belegt ist, existiert nicht. Nimm dir Zeit — du musst nicht sofort unterschreiben.`,
         tips: [
           "Serviceheft Stempel für Stempel durchgehen. Lücken von über 2 Jahren sind ein klares Warnsignal.",
-          "Kilometerstand in jedem Stempel notieren und mit dem aktuellen Tacho vergleichen. Er muss immer steigen.",
-          "Fahrzeugbrief (Teil II / Zulassungsbescheinigung) muss im Original vorliegen. Keine Kopien akzeptieren.",
-          "Rückrufe für das Modell prüfen: recalls.ch (CH) oder kba.de (DE) mit der Fahrgestellnummer.",
-          "Anzahl Vorbesitzer steht im Fahrzeugausweis. Mehr als 3 bei jungen Autos genau hinterfragen.",
-        ]
-      }),
-      kaufvertrag: (n) => ({
-        intro: `Letzte Phase. Nach der Unterschrift gelten andere Regeln. Nimm dir Zeit, du musst nicht sofort unterschreiben.`,
-        tips: [
-          "Den Vertrag darf man mitnehmen und zuhause in Ruhe lesen. Das ist dein gutes Recht.",
-          "Alle mündlichen Zusagen schriftlich in den Vertrag aufnehmen lassen: Reparaturen, Zubehör, Lieferdatum.",
-          "Alle bekannten Mängel im Vertrag aufführen lassen. Auch kleine Kratzer oder fehlende Teile.",
+          "Fahrzeugbrief muss im Original vorliegen. Keine Kopien akzeptieren.",
+          "Alle mündlichen Zusagen schriftlich in den Vertrag aufnehmen lassen.",
           "Zahlung nur bei Übergabe. Nie vorab, nie per Überweisung auf unbekannte Konten.",
           "Übergabeprotokoll unterschreiben lassen: Zustand, Kilometerstand, Schlüssel, alle Dokumente.",
         ]
@@ -151,7 +123,7 @@ const T = {
     garageChipNote: (n) => `${n} Hinweis${n>1?"e":""}`,
     garageChipOk: "Keine Probleme",
     compareColNote: "Hinweise",
-    disclaimerFull: "CHECKR ersetzt keine professionelle Fahrzeugprüfung. Bei ernstem Zweifel empfehlen wir eine Kontrolle beim DEKRA, TCS oder einer unabhängigen Werkstatt.",
+    disclaimerFull: "CHECKR basiert auf den häufigsten Betrugsmaschen und bekannten Fahrzeugmängeln im Gebrauchtwagenmarkt. Die Checkliste reduziert das Risiko eines Fehlkaufs erheblich — schließt es jedoch nicht vollständig aus. Professionelle Betrüger können einzelne Prüfpunkte gezielt umgehen. CHECKR ersetzt keine unabhängige Fahrzeugprüfung durch DEKRA, TCS oder eine Fachwerkstatt. Bei begründetem Zweifel empfehlen wir eine solche Kontrolle vor dem Kauf.",
     cancelBtnInline: "Nein",
     tipHide: "▲ Weniger",
     tipShow: "▼ Warum ist das wichtig?",
@@ -169,7 +141,7 @@ const T = {
     makeLabel: "Marke",
     modelLabel: "Modell",
     modelNotListed: "Modell nicht dabei?",
-    enterManually: "Oder direkt eingeben",
+    enterManually: "Oder selbst eingeben",
     skipModel: "Ohne Modell fortfahren",
     goBtn: "Los geht's",
     critSectionTitle: "Diese Punkte zuerst prüfen",
@@ -194,9 +166,9 @@ const T = {
     noIssueNote: "Keine Probleme oder Auffälligkeiten.",
     notePlaceholder: "Notiz...",
     stopsChip: (n) => `${n} Problem${n>1?"e":""}`,
-    disclaimer2: "CHECKR ersetzt keine professionelle Fahrzeugprüfung. Bei ernstem Zweifel empfehlen wir eine Kontrolle beim DEKRA, TCS oder einer unabhängigen Werkstatt.",
+    disclaimer2: "CHECKR basiert auf den häufigsten Betrugsmaschen und bekannten Fahrzeugmängeln im Gebrauchtwagenmarkt. Die Checkliste reduziert das Risiko eines Fehlkaufs erheblich — schließt es jedoch nicht vollständig aus. Professionelle Betrüger können einzelne Prüfpunkte gezielt umgehen. CHECKR ersetzt keine unabhängige Fahrzeugprüfung durch DEKRA, TCS oder eine Fachwerkstatt. Bei begründetem Zweifel empfehlen wir eine solche Kontrolle vor dem Kauf.",
     vehicleTitle: "Um welches Auto geht es?",
-    vehicleSub: "Bei bekannten Modellen zeigen wir dir zusätzlich die typischen Problemstellen.",
+    vehicleSub: "Bekannte Modelle: wir laden die typischen Schwachstellen automatisch.",
   },
   en: {
     appTagline: "Buy used cars. Without nasty surprises.",
@@ -210,7 +182,7 @@ const T = {
       "At the end you see all issues at a glance and get a clear recommendation.",
       "Save multiple cars and compare them directly.",
     ],
-    disclaimer: "CHECKR does not replace a professional vehicle inspection. When in serious doubt, we recommend DEKRA or TCS.",
+    disclaimer: "CHECKR covers the most common scams and defects but cannot guarantee complete protection. No checklist replaces a professional vehicle inspection.",
     onboardLang: "Choose your language",
     onboardName: "What should I call you?",
     onboardNamePlaceholder: "Your name",
@@ -218,69 +190,41 @@ const T = {
     onboardStart: "Let's go",
     phasePopupCta: "Got it. Continue",
     phasePopups: {
-      inserat: (n) => ({
-        intro: `Before you drive there, check the listing first. Many problems are already visible here.`,
+      vortermin: (n) => ({
+        intro: `Before you drive there, check the listing carefully and clarify open questions by message. Many problems are already visible here.`,
         tips: [
           "Compare the price on AutoScout24 or mobile.de. Three similar listings are enough for a reference.",
-          "Save all listing photos locally. Sellers delete them after the sale.",
           "Find the VIN in the listing and check it online for accidents and recalls.",
           "First contact by message rather than phone. Everything stays in writing.",
-        ]
-      }),
-      kontakt: (n) => ({
-        intro: `How someone responds says more than the answers themselves. Listen carefully.`,
-        tips: [
-          "Simple questions an honest seller can easily answer: 'Why are you selling?', 'Has the car ever been in an accident?'",
-          "Anyone who evades, distracts or pressures you usually has something to hide. Cancel the appointment.",
-          "Only view in daylight. Rust, dents and paint differences disappear in poor light.",
-          "Ask for the seller's full name and address in advance. Anyone who refuses: walk away.",
-        ]
-      }),
-      haendler: (n) => ({
-        intro: `This phase only applies to commercial dealers. Private sellers can skip it.`,
-        tips: [
-          "Check the dealer in the trade register: uid.admin.ch (CH) or handelsregister.de (DE).",
-          "No fixed premises, no sign, just a parking lot or backyard: not a serious business.",
-          "Dealers are legally required to provide 2 years warranty. Get this confirmed in writing.",
-          "Always compare the dealer's financing offer with your own bank.",
+          "Anyone who evades, pressures or asks for a deposit upfront: walk away.",
+          "For dealer purchases: check the trade register at uid.admin.ch (CH) or handelsregister.de (DE).",
         ]
       }),
       besichtigung: (n) => ({
         intro: `You're at the car. Take at least 30 minutes. No serious seller will rush you.`,
         tips: [
-          "Bring someone with you. Four eyes see more. Your companion can keep the seller occupied while you inspect.",
-          "Always inspect in daylight: rust, dents and paint differences disappear in the shade.",
-          "Work systematically: outside first, then underneath, then engine bay, then interior.",
+          "Bring someone with you. Four eyes see more.",
+          "Always inspect in daylight. Rust, dents and paint differences disappear in shade.",
+          "Work systematically: outside, then underneath, then engine bay, then interior.",
           "Bring your phone torch. Light up the engine bay, boot corners and undercarriage.",
-          "Photograph everything: damage, service book entries, type plate, tyre age. Evidence for later.",
+          "Photograph everything: damage, service book entries, type plate, tyre age.",
         ]
       }),
       probefahrt: (n) => ({
         intro: `The test drive is your most important chance. At least 20 minutes, focused. No talking.`,
         tips: [
-          "Choose your own route: motorway (vibrations at speed), town (gearbox and brakes), car park (full steering lock).",
+          "Choose your own route: motorway (vibrations), town (gearbox and brakes), car park (full steering lock).",
           "Music off, windows up. Listening is just as important as looking.",
-          "Test everything individually: air con, every window, all USB ports, seat heating, reversing camera.",
           "While braking, briefly loosen your grip. Does the car pull to one side? That points to a brake issue.",
-          "After the drive: switch off the engine, wait 2 minutes. Any smoke? Anything dripping underneath?",
+          "After the drive: switch off, wait 2 minutes. Any smoke? Anything dripping underneath?",
         ]
       }),
-      dokumente: (n) => ({
-        intro: `The paperwork tells the car's story. What isn't documented doesn't exist.`,
+      abschluss: (n) => ({
+        intro: `Last phase. What isn't documented doesn't exist. Take your time — you don't have to sign immediately.`,
         tips: [
           "Go through the service book stamp by stamp. Gaps of more than 2 years are a warning sign.",
-          "Note the mileage on each stamp and compare with the current odometer. It must always go up.",
-          "The vehicle registration document (Part II) must be the original. No copies accepted.",
-          "Check recalls for the model: recalls.ch (CH) or kba.de (DE) with the VIN number.",
-          "Number of previous owners is in the registration document. More than 3 on a young car needs explaining.",
-        ]
-      }),
-      kaufvertrag: (n) => ({
-        intro: `Last phase. Different rules apply after signing. Take your time, you don't have to sign immediately.`,
-        tips: [
-          "You can take the contract home and read it at your leisure. That is your right.",
+          "The vehicle registration document must be the original. No copies accepted.",
           "All verbal promises must be in the contract: repairs, accessories, delivery date.",
-          "Have all known defects listed in the contract. Even small scratches count.",
           "Payment only on handover. Never in advance, never by transfer to unknown accounts.",
           "Have a handover protocol signed: condition, mileage, keys, all documents.",
         ]
@@ -339,7 +283,7 @@ const T = {
     garageChipNote: (n) => `${n} observation${n>1?"s":""}`,
     garageChipOk: "No issues",
     compareColNote: "Observations",
-    disclaimerFull: "CHECKR does not replace a professional vehicle inspection. When in serious doubt, we recommend a check by DEKRA, TCS or an independent garage.",
+    disclaimerFull: "CHECKR is based on the most common fraud patterns and known vehicle defects in the used car market. This checklist significantly reduces the risk of a bad purchase — but cannot eliminate it entirely. Professional fraudsters may deliberately work around individual checks. CHECKR does not replace an independent inspection by DEKRA, TCS or a qualified garage. If you have any reasonable doubt, we strongly recommend such an inspection before signing.",
     cancelBtnInline: "No",
     tipHide: "▲ Less",
     tipShow: "▼ Why does this matter?",
@@ -357,7 +301,7 @@ const T = {
     makeLabel: "Make",
     modelLabel: "Model",
     modelNotListed: "Model not listed?",
-    enterManually: "Or enter manually",
+    enterManually: "Or type it in",
     skipModel: "Continue without model",
     goBtn: "Let's go",
     critSectionTitle: "Check these first",
@@ -382,15 +326,359 @@ const T = {
     noIssueNote: "No problems or observations.",
     notePlaceholder: "Note...",
     stopsChip: (n) => `${n} problem${n>1?"s":""}`,
-    disclaimer2: "CHECKR does not replace a professional vehicle inspection. When in serious doubt, we recommend a check by DEKRA, TCS or an independent garage.",
+    disclaimer2: "CHECKR is based on the most common fraud patterns and known vehicle defects in the used car market. This checklist significantly reduces the risk of a bad purchase — but cannot eliminate it entirely. Professional fraudsters may deliberately work around individual checks. CHECKR does not replace an independent inspection by DEKRA, TCS or a qualified garage. If you have any reasonable doubt, we strongly recommend such an inspection before signing.",
     vehicleTitle: "Which car are you checking?",
-    vehicleSub: "For known models, we also show you the typical problem areas to watch out for.",
+    vehicleSub: "Known models: we automatically load their typical weak points.",
   },
 };
 
 // ─── MODEL DATABASE ───────────────────────────────────────────────────────────
 const MODELS = {
-  // ── VW ────────────────────────────────────────────────────────────────────
+  "Audi": {
+    "A4 (B8/B9)": { years:"2008–2022", weaknesses:["Multitronic CVT","TFSI Ölverbrauch","S-tronic Kupplung"],
+      besichtigung:[
+        {id:"m1",label:"Unterboden: Rost an Querträgern oder Schwellern?",crit:false},
+        {id:"m2",label:"Kühlmittel: Farbe OK, kein Öleintrag sichtbar?",crit:false},
+        {id:"m3",label:"Motorraum: sauber, keine Leckagespuren?",crit:false},
+      ],
+      probefahrt:[
+        {id:"m4",label:"Multitronic CVT: ruckelt, schlägt oder schlupft?",crit:true},
+        {id:"m5",label:"TFSI: Ölverbrauch laut Protokoll auffällig hoch (>0.5L/1000km)?",crit:true},
+        {id:"m6",label:"S-tronic: Rucken unter 30 km/h bei kaltem Motor?",crit:false},
+      ],
+    },
+    "A6 (C7/C8)": { years:"2011–heute", weaknesses:["Luftfederung","S-tronic Kupplung","Mild-Hybrid-Batterie"],
+      besichtigung:[
+        {id:"m1",label:"Luftfederung: Fahrzeug steht gerade auf allen 4 Ecken?",crit:true},
+        {id:"m2",label:"Lack: keine Übergänge oder Neulack-Stellen sichtbar?",crit:false},
+        {id:"m3",label:"MMI: bootet fehlerfrei, Navigation und Kamera aktiv?",crit:false},
+      ],
+      probefahrt:[
+        {id:"m4",label:"S-tronic: Rucken bei 10–30 km/h?",crit:true},
+        {id:"m5",label:"Luftfederung: Fahrzeug hebt sich gleichmässig beim Start?",crit:true},
+        {id:"m6",label:"Bremsen: Verzögerung gleichmässig, kein Schwingung im Pedal?",crit:false},
+      ],
+    },
+  },
+
+  // ── PORSCHE ───────────────────────────────────────────────────────────────
+
+  "BMW": {
+    "3er (F30)": { years:"2012–2019", weaknesses:["N20 Steuerkette","Elektro-Wasserpumpe","Hochdruckpumpe"],
+      besichtigung:[
+        {id:"m1",label:"Kühlmittel: Temperaturanzeige stabil, keine Leckagen?",crit:false},
+        {id:"m2",label:"iDrive: kein Neustart oder Abstürze beim Einschalten?",crit:false},
+        {id:"m3",label:"Motorraum: keine Öl- oder Kühlmittelspuren?",crit:false},
+      ],
+      probefahrt:[
+        {id:"m4",label:"N20-Steuerkette: Rasseln beim Kaltstart?",crit:true},
+        {id:"m5",label:"Elektro-Wasserpumpe: Temperatur stabil auf langer Fahrt?",crit:true},
+        {id:"m6",label:"Hochdruckpumpe: Startprobleme oder Leistungseinbruch unter Last?",crit:true},
+      ],
+    },
+    "M3 (E46)": { years:"2000–2006", weaknesses:["Subframe-Risse","VANOS kalt","SMG-Pumpe"],
+      besichtigung:[
+        {id:"m1",label:"Subframe: Risse an den 4 Anbindungspunkten unter dem Auto?",crit:true},
+        {id:"m2",label:"Hinterradhaus innen: Rost an typischer Naht-Stelle?",crit:false},
+        {id:"m3",label:"Kühlwasser: Farbe OK, kein Öleintrag?",crit:false},
+      ],
+      probefahrt:[
+        {id:"m4",label:"Kaltstart: Rasselgeräusch in den ersten 10 Sekunden?",crit:true},
+        {id:"m5",label:"SMG: Warnleuchte, langsame oder harte Schaltung?",crit:true},
+        {id:"m6",label:"Brummen bei konstant 80–120 km/h?",crit:false},
+      ],
+    },
+  },
+
+  // ── AUDI ──────────────────────────────────────────────────────────────────
+
+  "Dacia": {
+    "Sandero (3. Gen)": { years:"2021–heute", weaknesses:["Innenraum-Verarbeitungsqualität","Reifengeräusche","Basisausstattung"],
+      besichtigung:[
+        {id:"m1",label:"Karosserie: Spaltmaße gleichmässig, kein Verzug an Türen?",crit:false},
+        {id:"m2",label:"Innenraum: alle Kunststoffteile fest, keine losen Verkleidungen?",crit:false},
+        {id:"m3",label:"Motorraum: sauber, keine Leckagen, Ölstand korrekt?",crit:false},
+      ],
+      probefahrt:[
+        {id:"m4",label:"CVT-Getriebe: ruhige Kraftübertragung, kein Schlupf oder Brummen?",crit:false},
+        {id:"m5",label:"Fahrgeräusch: starke Reifen- oder Windgeräusche über 80 km/h?",crit:false},
+        {id:"m6",label:"Schaltgetriebe: alle Gänge einlegbar, kein Knirschen?",crit:false},
+      ],
+    },
+  },
+
+  // ── PEUGEOT ───────────────────────────────────────────────────────────────
+
+  "Ford": {
+    "Puma": { years:"2019–heute", weaknesses:["EcoBoost 3-Zylinder Vibrationen","MegaBox Dichtigkeit","Fahrgeräusche"],
+      besichtigung:[
+        {id:"m1",label:"MegaBox (Kofferraum-Unterraum): trocken, kein Feuchtigkeitsgeruch?",crit:true},
+        {id:"m2",label:"Motorraum: EcoBoost 3-Zyl. Öl sauber, kein Leck?",crit:false},
+        {id:"m3",label:"Innenraum: SYNC-Infotainment bootet und reagiert?",crit:false},
+      ],
+      probefahrt:[
+        {id:"m4",label:"EcoBoost 3-Zylinder: Vibrationen im Leerlauf spürbar?",crit:true},
+        {id:"m5",label:"Fahrgeräusch: starke Wind- oder Abrollgeräusche über 100 km/h?",crit:false},
+        {id:"m6",label:"Fahrwerk: kein Poltern, kein Knacken bei Bodenwellen?",crit:false},
+      ],
+    },
+    "Kuga (3. Gen)": { years:"2019–heute", weaknesses:["PHEV Brandrisiko frühe Modelle","EcoBoost Kühlmittelverlust","Softwareprobleme"],
+      besichtigung:[
+        {id:"m1",label:"PHEV (Plug-in): Baujahr 2020? Rückruf-Status prüfen — Brandrisiko!",crit:true},
+        {id:"m2",label:"Kühlmittelstand: korrekt, keine Leckagen oder weisser Belag?",crit:true},
+        {id:"m3",label:"Ladeport PHEV: Stecker passt, Anzeige im Cockpit korrekt?",crit:false},
+      ],
+      probefahrt:[
+        {id:"m4",label:"PHEV: E-Modus aktiv, Reichweitenanzeige plausibel?",crit:false},
+        {id:"m5",label:"Motor: kein Ruckeln, kein Kühlmittelgeruch aus Lüftung?",crit:true},
+        {id:"m6",label:"Getriebe: weiche Schaltpunkte, keine Schläge?",crit:false},
+      ],
+    },
+  },
+
+  // ── OPEL ──────────────────────────────────────────────────────────────────
+
+  "Hyundai": {
+    "Tucson (4. Gen)": { years:"2020–heute", weaknesses:["HTRAC 4WD Software","48V-Mild-Hybrid Geräusche","Panoramadach"],
+      besichtigung:[
+        {id:"m1",label:"Panoramadach: Dichtungen intakt, kein Knarren oder Wasserfleck?",crit:true},
+        {id:"m2",label:"Karosserie: Spaltmaße gleichmässig, keine Farbabweichungen?",crit:false},
+        {id:"m3",label:"Innenraum: alle Touchflächen und digitales Cockpit fehlerfrei?",crit:false},
+      ],
+      probefahrt:[
+        {id:"m4",label:"48V-Mild-Hybrid: kein Ruckeln beim Übergang Start/Stopp?",crit:false},
+        {id:"m5",label:"HTRAC 4WD: keine Vibrationen bei Kurvenfahrt auf Trockenheit?",crit:true},
+        {id:"m6",label:"Fahrwerk: ruhig über Bodenwellen, kein Poltern vorne?",crit:false},
+      ],
+    },
+    "i20 (3. Gen)": { years:"2020–heute", weaknesses:["48V-Mildhybrid-Geräusche","Infotainment-Bugs","Verarbeitungsqualität"],
+      besichtigung:[
+        {id:"m1",label:"Innenraum: Kunststoffverkleidungen fest, kein Knarren?",crit:false},
+        {id:"m2",label:"Infotainment: Bluelink-System startet, alle Funktionen abrufbar?",crit:false},
+        {id:"m3",label:"Karosserie: Spaltmaße und Lack ohne Auffälligkeiten?",crit:false},
+      ],
+      probefahrt:[
+        {id:"m4",label:"48V-Start: kein Ruckeln oder Schlag beim automatischen Motorstart?",crit:true},
+        {id:"m5",label:"Fahrgeräusch: Vibrationen oder Brummen bei 80–120 km/h?",crit:false},
+        {id:"m6",label:"Bremsen: gleichmässig, kein Pulsieren oder Geräusch?",crit:false},
+      ],
+    },
+  },
+
+  // ── KIA ───────────────────────────────────────────────────────────────────
+
+  "Kia": {
+    "Sportage (5. Gen)": { years:"2021–heute", weaknesses:["PHEV Softwareprobleme","DCT-Ruckeln","Panoramadach"],
+      besichtigung:[
+        {id:"m1",label:"Panoramadach: Dichtungen intakt, kein Knarren?",crit:true},
+        {id:"m2",label:"PHEV: Ladestandanzeige plausibel, Rückruf-Status geprüft?",crit:true},
+        {id:"m3",label:"Infotainment: 12.3-Zoll-Display fehlerfrei, kein Einfrieren?",crit:false},
+      ],
+      probefahrt:[
+        {id:"m4",label:"DCT-Getriebe: kein Ruckeln beim Anfahren oder Rangieren?",crit:true},
+        {id:"m5",label:"AWD (falls vorhanden): keine Vibrationen bei Kurvenfahrt?",crit:false},
+        {id:"m6",label:"Motor: gleichmässig unter Last, kein Turbo-Aussetzer?",crit:false},
+      ],
+    },
+  },
+
+  // ── SEAT/CUPRA ────────────────────────────────────────────────────────────
+
+  "Mercedes": {
+    "A-Klasse (W177)": { years:"2018–heute", weaknesses:["MBUX-Software-Bugs","7G-DCT Ruckeln","Kühlmittelverlust"],
+      besichtigung:[
+        {id:"m1",label:"MBUX-Display: bootet ohne Fehler, beide Screens aktiv?",crit:true},
+        {id:"m2",label:"Kühlmittelstand: korrekt, kein weisser Belag am Ausgleichsbehälter?",crit:true},
+        {id:"m3",label:"Innenraum: Ambientebeleuchtung und alle Assistenz-Tasten?",crit:false},
+      ],
+      probefahrt:[
+        {id:"m4",label:"7G-DCT: kein Ruckeln beim Anfahren oder bei 30–60 km/h?",crit:true},
+        {id:"m5",label:"Motor: keine Überhitzung, Temperatur stabil nach 20 Min.?",crit:true},
+        {id:"m6",label:"Fahrwerk: kein Poltern, ruhig über Kopfsteinpflaster?",crit:false},
+      ],
+    },
+    "C-Klasse (W205)": { years:"2014–2021", weaknesses:["9G-Tronic Ruckeln","Airmatic Kompressor","Rost Türunterkanten"],
+      besichtigung:[
+        {id:"m1",label:"Türunterkanten: Rost (typische W205-Schwachstelle)?",crit:false},
+        {id:"m2",label:"Airmatic: Fahrzeug steht gleichmässig auf allen 4 Ecken?",crit:true},
+        {id:"m3",label:"Motorraum: keine Öl- oder Kühlmittelleckagen?",crit:false},
+      ],
+      probefahrt:[
+        {id:"m4",label:"9G-Tronic: Ruckeln oder Schläge bei 40–60 km/h?",crit:true},
+        {id:"m5",label:"Airmatic: Fahrzeug hebt sich gleichmässig beim Start?",crit:true},
+        {id:"m6",label:"Fahrwerk: kein Klappern oder Poltern bei Bodenwellen?",crit:false},
+      ],
+    },
+  },
+
+  // ── BMW ───────────────────────────────────────────────────────────────────
+
+  "Opel": {
+    "Corsa F": { years:"2019–heute", weaknesses:["EAT8-Ruckeln","Elektrik-Bugs","Lackqualität"],
+      besichtigung:[
+        {id:"m1",label:"Lack: Kratzer und Abplatzer besonders an Türkanten und Schwellern?",crit:false},
+        {id:"m2",label:"Infotainment: Multimedia-System startet korrekt?",crit:false},
+        {id:"m3",label:"Innenraum: alle elektrischen Fensterheber und Spiegel funktionieren?",crit:false},
+      ],
+      probefahrt:[
+        {id:"m4",label:"EAT8-Automat: kein Ruckeln beim Anfahren oder Verzögern?",crit:true},
+        {id:"m5",label:"Fahrgeräusch: Windgeräusche oder Vibrationen über 100 km/h?",crit:false},
+        {id:"m6",label:"Fahrwerk: kein Poltern über Bodenwellen, kein Knacken beim Einlenken?",crit:false},
+      ],
+    },
+  },
+
+  // ── HYUNDAI ───────────────────────────────────────────────────────────────
+
+  "Peugeot": {
+    "208 (2. Gen)": { years:"2019–heute", weaknesses:["i-Cockpit Sicht","EAT8-Getriebe Ruckeln","Elektroversion Reichweite"],
+      besichtigung:[
+        {id:"m1",label:"i-Cockpit: Instrumente hinter dem Lenkrad vollständig sichtbar?",crit:true},
+        {id:"m2",label:"Lack und Stossstangen: keine Abplatzer oder Farbunterschiede?",crit:false},
+        {id:"m3",label:"e-208: Ladestand, Reichweitenanzeige und Ladekabel vorhanden?",crit:true},
+      ],
+      probefahrt:[
+        {id:"m4",label:"EAT8-Automat: kein Ruckeln oder Zögern beim Anfahren?",crit:true},
+        {id:"m5",label:"Lenkung: direkt und präzise, kein Spiel im Geradeauslauf?",crit:false},
+        {id:"m6",label:"e-208: Rekuperation aktiv, Wärmepumpe (falls vorhanden) funktioniert?",crit:false},
+      ],
+    },
+  },
+
+  // ── RENAULT ───────────────────────────────────────────────────────────────
+
+  "Porsche": {
+    "911 (997)": { years:"2004–2012", weaknesses:["IMS-Lager","RMS Ölaustritt","Ölverbrauch"],
+      besichtigung:[
+        {id:"m1",label:"IMS-Lager: Ölanalyse-Nachweis oder Austausch-Beleg vorhanden?",crit:true},
+        {id:"m2",label:"Ölspuren an Hinterachse oder Getriebeübergang sichtbar?",crit:true},
+        {id:"m3",label:"Ölstand prüfen — passt zum angegebenen Verbrauch?",crit:true},
+        {id:"m4",label:"Cabrio: Verdeckkasten trocken, kein Schimmel?",crit:false},
+      ],
+      probefahrt:[
+        {id:"m5",label:"Kupplung: kein Schleifen, kein Rucken beim Anfahren?",crit:false},
+        {id:"m6",label:"Bremsen: kein Ziehen zur Seite, kein Pulsieren?",crit:false},
+        {id:"m7",label:"Motorgeräusch bei Volllast gleichmässig, kein Klopfen?",crit:false},
+      ],
+    },
+  },
+
+  "Renault": {
+    "Clio (5. Gen)": { years:"2019–heute", weaknesses:["EDC-Doppelkupplung Ruckeln","Multimedia-Bugs","Rost Unterboden"],
+      besichtigung:[
+        {id:"m1",label:"Unterboden: kein Rost an Schwellern oder Hinterachsträger?",crit:false},
+        {id:"m2",label:"Multimedia: Easy Link System startet korrekt, kein Einfrieren?",crit:false},
+        {id:"m3",label:"Innenraum: Sitze und Verkleidungen ohne auffälligen Verschleiß?",crit:false},
+      ],
+      probefahrt:[
+        {id:"m4",label:"EDC-Doppelkupplung: kein Ruckeln oder Zögern bei 20–50 km/h?",crit:true},
+        {id:"m5",label:"Motor: gleichmässiger Leerlauf, kein Vibrieren im Stand?",crit:false},
+        {id:"m6",label:"E-Tech Hybrid (falls vorhanden): weicher Wechsel Motor/Elektro?",crit:false},
+      ],
+    },
+    "Megane (4. Gen)": { years:"2016–2022", weaknesses:["EDC-Getriebe","Rost Unterboden","Infotainment-Abstürze"],
+      besichtigung:[
+        {id:"m1",label:"Unterboden: Rost an Schwellern und Querträgern?",crit:true},
+        {id:"m2",label:"Karosserie: Spaltmaße gleichmässig, keine Unfallspuren?",crit:false},
+        {id:"m3",label:"Innenraum: R-Link Multimedia funktioniert, keine Abstürze?",crit:false},
+      ],
+      probefahrt:[
+        {id:"m4",label:"EDC-Getriebe: kein Ruckeln beim Anfahren oder bei Tempowechsel?",crit:true},
+        {id:"m5",label:"Fahrwerk: kein Poltern oder Klappern bei Bodenwellen?",crit:false},
+        {id:"m6",label:"Bremsen: gleichmässig, kein Ziehen zur Seite?",crit:false},
+      ],
+    },
+  },
+
+  // ── SKODA ─────────────────────────────────────────────────────────────────
+
+  "Seat / Cupra": {
+    "Arona": { years:"2017–heute", weaknesses:["DSG-Ruckeln","TSI Steuerkette","Infotainment"],
+      besichtigung:[
+        {id:"m1",label:"Motorraum: Ölstand korrekt, keine Leckagen?",crit:false},
+        {id:"m2",label:"Innenraum: Infotainment startet, alle Tasten reagieren?",crit:false},
+        {id:"m3",label:"Lack: keine Abplatzer oder Roststellen an Schwellern?",crit:false},
+      ],
+      probefahrt:[
+        {id:"m4",label:"DSG kalt: Ruckeln oder Zögern beim Anfahren?",crit:true},
+        {id:"m5",label:"TSI kalt: Rasseln in den ersten Sekunden nach Start?",crit:true},
+        {id:"m6",label:"Lenkung: direkt, kein Ziehen oder Flattern?",crit:false},
+      ],
+    },
+    "Cupra Formentor": { years:"2020–heute", weaknesses:["DSG-Ruckeln","Sportsitze Verschleiß","Software-Updates"],
+      besichtigung:[
+        {id:"m1",label:"Sportsitze: Bolstern und Seitenführung — Verschleiß zum km-Stand?",crit:false},
+        {id:"m2",label:"Infotainment: CUPRA-System ohne Fehler und Abstürze?",crit:false},
+        {id:"m3",label:"Motorraum: 2.0 TSI sauber, keine Leckagen?",crit:false},
+      ],
+      probefahrt:[
+        {id:"m4",label:"DSG: kein Ruckeln bei stadtüblichen Geschwindigkeiten?",crit:true},
+        {id:"m5",label:"4Drive AWD: keine Vibrationen oder Geräusche bei Kurvenfahrt?",crit:false},
+        {id:"m6",label:"Bremsen: standfest, kein Fading nach mehreren Vollbremsungen?",crit:false},
+      ],
+    },
+  },
+
+  // ── MERCEDES ──────────────────────────────────────────────────────────────
+
+  "Skoda": {
+    "Octavia (4. Gen)": { years:"2020–heute", weaknesses:["TSI Steuerkette EA211 Evo","DSG-Ruckeln","Touchscreen-Bedienung"],
+      besichtigung:[
+        {id:"m1",label:"Infotainment: bootet ohne Fehler, alle Apps reagieren?",crit:false},
+        {id:"m2",label:"Motorraum: Ölstand korrekt, keine Leckagen sichtbar?",crit:false},
+        {id:"m3",label:"Karosserie: gleichmässige Spaltmaße rundum?",crit:false},
+      ],
+      probefahrt:[
+        {id:"m4",label:"TSI kalt: Rasselgeräusch beim Start (Steuerkette EA211 Evo)?",crit:true},
+        {id:"m5",label:"DSG: kein Ruckeln bei 15–40 km/h im Stadtverkehr?",crit:true},
+        {id:"m6",label:"Fahrwerk: ruhig und ohne Klappern auf schlechten Strassen?",crit:false},
+      ],
+    },
+    "Karoq": { years:"2017–heute", weaknesses:["DSG-Ruckeln","Panoramadach Undichtigkeit","Rost Hinterachse"],
+      besichtigung:[
+        {id:"m1",label:"Panoramadach: Dichtungen intakt, keine Wasserflecken am Himmel?",crit:true},
+        {id:"m2",label:"Hinterachse: Rost an Trägern sichtbar (häufige Stelle)?",crit:true},
+        {id:"m3",label:"Innenraum: kein Feuchtigkeitsgeruch, alle Schalter funktionieren?",crit:false},
+      ],
+      probefahrt:[
+        {id:"m4",label:"DSG: kein Ruckeln beim Anfahren und bei niedrigem Tempo?",crit:true},
+        {id:"m5",label:"4x4 (falls vorhanden): keine Vibrationen bei Kurvenfahrt?",crit:false},
+        {id:"m6",label:"Motor: gleichmässige Leistung, kein Aussetzer unter Last?",crit:false},
+      ],
+    },
+  },
+
+  // ── FORD ──────────────────────────────────────────────────────────────────
+
+  "Toyota": {
+    "Yaris (XP210)": { years:"2020–heute", weaknesses:["Hybrid-Akku Langzeitverschleiß","Software-Updates nötig"],
+      besichtigung:[
+        {id:"m1",label:"Hybrid: kein Warnlicht, Ready-Anzeige erscheint normal?",crit:true},
+        {id:"m2",label:"Karosserie: kein Rost, keine unreparierten Schäden?",crit:false},
+        {id:"m3",label:"Innenraum: Touchscreen reagiert, keine eingefrorenen Menüs?",crit:false},
+      ],
+      probefahrt:[
+        {id:"m4",label:"Hybrid: weicher, ruckfreier Übergang zwischen Motor und E-Antrieb?",crit:false},
+        {id:"m5",label:"Rekuperation: Bremspedal fühlt sich gleichmässig an, kein Pulsieren?",crit:false},
+        {id:"m6",label:"Klimaanlage: kühlt zügig, kein muffiger Geruch beim Einschalten?",crit:false},
+      ],
+    },
+    "Corolla (E210)": { years:"2019–heute", weaknesses:["Hybrid-Stufenlosgetriebe Geräusch","Lackqualität","12V-Batterie"],
+      besichtigung:[
+        {id:"m1",label:"Hybrid: Warnleuchten aus, Ladestand der Hybridbatterie angezeigt?",crit:true},
+        {id:"m2",label:"Lack: keine Abplatzer oder Rost an Türunterkanten?",crit:false},
+        {id:"m3",label:"12V-Batterie: Baujahr prüfen — älter als 4 Jahre?",crit:false},
+      ],
+      probefahrt:[
+        {id:"m4",label:"CVT-Getriebe: kein aufheulendes Geräusch bei Beschleunigung?",crit:true},
+        {id:"m5",label:"Hybrid bei Vollgas: gleichmässige Leistungsentfaltung ohne Aussetzer?",crit:false},
+        {id:"m6",label:"Bremsen: gleichmässig, kein Vibrieren oder Ziehen?",crit:false},
+      ],
+    },
+  },
+
+  // ── DACIA ─────────────────────────────────────────────────────────────────
+
   "VW": {
     "Golf 7": { years:"2012–2020", weaknesses:["DSG-Ruckeln kalt","TSI Steuerkette","AdBlue-System"],
       besichtigung:[
@@ -443,515 +731,94 @@ const MODELS = {
   },
 
   // ── TOYOTA ────────────────────────────────────────────────────────────────
-  "Toyota": {
-    "Yaris (XP210)": { years:"2020–heute", weaknesses:["Hybrid-Akku Langzeitverschleiß","Software-Updates nötig"],
-      besichtigung:[
-        {id:"m1",label:"Hybrid: kein Warnlicht, Ready-Anzeige erscheint normal?",crit:true},
-        {id:"m2",label:"Karosserie: kein Rost, keine unreparierten Schäden?",crit:false},
-        {id:"m3",label:"Innenraum: Touchscreen reagiert, keine eingefrorenen Menüs?",crit:false},
-      ],
-      probefahrt:[
-        {id:"m4",label:"Hybrid: weicher, ruckfreier Übergang zwischen Motor und E-Antrieb?",crit:false},
-        {id:"m5",label:"Rekuperation: Bremspedal fühlt sich gleichmässig an, kein Pulsieren?",crit:false},
-        {id:"m6",label:"Klimaanlage: kühlt zügig, kein muffiger Geruch beim Einschalten?",crit:false},
-      ],
-    },
-    "Corolla (E210)": { years:"2019–heute", weaknesses:["Hybrid-Stufenlosgetriebe Geräusch","Lackqualität","12V-Batterie"],
-      besichtigung:[
-        {id:"m1",label:"Hybrid: Warnleuchten aus, Ladestand der Hybridbatterie angezeigt?",crit:true},
-        {id:"m2",label:"Lack: keine Abplatzer oder Rost an Türunterkanten?",crit:false},
-        {id:"m3",label:"12V-Batterie: Baujahr prüfen — älter als 4 Jahre?",crit:false},
-      ],
-      probefahrt:[
-        {id:"m4",label:"CVT-Getriebe: kein aufheulendes Geräusch bei Beschleunigung?",crit:true},
-        {id:"m5",label:"Hybrid bei Vollgas: gleichmässige Leistungsentfaltung ohne Aussetzer?",crit:false},
-        {id:"m6",label:"Bremsen: gleichmässig, kein Vibrieren oder Ziehen?",crit:false},
-      ],
-    },
-  },
-
-  // ── DACIA ─────────────────────────────────────────────────────────────────
-  "Dacia": {
-    "Sandero (3. Gen)": { years:"2021–heute", weaknesses:["Innenraum-Verarbeitungsqualität","Reifengeräusche","Basisausstattung"],
-      besichtigung:[
-        {id:"m1",label:"Karosserie: Spaltmaße gleichmässig, kein Verzug an Türen?",crit:false},
-        {id:"m2",label:"Innenraum: alle Kunststoffteile fest, keine losen Verkleidungen?",crit:false},
-        {id:"m3",label:"Motorraum: sauber, keine Leckagen, Ölstand korrekt?",crit:false},
-      ],
-      probefahrt:[
-        {id:"m4",label:"Motor: ruhiger Leerlauf, kein Ruckeln oder Aussetzer?",crit:false},
-        {id:"m5",label:"Fahrgeräusch: starke Reifen- oder Windgeräusche über 80 km/h?",crit:false},
-        {id:"m6",label:"Schaltgetriebe: alle Gänge einlegbar, kein Knirschen?",crit:false},
-      ],
-    },
-  },
-
-  // ── PEUGEOT ───────────────────────────────────────────────────────────────
-  "Peugeot": {
-    "208 (2. Gen)": { years:"2019–heute", weaknesses:["i-Cockpit Sicht","EAT8-Getriebe Ruckeln","Elektroversion Reichweite"],
-      besichtigung:[
-        {id:"m1",label:"i-Cockpit: Instrumente hinter dem Lenkrad vollständig sichtbar?",crit:true},
-        {id:"m2",label:"Lack und Stossstangen: keine Abplatzer oder Farbunterschiede?",crit:false},
-        {id:"m3",label:"e-208: Ladestand, Reichweitenanzeige und Ladekabel vorhanden?",crit:true},
-      ],
-      probefahrt:[
-        {id:"m4",label:"EAT8-Automat: kein Ruckeln oder Zögern beim Anfahren?",crit:true},
-        {id:"m5",label:"Lenkung: direkt und präzise, kein Spiel im Geradeauslauf?",crit:false},
-        {id:"m6",label:"e-208: Rekuperation aktiv, Wärmepumpe (falls vorhanden) funktioniert?",crit:false},
-      ],
-    },
-  },
-
-  // ── RENAULT ───────────────────────────────────────────────────────────────
-  "Renault": {
-    "Clio (5. Gen)": { years:"2019–heute", weaknesses:["EDC-Doppelkupplung Ruckeln","Multimedia-Bugs","Rost Unterboden"],
-      besichtigung:[
-        {id:"m1",label:"Unterboden: kein Rost an Schwellern oder Hinterachsträger?",crit:false},
-        {id:"m2",label:"Multimedia: Easy Link System startet korrekt, kein Einfrieren?",crit:false},
-        {id:"m3",label:"Innenraum: Sitze und Verkleidungen ohne auffälligen Verschleiß?",crit:false},
-      ],
-      probefahrt:[
-        {id:"m4",label:"EDC-Doppelkupplung: kein Ruckeln oder Zögern bei 20–50 km/h?",crit:true},
-        {id:"m5",label:"Motor: gleichmässiger Leerlauf, kein Vibrieren im Stand?",crit:false},
-        {id:"m6",label:"E-Tech Hybrid (falls vorhanden): weicher Wechsel Motor/Elektro?",crit:false},
-      ],
-    },
-    "Megane (4. Gen)": { years:"2016–2022", weaknesses:["EDC-Getriebe","Rost Unterboden","Infotainment-Abstürze"],
-      besichtigung:[
-        {id:"m1",label:"Unterboden: Rost an Schwellern und Querträgern?",crit:true},
-        {id:"m2",label:"Karosserie: Spaltmaße gleichmässig, keine Unfallspuren?",crit:false},
-        {id:"m3",label:"Innenraum: R-Link Multimedia funktioniert, keine Abstürze?",crit:false},
-      ],
-      probefahrt:[
-        {id:"m4",label:"EDC-Getriebe: kein Ruckeln beim Anfahren oder bei Tempowechsel?",crit:true},
-        {id:"m5",label:"Fahrwerk: kein Poltern oder Klappern bei Bodenwellen?",crit:false},
-        {id:"m6",label:"Bremsen: gleichmässig, kein Ziehen zur Seite?",crit:false},
-      ],
-    },
-  },
-
-  // ── SKODA ─────────────────────────────────────────────────────────────────
-  "Skoda": {
-    "Octavia (4. Gen)": { years:"2020–heute", weaknesses:["TSI Steuerkette EA211 Evo","DSG-Ruckeln","Touchscreen-Bedienung"],
-      besichtigung:[
-        {id:"m1",label:"Infotainment: bootet ohne Fehler, alle Apps reagieren?",crit:false},
-        {id:"m2",label:"Motorraum: Ölstand korrekt, keine Leckagen sichtbar?",crit:false},
-        {id:"m3",label:"Karosserie: gleichmässige Spaltmaße rundum?",crit:false},
-      ],
-      probefahrt:[
-        {id:"m4",label:"TSI kalt: Rasselgeräusch beim Start (Steuerkette EA211 Evo)?",crit:true},
-        {id:"m5",label:"DSG: kein Ruckeln bei 15–40 km/h im Stadtverkehr?",crit:true},
-        {id:"m6",label:"Fahrwerk: ruhig und ohne Klappern auf schlechten Strassen?",crit:false},
-      ],
-    },
-    "Karoq": { years:"2017–heute", weaknesses:["DSG-Ruckeln","Panoramadach Undichtigkeit","Rost Hinterachse"],
-      besichtigung:[
-        {id:"m1",label:"Panoramadach: Dichtungen intakt, keine Wasserflecken am Himmel?",crit:true},
-        {id:"m2",label:"Hinterachse: Rost an Trägern sichtbar (häufige Stelle)?",crit:true},
-        {id:"m3",label:"Innenraum: kein Feuchtigkeitsgeruch, alle Schalter funktionieren?",crit:false},
-      ],
-      probefahrt:[
-        {id:"m4",label:"DSG: kein Ruckeln beim Anfahren und bei niedrigem Tempo?",crit:true},
-        {id:"m5",label:"4x4 (falls vorhanden): keine Vibrationen bei Kurvenfahrt?",crit:false},
-        {id:"m6",label:"Motor: gleichmässige Leistung, kein Aussetzer unter Last?",crit:false},
-      ],
-    },
-  },
-
-  // ── FORD ──────────────────────────────────────────────────────────────────
-  "Ford": {
-    "Puma": { years:"2019–heute", weaknesses:["EcoBoost 3-Zylinder Vibrationen","MegaBox Dichtigkeit","Fahrgeräusche"],
-      besichtigung:[
-        {id:"m1",label:"MegaBox (Kofferraum-Unterraum): trocken, kein Feuchtigkeitsgeruch?",crit:true},
-        {id:"m2",label:"Motorraum: EcoBoost 3-Zyl. Öl sauber, kein Leck?",crit:false},
-        {id:"m3",label:"Innenraum: SYNC-Infotainment bootet und reagiert?",crit:false},
-      ],
-      probefahrt:[
-        {id:"m4",label:"EcoBoost 3-Zylinder: Vibrationen im Leerlauf spürbar?",crit:true},
-        {id:"m5",label:"Fahrgeräusch: starke Wind- oder Abrollgeräusche über 100 km/h?",crit:false},
-        {id:"m6",label:"Lenkung: präzise, kein Flattern oder Ziehen?",crit:false},
-      ],
-    },
-    "Kuga (3. Gen)": { years:"2019–heute", weaknesses:["PHEV Brandrisiko frühe Modelle","EcoBoost Kühlmittelverlust","Softwareprobleme"],
-      besichtigung:[
-        {id:"m1",label:"PHEV (Plug-in): Baujahr 2020? Rückruf-Status prüfen — Brandrisiko!",crit:true},
-        {id:"m2",label:"Kühlmittelstand: korrekt, keine Leckagen oder weisser Belag?",crit:true},
-        {id:"m3",label:"Ladeport PHEV: Stecker passt, Anzeige im Cockpit korrekt?",crit:false},
-      ],
-      probefahrt:[
-        {id:"m4",label:"PHEV: E-Modus aktiv, Reichweitenanzeige plausibel?",crit:false},
-        {id:"m5",label:"Motor: kein Ruckeln, kein Kühlmittelgeruch aus Lüftung?",crit:true},
-        {id:"m6",label:"Getriebe: weiche Schaltpunkte, keine Schläge?",crit:false},
-      ],
-    },
-  },
-
-  // ── OPEL ──────────────────────────────────────────────────────────────────
-  "Opel": {
-    "Corsa F": { years:"2019–heute", weaknesses:["EAT8-Ruckeln","Elektrik-Bugs","Lackqualität"],
-      besichtigung:[
-        {id:"m1",label:"Lack: Kratzer und Abplatzer besonders an Türkanten und Schwellern?",crit:false},
-        {id:"m2",label:"Infotainment: Multimedia-System startet korrekt?",crit:false},
-        {id:"m3",label:"Innenraum: alle elektrischen Fensterheber und Spiegel funktionieren?",crit:false},
-      ],
-      probefahrt:[
-        {id:"m4",label:"EAT8-Automat: kein Ruckeln beim Anfahren oder Verzögern?",crit:true},
-        {id:"m5",label:"Motor: ruhiger Leerlauf, keine Aussetzer beim Gasgeben?",crit:false},
-        {id:"m6",label:"Lenkung: geradeaus ohne Ziehen, keine ungewöhnlichen Geräusche?",crit:false},
-      ],
-    },
-  },
-
-  // ── HYUNDAI ───────────────────────────────────────────────────────────────
-  "Hyundai": {
-    "Tucson (4. Gen)": { years:"2020–heute", weaknesses:["HTRAC 4WD Software","48V-Mild-Hybrid Geräusche","Panoramadach"],
-      besichtigung:[
-        {id:"m1",label:"Panoramadach: Dichtungen intakt, kein Knarren oder Wasserfleck?",crit:true},
-        {id:"m2",label:"Karosserie: Spaltmaße gleichmässig, keine Farbabweichungen?",crit:false},
-        {id:"m3",label:"Innenraum: alle Touchflächen und digitales Cockpit fehlerfrei?",crit:false},
-      ],
-      probefahrt:[
-        {id:"m4",label:"48V-Mild-Hybrid: kein Ruckeln beim Übergang Start/Stopp?",crit:false},
-        {id:"m5",label:"HTRAC 4WD: keine Vibrationen bei Kurvenfahrt auf Trockenheit?",crit:true},
-        {id:"m6",label:"Fahrwerk: ruhig über Bodenwellen, kein Poltern vorne?",crit:false},
-      ],
-    },
-    "i20 (3. Gen)": { years:"2020–heute", weaknesses:["48V-Mildhybrid-Geräusche","Infotainment-Bugs","Verarbeitungsqualität"],
-      besichtigung:[
-        {id:"m1",label:"Innenraum: Kunststoffverkleidungen fest, kein Knarren?",crit:false},
-        {id:"m2",label:"Infotainment: Bluelink-System startet, alle Funktionen abrufbar?",crit:false},
-        {id:"m3",label:"Karosserie: Spaltmaße und Lack ohne Auffälligkeiten?",crit:false},
-      ],
-      probefahrt:[
-        {id:"m4",label:"48V-Start: kein Ruckeln oder Schlag beim automatischen Motorstart?",crit:true},
-        {id:"m5",label:"Motor: gleichmässige Leistung, kein Vibrieren im Leerlauf?",crit:false},
-        {id:"m6",label:"Bremsen: gleichmässig, kein Pulsieren oder Geräusch?",crit:false},
-      ],
-    },
-  },
-
-  // ── KIA ───────────────────────────────────────────────────────────────────
-  "Kia": {
-    "Sportage (5. Gen)": { years:"2021–heute", weaknesses:["PHEV Softwareprobleme","DCT-Ruckeln","Panoramadach"],
-      besichtigung:[
-        {id:"m1",label:"Panoramadach: Dichtungen intakt, kein Knarren?",crit:true},
-        {id:"m2",label:"PHEV: Ladestandanzeige plausibel, Rückruf-Status geprüft?",crit:true},
-        {id:"m3",label:"Infotainment: 12.3-Zoll-Display fehlerfrei, kein Einfrieren?",crit:false},
-      ],
-      probefahrt:[
-        {id:"m4",label:"DCT-Getriebe: kein Ruckeln beim Anfahren oder Rangieren?",crit:true},
-        {id:"m5",label:"AWD (falls vorhanden): keine Vibrationen bei Kurvenfahrt?",crit:false},
-        {id:"m6",label:"Motor: gleichmässig unter Last, kein Turbo-Aussetzer?",crit:false},
-      ],
-    },
-  },
-
-  // ── SEAT/CUPRA ────────────────────────────────────────────────────────────
-  "Seat / Cupra": {
-    "Arona": { years:"2017–heute", weaknesses:["DSG-Ruckeln","TSI Steuerkette","Infotainment"],
-      besichtigung:[
-        {id:"m1",label:"Motorraum: Ölstand korrekt, keine Leckagen?",crit:false},
-        {id:"m2",label:"Innenraum: Infotainment startet, alle Tasten reagieren?",crit:false},
-        {id:"m3",label:"Lack: keine Abplatzer oder Roststellen an Schwellern?",crit:false},
-      ],
-      probefahrt:[
-        {id:"m4",label:"DSG kalt: Ruckeln oder Zögern beim Anfahren?",crit:true},
-        {id:"m5",label:"TSI kalt: Rasseln in den ersten Sekunden nach Start?",crit:true},
-        {id:"m6",label:"Lenkung: direkt, kein Ziehen oder Flattern?",crit:false},
-      ],
-    },
-    "Cupra Formentor": { years:"2020–heute", weaknesses:["DSG-Ruckeln","Sportsitze Verschleiß","Software-Updates"],
-      besichtigung:[
-        {id:"m1",label:"Sportsitze: Bolstern und Seitenführung — Verschleiß zum km-Stand?",crit:false},
-        {id:"m2",label:"Infotainment: CUPRA-System ohne Fehler und Abstürze?",crit:false},
-        {id:"m3",label:"Motorraum: 2.0 TSI sauber, keine Leckagen?",crit:false},
-      ],
-      probefahrt:[
-        {id:"m4",label:"DSG: kein Ruckeln bei stadtüblichen Geschwindigkeiten?",crit:true},
-        {id:"m5",label:"4Drive AWD: keine Vibrationen oder Geräusche bei Kurvenfahrt?",crit:false},
-        {id:"m6",label:"Bremsen: standfest, kein Fading nach mehreren Vollbremsungen?",crit:false},
-      ],
-    },
-  },
-
-  // ── MERCEDES ──────────────────────────────────────────────────────────────
-  "Mercedes": {
-    "A-Klasse (W177)": { years:"2018–heute", weaknesses:["MBUX-Software-Bugs","7G-DCT Ruckeln","Kühlmittelverlust"],
-      besichtigung:[
-        {id:"m1",label:"MBUX-Display: bootet ohne Fehler, beide Screens aktiv?",crit:true},
-        {id:"m2",label:"Kühlmittelstand: korrekt, kein weisser Belag am Ausgleichsbehälter?",crit:true},
-        {id:"m3",label:"Innenraum: Ambientebeleuchtung und alle Assistenz-Tasten?",crit:false},
-      ],
-      probefahrt:[
-        {id:"m4",label:"7G-DCT: kein Ruckeln beim Anfahren oder bei 30–60 km/h?",crit:true},
-        {id:"m5",label:"Motor: keine Überhitzung, Temperatur stabil nach 20 Min.?",crit:true},
-        {id:"m6",label:"Fahrwerk: kein Poltern, ruhig über Kopfsteinpflaster?",crit:false},
-      ],
-    },
-    "C-Klasse (W205)": { years:"2014–2021", weaknesses:["9G-Tronic Ruckeln","Airmatic Kompressor","Rost Türunterkanten"],
-      besichtigung:[
-        {id:"m1",label:"Türunterkanten: Rost (typische W205-Schwachstelle)?",crit:false},
-        {id:"m2",label:"Airmatic: Fahrzeug steht gleichmässig auf allen 4 Ecken?",crit:true},
-        {id:"m3",label:"Motorraum: keine Öl- oder Kühlmittelleckagen?",crit:false},
-      ],
-      probefahrt:[
-        {id:"m4",label:"9G-Tronic: Ruckeln oder Schläge bei 40–60 km/h?",crit:true},
-        {id:"m5",label:"Airmatic: Fahrzeug hebt sich gleichmässig beim Start?",crit:true},
-        {id:"m6",label:"Fahrwerk: kein Klappern oder Poltern bei Bodenwellen?",crit:false},
-      ],
-    },
-  },
-
-  // ── BMW ───────────────────────────────────────────────────────────────────
-  "BMW": {
-    "3er (F30)": { years:"2012–2019", weaknesses:["N20 Steuerkette","Elektro-Wasserpumpe","Hochdruckpumpe"],
-      besichtigung:[
-        {id:"m1",label:"Kühlmittel: Temperaturanzeige stabil, keine Leckagen?",crit:false},
-        {id:"m2",label:"iDrive: kein Neustart oder Abstürze beim Einschalten?",crit:false},
-        {id:"m3",label:"Motorraum: keine Öl- oder Kühlmittelspuren?",crit:false},
-      ],
-      probefahrt:[
-        {id:"m4",label:"N20-Steuerkette: Rasseln beim Kaltstart?",crit:true},
-        {id:"m5",label:"Elektro-Wasserpumpe: Temperatur stabil auf langer Fahrt?",crit:true},
-        {id:"m6",label:"Hochdruckpumpe: Startprobleme oder Leistungseinbruch unter Last?",crit:true},
-      ],
-    },
-    "M3 (E46)": { years:"2000–2006", weaknesses:["Subframe-Risse","VANOS kalt","SMG-Pumpe"],
-      besichtigung:[
-        {id:"m1",label:"Subframe: Risse an den 4 Anbindungspunkten unter dem Auto?",crit:true},
-        {id:"m2",label:"Hinterradhaus innen: Rost an typischer Naht-Stelle?",crit:false},
-        {id:"m3",label:"Kühlwasser: Farbe OK, kein Öleintrag?",crit:false},
-      ],
-      probefahrt:[
-        {id:"m4",label:"Kaltstart: Rasselgeräusch in den ersten 10 Sekunden?",crit:true},
-        {id:"m5",label:"SMG: Warnleuchte, langsame oder harte Schaltung?",crit:true},
-        {id:"m6",label:"Brummen bei konstant 80–120 km/h?",crit:false},
-      ],
-    },
-  },
-
-  // ── AUDI ──────────────────────────────────────────────────────────────────
-  "Audi": {
-    "A4 (B8/B9)": { years:"2008–2022", weaknesses:["Multitronic CVT","TFSI Ölverbrauch","S-tronic Kupplung"],
-      besichtigung:[
-        {id:"m1",label:"Unterboden: Rost an Querträgern oder Schwellern?",crit:false},
-        {id:"m2",label:"Kühlmittel: Farbe OK, kein Öleintrag sichtbar?",crit:false},
-        {id:"m3",label:"Motorraum: sauber, keine Leckagespuren?",crit:false},
-      ],
-      probefahrt:[
-        {id:"m4",label:"Multitronic CVT: ruckelt, schlägt oder schlupft?",crit:true},
-        {id:"m5",label:"TFSI: Ölverbrauch laut Protokoll auffällig hoch (>0.5L/1000km)?",crit:true},
-        {id:"m6",label:"S-tronic: Rucken unter 30 km/h bei kaltem Motor?",crit:false},
-      ],
-    },
-    "A6 (C7/C8)": { years:"2011–heute", weaknesses:["Luftfederung","S-tronic Kupplung","Mild-Hybrid-Batterie"],
-      besichtigung:[
-        {id:"m1",label:"Luftfederung: Fahrzeug steht gerade auf allen 4 Ecken?",crit:true},
-        {id:"m2",label:"Lack: keine Übergänge oder Neulack-Stellen sichtbar?",crit:false},
-        {id:"m3",label:"MMI: bootet fehlerfrei, Navigation und Kamera aktiv?",crit:false},
-      ],
-      probefahrt:[
-        {id:"m4",label:"S-tronic: Rucken bei 10–30 km/h?",crit:true},
-        {id:"m5",label:"Luftfederung: Fahrzeug hebt sich gleichmässig beim Start?",crit:true},
-        {id:"m6",label:"Motor: gleichmässig, kein Ruckeln, kein Rauch?",crit:false},
-      ],
-    },
-  },
-
-  // ── PORSCHE ───────────────────────────────────────────────────────────────
-  "Porsche": {
-    "911 (997)": { years:"2004–2012", weaknesses:["IMS-Lager","RMS Ölaustritt","Ölverbrauch"],
-      besichtigung:[
-        {id:"m1",label:"IMS-Lager: Ölanalyse-Nachweis oder Austausch-Beleg vorhanden?",crit:true},
-        {id:"m2",label:"Ölspuren an Hinterachse oder Getriebeübergang sichtbar?",crit:true},
-        {id:"m3",label:"Ölstand prüfen — passt zum angegebenen Verbrauch?",crit:true},
-        {id:"m4",label:"Cabrio: Verdeckkasten trocken, kein Schimmel?",crit:false},
-      ],
-      probefahrt:[
-        {id:"m5",label:"Kupplung: kein Schleifen, kein Rucken beim Anfahren?",crit:false},
-        {id:"m6",label:"Bremsen: kein Ziehen zur Seite, kein Pulsieren?",crit:false},
-        {id:"m7",label:"Motorgeräusch bei Volllast gleichmässig, kein Klopfen?",crit:false},
-      ],
-    },
-  },
 };
 
 const GENERIC = {
   besichtigung:[
-    {id:"g1",label:"Spaltmaße: rundum gleichmässig, kein Unfallverdacht?",crit:false},
-    {id:"g2",label:"Lack: keine Farbabweichungen zwischen Teilen?",crit:false},
-    {id:"g3",label:"Unterboden: kein Rost an Schwellern?",crit:false},
-    {id:"g4",label:"Motorraum: kein Ölaustritt, alles ordentlich?",crit:false},
-    {id:"g5",label:"Innenraum: kein Feuchtigkeitsgeruch, alle Funktionen?",crit:false},
+    {id:"g3",label:"Unterboden: kein Rost an Schwellern oder Querträgern?",crit:false},
+    {id:"g5",label:"Innenraum: kein Feuchtigkeitsgeruch, keine losen Verkleidungen?",crit:false},
   ],
   probefahrt:[
-    {id:"g6",label:"Motor kalt: gleichmässiger Leerlauf, keine Geräusche?",crit:false},
-    {id:"g7",label:"Getriebe: weiche Schaltpunkte, kein Rucken?",crit:false},
-    {id:"g8",label:"Bremsen: gleichmässig, kein Ziehen zur Seite?",crit:false},
-    {id:"g9",label:"Lenkung: geradeaus ohne Ziehen?",crit:false},
+    {id:"g9",label:"Lenkung: geradeaus ohne Ziehen, kein Flattern bei Tempo?",crit:false},
   ],
 };
 
 // ─── PHASE DATA ───────────────────────────────────────────────────────────────
 const BASE_PHASES = [
   {
-    id:"inserat", label:"Inserat", short:"Bevor du hinfährst",
-    intro:"Schau dir das Inserat kritisch an. Viele Probleme erkennst du schon hier — bevor du überhaupt zum Auto fährst.",
+    id:"vortermin", label:"Vor dem Termin", short:"Inserat, Kontakt & Händler",
+    intro:"Bevor du hinfährst: Prüfe das Inserat kritisch und kläre die wichtigsten Punkte per Nachricht. Viele Probleme erkennst du schon hier.",
     groups:[
-      { label:"Preis & Angebot", flags:[
+      { label:"Inserat & Preis", flags:[
         {id:"i1",crit:true, text:"Ist der Preis vergleichbar mit ähnlichen Angeboten?",tip:"Vergleiche 3 ähnliche Angebote auf AutoScout24 oder mobile.de. Mehr als 20% günstiger ohne Erklärung = entweder versteckter Schaden oder Betrug."},
-        {id:"i2",crit:false,text:"Sind alle Angaben (unfallfrei, Service, Vorbesitzer) durch Dokumente belegt?",tip:"Verlange beim Termin schriftliche Belege für jede Behauptung. 'Unfallfrei laut Verkäufer' zählt rechtlich nichts — nur eine schriftliche Bestätigung im Vertrag schützt dich."},
-        
-      ]},
-      { label:"Fotos & Inhalt", flags:[
         {id:"i4",crit:true, text:"Sind alle Fotos klar und bei Tageslicht aufgenommen?",tip:"Dunkle oder unscharfe Fotos verbergen Dellen, Rost und Lackschäden. Immer auf klare Tageslichtfotos bestehen."},
-        {id:"i5",crit:false,text:"Gibt es Fotos von Innenraum, Motorraum und Unterboden?",tip:"Fehlende Innenraum-, Motorraum- oder Unterbodenfotos sind kein Zufall. Verlange sie vorab per Nachricht — wer ablehnt, hat etwas zu verbergen."},
-        
-      ]},
-      { label:"Verkäufer", flags:[
         {id:"i7",crit:true, text:"Wirkt das Inserat wie ein echtes Privatangebot (keine Händlersprache, kein Fuhrpark)?",tip:"Mehrere Inserate, professionelle Fotos, Händlersprache — aber als 'Privat' deklariert. Das ist illegal. Als Privatkäufer verlierst du alle gesetzlichen Gewährleistungsrechte. Sofort Finger weg."},
-        
       ]},
-    ]
-  },
-  {
-    id:"kontakt", label:"Erstkontakt", short:"Vor dem Termin",
-    intro:"Das erste Gespräch — ob per Telefon, WhatsApp oder Mail — sagt viel über den Verkäufer. Hör genau hin.",
-    groups:[
-      { label:"Druck & Taktik", flags:[
-        {id:"k1",crit:true, text:"Lässt der Verkäufer dir Zeit — kein Druck, keine 'nur heute'-Aussagen?",tip:"Klassische Drucktaktik. Seriöse Verkäufer lassen dir immer Zeit für eine Entscheidung. Wer echten Druck macht: Termin sofort absagen — das Auto ist den Stress nicht wert."},
-        {id:"k2",crit:true, text:"Wird keine Anzahlung oder Reservierung vor der Besichtigung verlangt?",tip:"Niemals Geld überweisen bevor du das Auto live gesehen und den Vertrag unterschrieben hast. Reservierungsgebühren sind die häufigste Betrugsmasche — auch wenn sie 'zurückerstattet' werden sollen."},
-        
-      ]},
-      { label:"Auskunft & Identität", flags:[
+      { label:"Erstkontakt", flags:[
+        {id:"k1",crit:true, text:"Lässt der Verkäufer dir Zeit — kein Druck, keine 'nur heute'-Aussagen?",tip:"Klassische Drucktaktik. Seriöse Verkäufer lassen dir immer Zeit für eine Entscheidung. Wer echten Druck macht: Termin sofort absagen."},
+        {id:"k2",crit:true, text:"Wird keine Anzahlung oder Reservierung vor der Besichtigung verlangt?",tip:"Niemals Geld überweisen bevor du das Auto live gesehen und den Vertrag unterschrieben hast. Reservierungsgebühren sind die häufigste Betrugsmasche."},
         {id:"k4",crit:true, text:"Beantwortet der Verkäufer direkte Fragen klar und ohne Ausweichen?",tip:"Stelle direkte Fragen: 'War das Auto in einem Unfall?', 'Warum verkaufst du?', 'Gibt es bekannte Mängel?'. Klare Antworten in Sekunden — wer zögert oder ausweicht, weiß etwas."},
-        {id:"k5",crit:true, text:"Ist eine freie Probefahrt von mind. 20 Minuten möglich?",tip:"Ohne freie Probefahrt kein Kauf. Mindestens 20 Minuten auf eigener Strecke — Autobahn, Stadt und Parkplatz. Wer die Route vorgibt oder die Zeit begrenzt, will etwas verbergen."},
-        
+        {id:"k5",crit:true, text:"Ist eine freie Probefahrt von mind. 20 Minuten möglich?",tip:"Ohne freie Probefahrt kein Kauf. Mindestens 20 Minuten auf eigener Strecke. Wer die Route vorgibt oder die Zeit begrenzt, will etwas verbergen."},
       ]},
-    ]
-  },
-  {
-    id:"haendler", label:"Händler", short:"Nur bei Händlerkauf",
-    intro:"Nur relevant wenn du bei einem gewerblichen Händler kaufst. Privatverkäufer überspringen.",
-    optional: true,
-    groups:[
-      { label:"Seriosität", flags:[
-        {id:"h1",crit:true, text:"Hat der Händler ein festes Ladenlokal mit Firmenschild?",tip:"Ohne feste Adresse und Firmenschild ist der Händler im Streitfall kaum greifbar. Immer auf echtem Geschäftslokal bestehen — Hinterhöfe und Parkplätze sind ein Warnsignal."},
-        {id:"h2",crit:true, text:"Ist der Händler im Handelsregister eingetragen (uid.admin.ch / handelsregister.de)?",tip:"Schweiz: uid.admin.ch — Deutschland: handelsregister.de. Nicht eingetragen = Graumarkt. Ohne Eintrag hat der Verkäufer keine rechtliche Pflicht zur Gewährleistung."},
-        {id:"h3",crit:false,text:"Wirken die Online-Bewertungen echt (unterschiedliche Texte, Daten, auch kritische)?",tip:"Viele Bewertungen ohne Text, gleiches Datum, nur 5 Sterne = fast immer gefälscht. Ältere negative Bewertungen mit echtem Text zeigen das wahre Bild. Auch auf Google Maps und local.ch suchen."},
-      ]},
-      { label:"Verkaufstaktik", flags:[
-        
-        
+      { label:"Bei Händlerkauf", flags:[
+        {id:"h1",crit:true, text:"Hat der Händler ein festes Ladenlokal mit Firmenschild?",tip:"Ohne feste Adresse und Firmenschild ist der Händler im Streitfall kaum greifbar. Hinterhöfe und Parkplätze sind ein klares Warnsignal."},
+        {id:"h2",crit:true, text:"Ist der Händler im Handelsregister eingetragen (uid.admin.ch / handelsregister.de)?",tip:"Nicht eingetragen = Graumarkt. Ohne Eintrag hat der Verkäufer keine rechtliche Pflicht zur Gewährleistung."},
       ]},
     ]
   },
   {
     id:"besichtigung", label:"Besichtigung", short:"Du stehst beim Auto",
-    intro:"Nimm dir mindestens 30 Minuten. Schaue systematisch: aussen → unten → Motorraum → innen. Kein Zeitdruck akzeptieren.",
+    intro:"Nimm dir mindestens 30 Minuten. Aussen, unten, Motorraum, innen. Kein Zeitdruck akzeptieren.",
     groups:[
-      { label:"Situation", flags:[
-        {id:"b1",crit:true, text:"War der Motor beim Ankommen kalt (nicht bereits gestartet)?",tip:"Beim Kaltstart hört man Kettenrasseln, Ventilklappern und Öldruckprobleme, die bei warmem Motor verschwinden. Motor muss beim Ankommen kalt sein — läuft er bereits, sofort neu terminieren."},
-        
-        
-      ]},
-      { label:"Karosserie & Lack", flags:[
+      { label:"Erster Eindruck", flags:[
+        {id:"b1",crit:true, text:"War der Motor beim Ankommen kalt (nicht bereits gestartet)?",tip:"Beim Kaltstart hört man Kettenrasseln, Ventilklappern und Öldruckprobleme, die bei warmem Motor verschwinden. Läuft er bereits: sofort neu terminieren."},
         {id:"b4",crit:true, text:"Sind Spaltmaße und Lackfarbe an allen Karosserie-Teilen gleichmässig?",tip:"Spalt an Türen und Kotflügeln sollte überall gleich breit sein. Farbunterschiede im Tageslicht = Unfallreparatur. Beides aus verschiedenen Winkeln prüfen."},
-        
-        {id:"b6",crit:false,text:"Sind Schweller, Radkästen und Türunterkanten rostfrei?",tip:"Schweller, Radkästen und Türunterkanten mit der Taschenlampe ausleuchten. Oberflächenrost = Verhandlungsargument. Blasen unter dem Lack oder weiche Stellen beim Drücken = Durchrostung = kein Kauf."},
       ]},
-      { label:"Reifen", flags:[
-        
-        {id:"b8",crit:true, text:"Sind alle Reifen jünger als 6 Jahre (DOT-Nummer auf der Flanke prüfen)?",tip:"DOT-Nummer auf der Reifenflanke lesen: letzte 4 Ziffern = Produktionsdatum. Beispiel: 2319 = Woche 23, Jahr 2019. Reifen über 6 Jahre verhärten und verlieren Grip — auch bei gutem Profil. Alle 4 prüfen."},
-        
-      ]},
-      { label:"Bremsen", flags:[
-        
-        
-      ]},
-      { label:"Unterboden & Motorraum", flags:[
-        
-        {id:"b13",crit:true, text:"Ist der Motorraum frei von Öl- oder Kühlwasserspuren?",tip:"Motorraum mit Taschenlampe ausleuchten. Einzelner Ölfleck = oft harmlos. Nasse Stellen an Schläuchen oder weisser Belag am Kühlwasserbehälter = aktive Leckage. Kühlwasserstand prüfen — milchig = Kopfdichtungsschaden."},
-        
-      ]},
-      { label:"Innenraum", flags:[
-        
-        {id:"b16",crit:true, text:"Passt der Verschleiß (Pedal, Lenkrad, Sitz) zum angegebenen Kilometerstand?",tip:"Fahrerpedal-Gummi, Lenkradbezug und Fahrersitz-Polster zeigen den echten Kilometerstand. Bei angeblich 60'000 km stark abgenutzt? Das Auto hat deutlich mehr gelaufen. Kilometerbetrug ist in der Schweiz strafbar."},
-        
+      { label:"Technik & Zustand", flags:[
+        {id:"b13",crit:true, text:"Ist der Motorraum frei von Öl- oder Kühlwasserspuren?",tip:"Motorraum mit Taschenlampe ausleuchten. Nasse Stellen an Schläuchen oder weisser Belag am Kühlwasserbehälter = aktive Leckage. Kühlwasserstand prüfen — milchig = Kopfdichtungsschaden."},
+        {id:"b8",crit:true, text:"Sind alle Reifen jünger als 6 Jahre (DOT-Nummer auf der Flanke prüfen)?",tip:"DOT-Nummer auf der Reifenflanke: letzte 4 Ziffern = Produktionsdatum. Beispiel: 2319 = Woche 23, Jahr 2019. Reifen über 6 Jahre verhärten und verlieren Grip — auch bei gutem Profil."},
+        {id:"b16",crit:true, text:"Passt der Verschleiß (Pedal, Lenkrad, Sitz) zum angegebenen Kilometerstand?",tip:"Fahrerpedal-Gummi, Lenkradbezug und Fahrersitz-Polster zeigen den echten Kilometerstand. Bei angeblich 60'000 km stark abgenutzt? Das Auto hat deutlich mehr gelaufen. Kilometerbetrug ist strafbar."},
       ]},
     ]
   },
   {
     id:"probefahrt", label:"Probefahrt", short:"Du fährst das Auto",
-    intro:"Mindestens 20 Minuten. Autobahn wenn möglich. Konzentriert fahren — kein Gespräch. Erst wenn der Motor warm ist, zeigen sich viele Probleme.",
+    intro:"Mindestens 20 Minuten, Autobahn wenn möglich. Konzentriert fahren — kein Gespräch. Erst wenn der Motor warm ist, zeigen sich viele Probleme.",
     groups:[
-      { label:"Bedingungen", flags:[
-        {id:"p1",crit:true, text:"Konntest du mind. 20 Minuten auf eigener Strecke fahren?",tip:"Motor- und Getriebeprobleme zeigen sich erst wenn alles warm ist. Eigene Strecke: Autobahn für Vibrationen bei Tempo, Stadtverkehr für Getriebe und Bremsen, Parkplatz für Lenkung bei vollem Einschlag."},
-        {id:"p2",crit:true, text:"Bleiben alle Warnleuchten dauerhaft aus (kein kurzes Aufblinken)?",tip:"Kurz aufleuchtende und wieder erlöschende Warnleuchten bedeuten: Fehlercode wurde vor der Besichtigung mit OBD-Gerät gelöscht. Der Fehler ist noch da — er kommt nach einigen Kilometern zurück. Sofort ansprechen."},
+      { label:"Grundbedingungen", flags:[
+        {id:"p1",crit:true, text:"Konntest du mind. 20 Minuten auf eigener Strecke fahren?",tip:"Motor- und Getriebeprobleme zeigen sich erst wenn alles warm ist. Eigene Strecke: Autobahn für Vibrationen, Stadtverkehr für Getriebe und Bremsen, Parkplatz für Lenkung bei vollem Einschlag."},
+        {id:"p2",crit:true, text:"Bleiben alle Warnleuchten dauerhaft aus (kein kurzes Aufblinken)?",tip:"Kurz aufleuchtende Warnleuchten bedeuten: Fehlercode wurde mit OBD-Gerät gelöscht. Der Fehler ist noch da — er kommt nach einigen Kilometern zurück. Sofort ansprechen."},
       ]},
       { label:"Motor & Getriebe", flags:[
-        {id:"p3",crit:true, text:"Ist der Motor beim Kaltstart ruhig — kein Klopfen, Nageln oder Rasseln?",tip:"Klopfen, Nageln oder Rasseln beim Kaltstart deutet auf Steuerkettenverschleiß oder Ventilprobleme hin. Austausch kostet 1'500–4'000. Nicht ignorieren — auch wenn es nach dem Warmlaufen besser wird."},
-        {id:"p4",crit:true, text:"Beschleunigt das Auto gleichmässig ohne Ruckeln oder Aussetzer?",tip:"Ruckeln oder Aussetzer beim Gasgeben deutet auf Zündkerzen, Einspritzventile oder Turbo hin. Kosten: 200–3'000 je nach Ursache. Lass dich nicht mit 'das wird noch besser' abspeisen."},
-        {id:"p5",crit:true, text:"Schaltet das Getriebe weich — kein Rucken oder Schlagen beim Anfahren?",tip:"DSG- und Doppelkupplungsgetriebe ruckeln bei manchen Modellen ab Werk — CHECKR zeigt dir ob dein Modell betroffen ist. Bei unbekannten Modellen: Rucken beim Anfahren oder Gangwechsel = Kupplungsverschleiß, 800–2'500."},
-        
-        
+        {id:"p3",crit:true, text:"Ist der Motor beim Kaltstart ruhig — kein Klopfen, Nageln oder Rasseln?",tip:"Klopfen oder Rasseln beim Kaltstart deutet auf Steuerkettenverschleiß oder Ventilprobleme hin. Austausch kostet 1'500–4'000. Nicht ignorieren — auch wenn es nach dem Warmlaufen besser wird."},
+        {id:"p4",crit:true, text:"Beschleunigt das Auto gleichmässig ohne Ruckeln oder Aussetzer?",tip:"Ruckeln beim Gasgeben deutet auf Zündkerzen, Einspritzventile oder Turbo hin. Kosten: 200–3'000 je nach Ursache."},
+        {id:"p5",crit:true, text:"Schaltet das Getriebe weich — kein Rucken oder Schlagen beim Anfahren?",tip:"DSG und Doppelkupplungsgetriebe: Rucken beim Anfahren oder Gangwechsel = Kupplungsverschleiß, 800–2'500."},
       ]},
       { label:"Fahrwerk & Bremsen", flags:[
-        {id:"p8",crit:true, text:"Bremst das Auto geradeaus — kein Ziehen zur Seite, kein Pulsieren?",tip:"Beim Bremsen die Hände kurz lockern: zieht das Auto zur Seite = Bremssattel klemmt oder Beläge ungleich. Pulsierendes Pedal = verzogene Bremsscheibe. Beides sicherheitsrelevant und muss repariert werden."},
-        
-        
+        {id:"p8",crit:true, text:"Bremst das Auto geradeaus — kein Ziehen zur Seite, kein Pulsieren?",tip:"Hände beim Bremsen kurz lockern: zieht das Auto zur Seite = Bremssattel klemmt. Pulsierendes Pedal = verzogene Bremsscheibe. Beides sicherheitsrelevant."},
       ]},
     ]
   },
   {
-    id:"dokumente", label:"Dokumente", short:"Papiere und Geschichte",
-    intro:"Was nicht belegt ist, existiert nicht. Nimm dir Zeit für die Papiere — sie erzählen die Geschichte des Autos.",
+    id:"abschluss", label:"Abschluss", short:"Papiere & Kaufvertrag",
+    intro:"Was nicht belegt ist, existiert nicht. Nimm dir Zeit für Papiere und Vertrag — nach der Unterschrift gelten andere Regeln.",
     groups:[
       { label:"Fahrzeugpapiere", flags:[
-        {id:"d1",crit:true, text:"Liegt der Fahrzeugbrief im Original vor (nicht bei Bank oder Leasing)?",tip:"Ohne Fahrzeugbrief im Original kein Kauf. Liegt er bei einer Bank oder Leasinggesellschaft ist das Auto noch finanziert — du kaufst die Schulden mit. Lass dir schriftlich bestätigen dass keine Belastungen bestehen."},
-        {id:"d2",crit:false,text:"Ist die Hauptuntersuchung noch mindestens 3 Monate gültig?",tip:"Eine bald fällige Hauptuntersuchung kann versteckte Mängel offenbaren. Verlange eine frische Prüfung vor dem Kauf — oder kalkuliere 150–600 für Nachbesserungen ein und ziehe das vom Preis ab."},
+        {id:"d1",crit:true, text:"Liegt der Fahrzeugbrief im Original vor (nicht bei Bank oder Leasing)?",tip:"Ohne Fahrzeugbrief im Original kein Kauf. Liegt er bei einer Bank oder Leasinggesellschaft ist das Auto noch finanziert — du kaufst die Schulden mit."},
+        {id:"d3",crit:true, text:"Ist das Serviceheft vollständig und lückenlos (keine Lücken über 2 Jahre)?",tip:"Jede Lücke im Serviceheft über 2 Jahre ist ein Warnsignal. Stempel ohne lesbaren Werkstattnamen oder Datum sind wertlos."},
+        {id:"d4",crit:true, text:"Stimmen alle Kilometerstände im Serviceheft mit dem aktuellen Tacho überein?",tip:"Kilometerstände müssen immer ansteigen — jede Abweichung deutet auf Tachomanipulation hin. In der Schweiz strafbar, dennoch verbreitet."},
+        {id:"d6",crit:true, text:"War das Auto nie als Taxi, Mietwagen oder Fahrschulfahrzeug zugelassen?",tip:"Taxi und Mietwagen bedeuten Dauerbetrieb und wechselnde Fahrer. Verschleiß ist 2–3x höher als bei Privatnutzung — auch bei niedrigem Kilometerstand."},
+        {id:"d7",crit:true, text:"Sind alle sichtbaren Reparaturen durch Dokumente belegt?",tip:"Sichtbare Reparaturen ohne Dokumentation sind ein Red Flag. Verlange schriftliche Bestätigung der Unfallfreiheit im Vertrag."},
       ]},
-      { label:"Servicehistorie", flags:[
-        {id:"d3",crit:true, text:"Ist das Serviceheft vollständig und lückenlos (keine Lücken über 2 Jahre)?",tip:"Jede Lücke im Serviceheft über 2 Jahre ist ein Warnsignal. Stempel ohne lesbaren Werkstattnamen oder Datum sind wertlos. Fehlende Einträge = unbekannte Geschichte = erhöhtes Risiko."},
-        {id:"d4",crit:true, text:"Stimmen alle Kilometerstände im Serviceheft mit dem aktuellen Tacho überein?",tip:"Notiere den Kilometerstand bei jedem Stempel und vergleiche mit dem aktuellen Tacho. Stände müssen immer ansteigen — jede Abweichung deutet auf Tachomanipulation hin. In der Schweiz strafbar, dennoch verbreitet."},
-        
-      ]},
-      { label:"Vorgeschichte", flags:[
-        {id:"d6",crit:true, text:"War das Auto nie als Taxi, Mietwagen oder Fahrschulfahrzeug zugelassen?",tip:"Auch bei niedrigem Kilometerstand: Taxi und Mietwagen bedeuten viele Kaltstarts, Dauerbetrieb und wechselnde Fahrer ohne persönliche Bindung. Verschleiß ist 2–3x höher als bei Privatnutzung."},
-        {id:"d7",crit:true, text:"Sind alle sichtbaren Reparaturen durch Dokumente belegt?",tip:"Keine Meldepflicht für Unfälle — aber sichtbare Reparaturen ohne Dokumentation sind ein Red Flag. Verlange schriftliche Bestätigung der Unfallfreiheit im Vertrag. Ohne Unterschrift des Verkäufers ist sie wertlos."},
-        
-      ]},
-      { label:"Import & Belastungen", flags:[
-        {id:"d9",crit:true, text:"Sind ausländische Papiere vorhanden und ist der Import-Status geklärt?",tip:"Import aus DE/AT in die Schweiz: Zollabgaben (ca. 4%), MWST-Nachzahlung (7.7%) und COC-Dokument nötig. 500–2'500 Gesamtkosten zusätzlich je nach Fahrzeugwert. Immer vorab kalkulieren."},
-        {id:"d10",crit:true, text:"Zeigt der Tacho Kilometer — oder wurde ein Meilen-Stand korrekt umgerechnet?",tip:"Meilen × 1.609 = Kilometer. 60'000 Meilen = knapp 100'000 km. Tacho und Serviceheft müssen übereinstimmen. Gerade bei US-Importen wird der Wert oft nicht korrekt umgerechnet dargestellt."},
-        
-      ]},
-    ]
-  },
-  {
-    id:"kaufvertrag", label:"Kaufvertrag", short:"Vor der Unterschrift",
-    intro:"Nach der Unterschrift gelten andere Regeln. Nimm dir Zeit. Du darfst den Vertrag mitnehmen und später unterschreiben — das ist dein Recht.",
-    groups:[
-      { label:"Vertragsform", flags:[
-        {id:"v1",crit:true, text:"Ist der Vertrag gedruckt, klar lesbar und nicht mit Bleistift geschrieben?",tip:"Bleistift kann nachträglich verändert werden — niemals akzeptieren. Unleserliche Handschrift ist selten Zufall. Nur klare gedruckte Verträge akzeptieren. Im Zweifelsfall: eigene Vorlage mitbringen."},
-        {id:"v2",crit:true, text:"Entsprechen Preis und Bedingungen genau dem ursprünglichen Angebot?",tip:"Preis kurz vor Unterschrift erhöhen ist eine bekannte Taktik. Überführungskosten, Aufbereitungspauschale oder Dokumentengebühren müssen im ursprünglichen Angebot enthalten sein — sonst ablehnen und gehen."},
-        {id:"v3",crit:true, text:"Stehen alle mündlichen Zusagen (Reparaturen, Zubehör) auch im Vertrag?",tip:"Was nicht im Vertrag steht, existiert vor Gericht nicht. Reparaturzusagen, versprochenes Zubehör, zweiter Schlüssel, Winterräder — alles schriftlich und vom Verkäufer unterschrieben."},
-      ]},
-      { label:"Gewährleistung", flags:[
-        {id:"v4",crit:true, text:"Enthält der Vertrag eine schriftliche Liste aller bekannten Mängel?",tip:"'Gekauft wie gesehen' ohne Mängelliste bedeutet: du verzichtest auf alle Rechte. Bestehe auf einer schriftlichen Auflistung aller bekannten Mängel im Vertrag — auch kleiner Kratzer und fehlender Teile."},
-        {id:"v5",crit:true, text:"Ist der Händler korrekt als Unternehmen eingetragen (nicht als Privatperson)?",tip:"Gewerblich als Privatperson zu verkaufen ist in der Schweiz und Deutschland illegal. Du verlierst dadurch 2 Jahre gesetzliche Gewährleistung. Handelsregistereintrag verlangen und im Vertrag als Händler eintragen lassen."},
-        {id:"v6",crit:false,text:"Enthält der Vertrag eine Gewährleistungsklausel bei versteckten Mängeln?",tip:"Bei Händlerkauf: 2 Jahre Gewährleistung ist gesetzlich. Bei Privatkauf: mindestens schriftliche Bestätigung der Unfallfreiheit und bekannter Mängel verlangen. Das ist dein wichtigster Schutz."},
-      ]},
-      { label:"Zahlung & Übergabe", flags:[
-        
-        
-        
-        
+      { label:"Kaufvertrag", flags:[
+        {id:"v1",crit:true, text:"Ist der Vertrag gedruckt, klar lesbar und nicht mit Bleistift geschrieben?",tip:"Bleistift kann nachträglich verändert werden. Unleserliche Handschrift ist selten Zufall. Nur klare gedruckte Verträge akzeptieren."},
+        {id:"v2",crit:true, text:"Entsprechen Preis und Bedingungen genau dem ursprünglichen Angebot?",tip:"Preis kurz vor Unterschrift erhöhen ist eine bekannte Taktik. Überführungskosten oder Dokumentengebühren müssen im ursprünglichen Angebot enthalten sein."},
+        {id:"v3",crit:true, text:"Stehen alle mündlichen Zusagen (Reparaturen, Zubehör) auch im Vertrag?",tip:"Was nicht im Vertrag steht, existiert vor Gericht nicht. Zweiter Schlüssel, Winterräder, Reparaturzusagen — alles schriftlich."},
+        {id:"v4",crit:true, text:"Enthält der Vertrag eine schriftliche Liste aller bekannten Mängel?",tip:"'Gekauft wie gesehen' ohne Mängelliste = du verzichtest auf alle Rechte. Bestehe auf einer schriftlichen Auflistung aller bekannten Mängel — auch kleiner Kratzer."},
       ]},
     ]
   },
 ];
-
 // ─── SEVERITY ─────────────────────────────────────────────────────────────────
 const ANSWERS = [
   { id:"ok",   label:"Ja",  short:"✓", color:"#36C068", bg:"rgba(54,192,104,.13)" },
@@ -1033,28 +900,37 @@ html,body{background:var(--bg);color:var(--ink);font-family:var(--fb);font-size:
 
 /* VEHICLE */
 .vpk{flex:1;display:flex;flex-direction:column;overflow:hidden}
-.vpk-hdr{padding:20px 20px 0;border-bottom:1px solid var(--ln)}
-.step-lbl{font-size:11px;color:var(--lime);text-transform:uppercase;letter-spacing:1.5px;font-weight:600;margin-bottom:8px}
-.vpk-title{font-family:var(--fd);font-size:24px;letter-spacing:-.3px;margin-bottom:4px}
-.vpk-sub{font-size:13px;color:var(--ink2);padding-bottom:16px}
-.vpk-body{flex:1;overflow-y:auto;padding:16px 20px}
-.pk-lbl{font-size:11px;color:var(--ink3);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;margin-top:16px}
-.pk-lbl:first-child{margin-top:0}
-.pk-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.pk-btn{padding:11px 14px;background:var(--bg3);border:1px solid var(--ln2);border-radius:10px;font-family:var(--fb);font-size:13px;font-weight:500;color:var(--ink2);cursor:pointer;text-align:left;transition:all .12s}
+.vpk-hdr{padding:16px 20px 14px;border-bottom:1px solid var(--ln);display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.vpk-hdr-text{flex:1}
+.step-lbl{font-size:10px;color:var(--lime);text-transform:uppercase;letter-spacing:1.5px;font-weight:600;margin-bottom:6px}
+.vpk-title{font-family:var(--fd);font-size:22px;letter-spacing:-.3px;margin-bottom:2px}
+.vpk-sub{font-size:12px;color:var(--ink3);line-height:1.5}
+.vpk-body{flex:1;overflow-y:auto;padding:20px 20px 8px}
+.pk-lbl{font-size:10px;color:var(--ink3);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;margin-top:0}
+/* Make chips: 3 per row, compact */
+.pk-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:4px}
+.pk-btn{padding:9px 8px;background:var(--bg3);border:1px solid var(--ln2);border-radius:9px;font-family:var(--fb);font-size:12px;font-weight:500;color:var(--ink2);cursor:pointer;text-align:center;transition:all .12s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .pk-btn:hover{border-color:var(--ln3);color:var(--ink);background:var(--bg4)}
 .pk-btn.sel{background:var(--lime2);border-color:var(--lime);color:var(--lime)}
-.pk-model{padding:12px 14px;background:var(--bg3);border:1px solid var(--ln2);border-radius:10px;font-family:var(--fb);font-size:13px;color:var(--ink2);cursor:pointer;text-align:left;transition:all .12s;margin-bottom:6px}
+/* Model list: compact 2-col grid */
+.pk-models-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:4px}
+.pk-model{padding:9px 11px;background:var(--bg3);border:1px solid var(--ln2);border-radius:9px;font-family:var(--fb);font-size:12px;color:var(--ink2);cursor:pointer;text-align:left;transition:all .12s}
 .pk-model:hover{border-color:var(--ln3);color:var(--ink);background:var(--bg4)}
 .pk-model.sel{background:var(--lime2);border-color:var(--lime);color:var(--lime)}
-.pk-model-name{font-weight:700}
-.pk-model-yr{font-size:11px;color:var(--ink3);margin-top:2px}
-.pk-model.sel .pk-model-yr{color:rgba(200,236,58,.7)}
-.cust-inp{width:100%;padding:11px 14px;background:var(--bg3);border:1px solid var(--ln2);border-radius:10px;font-family:var(--fb);font-size:13px;color:var(--ink);outline:none}
+.pk-model-name{font-weight:600;font-size:12px}
+.pk-model-yr{font-size:10px;color:var(--ink3);margin-top:1px}
+.pk-model.sel .pk-model-yr{color:rgba(150,200,0,.7)}
+/* Divider */
+.pk-divider{display:flex;align-items:center;gap:10px;margin:16px 0 12px;color:var(--ink3);font-size:10px;text-transform:uppercase;letter-spacing:1px}
+.pk-divider::before,.pk-divider::after{content:"";flex:1;height:1px;background:var(--ln)}
+/* Free text inputs */
+.pk-freerow{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px}
+.cust-inp{width:100%;padding:10px 12px;background:var(--bg3);border:1px solid var(--ln2);border-radius:9px;font-family:var(--fb);font-size:13px;color:var(--ink);outline:none;box-sizing:border-box}
 .cust-inp:focus{border-color:var(--lime)}
 .cust-inp::placeholder{color:var(--ink3)}
-.skip-lnk{background:none;border:none;font-family:var(--fb);font-size:13px;color:var(--ink3);cursor:pointer;text-decoration:underline;text-underline-offset:3px;margin-top:10px;display:block}
+.skip-lnk{background:none;border:none;font-family:var(--fb);font-size:12px;color:var(--ink3);cursor:pointer;text-decoration:underline;text-underline-offset:3px;margin-top:4px;display:block}
 .skip-lnk:hover{color:var(--ink2)}
+.light-mode .pk-model-yr{color:#5A5653}
 
 /* TOPBAR */
 .topbar{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-bottom:1px solid var(--ln);background:var(--bg);backdrop-filter:blur(16px);position:sticky;top:0;z-index:30}
@@ -1088,6 +964,7 @@ html,body{background:var(--bg);color:var(--ink);font-family:var(--fb);font-size:
 .mdl-banner-yr{font-size:11px;color:var(--ink3)}
 .mdl-tags{display:flex;flex-wrap:wrap;gap:4px}
 .mdl-tag{font-size:10px;background:var(--red2);color:var(--red);border:1px solid rgba(232,64,64,.2);padding:1px 7px;border-radius:20px}
+.mdl-badge-row{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 10px;padding:0 2px}
 
 /* model checks */
 .mdl-checks{padding:14px 20px 0}
@@ -1639,40 +1516,50 @@ export default function CHECKR() {
     <div className={`app${dark?"":" light-mode"}`}><style>{CSS}</style>
       <div className="vpk">
         <div className="vpk-hdr">
-          <div style={{display:"flex",justifyContent:"flex-end",marginBottom:8}}>
-            <ControlBar lang={lang} dark={dark} setDark={setDark} onboard={onboard} setOnboard={setOnboard} saveOnboard={saveOnboard} showLangPicker={showLangPicker} setShowLangPicker={setShowLangPicker} LANG_FLAGS={LANG_FLAGS} LANG_LABELS={LANG_LABELS}/>
+          <div className="vpk-hdr-text">
+            <div className="step-lbl">{t.vehicleStepLabel}</div>
+            <div className="vpk-title">{t.vehicleTitle}</div>
+            <div className="vpk-sub">{t.vehicleSub}</div>
           </div>
-          <div className="step-lbl">{t.vehicleStepLabel}</div>
-          <div className="vpk-title">{t.vehicleTitle}</div>
-          <div className="vpk-sub">{t.vehicleSub}</div>
+          <ControlBar lang={lang} dark={dark} setDark={setDark} onboard={onboard} setOnboard={setOnboard} saveOnboard={saveOnboard} showLangPicker={showLangPicker} setShowLangPicker={setShowLangPicker} LANG_FLAGS={LANG_FLAGS} LANG_LABELS={LANG_LABELS}/>
         </div>
         <div className="vpk-body">
+          {/* Make chips — 3 per row */}
           <div className="pk-lbl">{t.makeLabel}</div>
           <div className="pk-grid">
             {makes.map(m=>(
               <button key={m} className={`pk-btn${selMake===m?" sel":""}`}
-                onClick={()=>{setSelMake(m);setSelModel(null);}}>{m}</button>
+                onClick={()=>{setSelMake(m);setSelModel(null);setCustMake("");setCustModel("");}}>
+                {m}
+              </button>
             ))}
           </div>
+
+          {/* Model grid — appears inline after make is chosen */}
           {selMake && (<>
-            <div className="pk-lbl">{t.modelLabel}</div>
-            {models.map(m=>{
-              const d=MODELS[selMake][m];
-              return (
-                <button key={m} className={`pk-model${selModel===m?" sel":""}`} onClick={()=>setSelModel(m)}>
-                  <div className="pk-model-name">{m}</div>
-                  <div className="pk-model-yr">{d.years}</div>
-                </button>
-              );
-            })}
-            <div className="pk-lbl" style={{marginTop:16}}>{t.modelNotListed}</div>
-            <input className="cust-inp" placeholder={`${selMake} ${t.modelLabel}`} value={custModel} onChange={e=>setCustModel(e.target.value)}/>
+            <div className="pk-lbl" style={{marginTop:14}}>{t.modelLabel}</div>
+            <div className="pk-models-grid">
+              {models.map(m=>{
+                const d=MODELS[selMake][m];
+                return (
+                  <button key={m} className={`pk-model${selModel===m?" sel":""}`} onClick={()=>setSelModel(m)}>
+                    <div className="pk-model-name">{m}</div>
+                    <div className="pk-model-yr">{d.years}</div>
+                  </button>
+                );
+              })}
+            </div>
           </>)}
-          {!selMake && (<>
-            <div className="pk-lbl" style={{marginTop:20}}>{t.enterManually}</div>
-            <input className="cust-inp" placeholder={t.makeLabel} value={custMake} onChange={e=>setCustMake(e.target.value)} style={{marginBottom:8}}/>
-            <input className="cust-inp" placeholder={t.modelLabel} value={custModel} onChange={e=>setCustModel(e.target.value)}/>
-          </>)}
+
+          {/* Free-text fallback */}
+          <div className="pk-divider">{t.enterManually}</div>
+          <div className="pk-freerow">
+            <input className="cust-inp" placeholder={t.makeLabel}
+              value={custMake} onChange={e=>{setCustMake(e.target.value);setSelMake(null);setSelModel(null);}}/>
+            <input className="cust-inp" placeholder={t.modelLabel}
+              value={custModel} onChange={e=>setCustModel(e.target.value)}/>
+          </div>
+
           <button className="skip-lnk" onClick={()=>{ setPhaseIdx(0); setScreen("phase"); }}>
             {t.skipModel}
           </button>
@@ -1723,7 +1610,7 @@ export default function CHECKR() {
               <div className="ph-title">{ph.label}</div>
               <div className="ph-short">{ph.short}</div>
               <div className="ph-text">{ph.intro}</div>
-              {ph.optional && (
+              {false && (
                 <div className="ph-optional-badge">{IC.info} {t.optionalPhase}</div>
               )}
             </div>
@@ -1739,45 +1626,22 @@ export default function CHECKR() {
               </div>
             )}
 
-            {/* Model banner + checks */}
-            {vData && (ph.id==="besichtigung"||ph.id==="probefahrt") && (
-              <div className="mdl-banner">
-                <div className="mdl-banner-top">
-                  <div className="mdl-banner-name">{vName}</div>
-                  <div className="mdl-banner-yr">{vData.years}</div>
-                </div>
-                <div className="mdl-tags">
-                  {vData.weaknesses.map((w,i)=><span key={i} className="mdl-tag">{w}</span>)}
-                </div>
+            {/* Model-specific checks — rendered as regular FlagCards, no separate section */}
+            {vData && (ph.id==="besichtigung"||ph.id==="probefahrt") && vData.weaknesses?.length>0 && (
+              <div className="mdl-badge-row">
+                {vData.weaknesses.map((w,i)=><span key={i} className="mdl-tag">{w}</span>)}
               </div>
             )}
-            {ph.modelChecks && ph.modelChecks.length>0 && (
-              <div className="mdl-checks">
-                <div className="mdl-checks-title">
-                  {vData ? t.weaknessesLabel(vName) : t.generalChecksLabel}
-                </div>
-                {ph.modelChecks.map(c=>(
-                  <div className={`mdl-card${c.crit?" crit":""}`} key={c.id}>
-                    <div className="mdl-card-row">
-                      <div className="mdl-card-lbl">{c.label}</div>
-                      {c.crit && <div className="mdl-crit-dot"/>}
-                    </div>
-                    <div className="mdl-btns">
-                      <button className={`mdl-btn${mdlR[c.id]==="ok"?" ok":""}`} onClick={()=>setMdl(c.id,"ok")}>{IC.chk} {t.fcaOk}</button>
-                      <button className={`mdl-btn${mdlR[c.id]==="note"?" note":""}`} onClick={()=>setMdl(c.id,"note")}>{IC.warn} {t.mdlBtnNote}</button>
-                      <button className={`mdl-btn${mdlR[c.id]==="stop"?" stop":""}`} onClick={()=>setMdl(c.id,"stop")}>{IC.x} {t.ansStop}</button>
-                    </div>
-                    {(noteFor===c.id||mdlNotes[c.id])
-                      ? <textarea className="mdl-note" rows={2} placeholder={t.notePlaceholder}
-                          value={mdlNotes[c.id]||""} onChange={e=>setMdlNotes(n=>({...n,[c.id]:e.target.value}))}
-                          onFocus={()=>setNoteFor(c.id)}/>
-                      : (mdlR[c.id]==="note"||mdlR[c.id]==="stop") &&
-                        <button className="mdl-note-btn" onClick={()=>setNoteFor(c.id)}>{IC.info} {t.notePlaceholder.replace("...", "")}</button>
-                    }
-                  </div>
-                ))}
-              </div>
-            )}
+            {ph.modelChecks && ph.modelChecks.length>0 && ph.modelChecks.map(c=>(
+              <FlagCard key={c.id}
+                flag={{id:c.id, text:c.label, tip:c.tip||"", crit:c.crit}}
+                t={t}
+                result={mdlR[c.id]==="ok"?"ok":mdlR[c.id]==="stop"?"stop":undefined}
+                tipOpen={tipOpen[c.id]}
+                onToggleTip={()=>toggleTip(c.id)}
+                onSet={(v)=>setMdl(c.id,v==="ok"?"ok":v==="stop"?"stop":undefined)}
+              />
+            ))}
 
             {/* Non-critical grouped flags */}
             {nonCritGroups.map(group=>(
