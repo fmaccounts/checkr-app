@@ -49,7 +49,7 @@ const T = {
     compareRec: (n) => `Unsere Empfehlung für dich, ${n}:`,
     compareRecBest: (name) => `${name} schneidet am besten ab.`,
     compareRecWarn: "Keines der Autos ist ohne Vorbehalt empfehlenswert.",
-    ansOk: "Alles gut", ansNote: "Auffällig", ansStop: "Kaufstopp", ansSkip: "—",
+    ansOk: "Alles gut", ansNote: "Auffällig", ansStop: "Kritisch", ansSkip: "—",
     nothingChecked: "Nichts geprüft",
     nothingCheckedDesc: (n) => `Du hast in dieser Phase keinen Punkt bewertet, ${n}. Bist du sicher, dass du alle Punkte überspringen möchtest?`,
     nothingCheckedHint: "Nicht geprüfte Punkte fliessen nicht in die Auswertung ein.",
@@ -59,7 +59,7 @@ const T = {
     compare: "Vergleichen",
     nextStep: "Nächster Schritt",
     actionPoints: "Jetzt klären",
-    allStopsLabel: "Kaufstopps",
+    allStopsLabel: "Kritischs",
     allNotesLabel: "Auffällige Punkte",
   },
   fr: {
@@ -101,7 +101,7 @@ const T = {
     compareRec: (n) => `Notre recommandation pour toi, ${n}:`,
     compareRecBest: (name) => `${name} s'en sort le mieux.`,
     compareRecWarn: "Aucune des voitures n'est recommandable sans réserve.",
-    ansOk: "Tout va", ansNote: "Suspect", ansStop: "Stop", ansSkip: "—",
+    ansOk: "Tout va", ansNote: "Suspect", ansStop: "Critique", ansSkip: "—",
     nothingChecked: "Rien vérifié",
     nothingCheckedDesc: (n) => `Tu n'as évalué aucun point dans cette phase, ${n}. Es-tu sûr de vouloir tout sauter?`,
     nothingCheckedHint: "Les points non vérifiés ne sont pas pris en compte dans l'évaluation.",
@@ -153,7 +153,7 @@ const T = {
     compareRec: (n) => `Our recommendation for you, ${n}:`,
     compareRecBest: (name) => `${name} comes out on top.`,
     compareRecWarn: "None of the cars is recommendable without reservations.",
-    ansOk: "All good", ansNote: "Suspicious", ansStop: "Deal-breaker", ansSkip: "—",
+    ansOk: "All good", ansNote: "Suspicious", ansStop: "Critical", ansSkip: "—",
     nothingChecked: "Nothing checked",
     nothingCheckedDesc: (n) => `You didn't rate a single point in this phase, ${n}. Are you sure you want to skip everything?`,
     nothingCheckedHint: "Unchecked points don't count in the evaluation.",
@@ -1521,7 +1521,7 @@ export default function CHECKR() {
                     <div className="mdl-btns">
                       <button className={`mdl-btn${mdlR[c.id]==="ok"?" ok":""}`} onClick={()=>setMdl(c.id,"ok")}>{IC.chk} OK</button>
                       <button className={`mdl-btn${mdlR[c.id]==="note"?" note":""}`} onClick={()=>setMdl(c.id,"note")}>{IC.warn} Auffällig</button>
-                      <button className={`mdl-btn${mdlR[c.id]==="stop"?" stop":""}`} onClick={()=>setMdl(c.id,"stop")}>{IC.x} Kaufstopp</button>
+                      <button className={`mdl-btn${mdlR[c.id]==="stop"?" stop":""}`} onClick={()=>setMdl(c.id,"stop")}>{IC.x} Kritisch</button>
                     </div>
                     {(noteFor===c.id||mdlNotes[c.id])
                       ? <textarea className="mdl-note" rows={2} placeholder="Notiz..."
@@ -1903,7 +1903,7 @@ function FlagCard({ flag, result, tipOpen, onToggleTip, onSet }) {
       <div className="fc-actions">
         <button className={`fca${result==="ok"?" ok":""}`}   onClick={()=>onSet("ok")}>Alles gut</button>
         <button className={`fca${result==="note"?" note":""}`} onClick={()=>onSet("note")}>Auffällig</button>
-        <button className={`fca${result==="stop"?" stop":""}`} onClick={()=>onSet("stop")}>Kaufstopp</button>
+        <button className={`fca${result==="stop"?" stop":""}`} onClick={()=>onSet("stop")}>Kritisch</button>
         <button className={`fca${result==="skip"?" skip":""}`} onClick={()=>onSet("skip")}>—</button>
       </div>
     </div>
