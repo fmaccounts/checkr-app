@@ -1098,7 +1098,7 @@ html,body{background:var(--bg);color:var(--ink);font-family:var(--fb);font-size:
 .garage{flex:1;display:flex;flex-direction:column;overflow:hidden}
 .garage-scroll{flex:1;overflow-y:auto;padding:16px 20px}
 .garage-empty{text-align:center;padding:60px 20px;color:var(--ink3);font-size:14px}
-.garage-empty-icon{font-size:40px;margin-bottom:12px;opacity:.3}
+.garage-empty-icon{width:48px;height:48px;margin:0 auto 12px;opacity:.25;color:var(--ink3)}
 .garage-card{background:var(--bg2);border:1px solid var(--ln);border-radius:14px;margin-bottom:10px;overflow:hidden}
 .gc-top{padding:14px;display:flex;align-items:flex-start;gap:12px}
 .gc-verdict{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;flex-shrink:0}
@@ -1161,6 +1161,10 @@ const IC = {
   cmp:   <Ico d={["M18 20V10","M12 20V4","M6 20v-6"]}/>,
   plus:  <Ico d="M12 5v14M5 12h14"/>,
   trash: <Ico d={["M3 6h18","M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a1 1 0 011-1h4a1 1 0 011 1v2"]}/>,
+  sun:   <Ico d={["M12 17a5 5 0 100-10 5 5 0 000 10z","M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"]}/>,
+  moon:  <Ico d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>,
+  carEmpty: <Ico d={["M14 16H9m10 0h3v-3.15a1 1 0 00-.84-.99L16 11l-2.72-3.63a1 1 0 00-.8-.37H5a2 2 0 00-2 2v6h2","M5 16a2 2 0 104 0 2 2 0 00-4 0z","M16 16a2 2 0 104 0 2 2 0 00-4 0z"]}/>,
+  garage: <Ico d={["M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z","M9 22V12h6v10"]}/>,
 };
 
 // ─── HELPERS ─────────────────────────────────────────────────────────────────
@@ -1179,7 +1183,7 @@ export default function CHECKR() {
   const [dark, setDark] = useState(true);
   const lang = (onboard?.lang && T[onboard.lang]) ? onboard.lang : "de";
   const t = T[lang];
-  const LANG_FLAGS = { de: "🇩🇪", en: "🇺🇸" };
+  const LANG_FLAGS = { de: "DE", en: "EN" };
   const LANG_LABELS = { de: "Deutsch", en: "English" };
   const userName = onboard?.name || "";
 
@@ -1831,7 +1835,7 @@ export default function CHECKR() {
         <div className="garage-scroll" ref={scrollRef}>
           {garage.length===0 ? (
             <div className="garage-empty">
-              <div className="garage-empty-icon">🚗</div>
+              <div className="garage-empty-icon">{IC.carEmpty}</div>
               <div>{t.noGarageText}</div>
             </div>
           ) : garage.map(g=>(
@@ -2052,8 +2056,9 @@ function ControlBar({ lang, dark, setDark, onboard, setOnboard, saveOnboard, sho
     <div style={{display:"flex",alignItems:"center",gap:6}}>
       <div style={{position:"relative"}}>
         <button onClick={()=>setShowLangPicker(p=>!p)}
-          style={{background:"none",border:"1px solid var(--ln2)",borderRadius:8,padding:"5px 8px",
-            fontSize:16,cursor:"pointer",lineHeight:1}}>
+          style={{background:"none",border:"1px solid var(--ln2)",borderRadius:8,padding:"5px 10px",
+            fontSize:11,fontWeight:700,letterSpacing:"0.5px",cursor:"pointer",lineHeight:1,
+            color:"var(--ink2)",fontFamily:"var(--fb)"}}>
           {LANG_FLAGS[lang]}
         </button>
         {showLangPicker && (
@@ -2068,16 +2073,16 @@ function ControlBar({ lang, dark, setDark, onboard, setOnboard, saveOnboard, sho
                 padding:"10px 12px",background:lang===code?"var(--lime2)":"transparent",
                 border:"none",borderBottom:"1px solid var(--ln)",cursor:"pointer",
                 fontFamily:"var(--fb)",fontSize:12,color:lang===code?"var(--lime)":"var(--ink2)"}}>
-                <span style={{fontSize:16}}>{flag}</span>{LANG_LABELS[code]}
+                <span style={{fontSize:11,fontWeight:700,background:"var(--bg4)",padding:"2px 6px",borderRadius:4,letterSpacing:"0.5px"}}>{flag}</span>{LANG_LABELS[code]}
               </button>
             ))}
           </div>
         )}
       </div>
       <button onClick={()=>setDark(d=>!d)}
-        style={{background:"none",border:"1px solid var(--ln2)",borderRadius:8,padding:"5px 10px",
-          color:"var(--ink2)",fontSize:13,cursor:"pointer",fontFamily:"var(--fb)"}}>
-        {dark?"☀️":"🌙"}
+        style={{background:"none",border:"1px solid var(--ln2)",borderRadius:8,padding:"5px 8px",
+          color:"var(--ink2)",cursor:"pointer",display:"flex",alignItems:"center",lineHeight:1}}>
+        {dark ? IC.sun : IC.moon}
       </button>
     </div>
   );
