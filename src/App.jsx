@@ -119,60 +119,56 @@ const T = {
     compare: "Vergleichen",
     nextStep: "Nächster Schritt",
     actionPoints: "Jetzt klären",
-    allStopsLabel: "Kritischs",
+    allStopsLabel: "Kritische Punkte",
     allNotesLabel: "Auffällige Punkte",
-  },
-  fr: {
-    appTagline: "Pas de risque. Juste la clarté.",
-    appSub: "CHECKR t'accompagne de la première annonce jusqu'à la signature.",
-    startBtn: "Démarrer l'achat",
-    myAutos: "Mes voitures",
-    howTitle: "Comment ça marche",
-    how: [
-      "Entrer le véhicule — nous chargeons les faiblesses connues.",
-      "Chaque étape une à une — ou sauter.",
-      "Verdict automatique: Tout va / Prudence / Ne pas acheter.",
-      "Sauvegarder et comparer plusieurs voitures.",
-    ],
-    disclaimer: "CHECKR ne remplace pas une expertise professionnelle. Tous les contrôles sont sans engagement.",
-    onboardLang: "Choisir la langue",
-    onboardName: "Comment dois-je t'appeler?",
-    onboardNamePlaceholder: "Ton prénom",
-    onboardNameHint: "Pour rendre les contrôles plus personnels.",
-    onboardStart: "C'est parti",
-    phasePopupCta: "Compris — allons-y",
-    phasePopups: {
-      inserat:     (n) => `Hey ${n}, avant de te déplacer, nous analysons ensemble l'annonce. Beaucoup de problèmes sont déjà visibles ici.`,
-      kontakt:     (n) => `${n}, il s'agit maintenant du premier contact avec le vendeur. La façon dont quelqu'un répond dit plus que les réponses elles-mêmes.`,
-      haendler:    (n) => `${n}, cette phase ne concerne que les vendeurs professionnels. Les particuliers peuvent la passer.`,
-      besichtigung:(n) => `Tu es maintenant devant la voiture, ${n}. Prends ton temps — aucun vendeur sérieux ne fait pression. Regarde méthodiquement.`,
-      probefahrt:  (n) => `${n}, voici l'essai. Au moins 20 minutes, conduite concentrée — pas de conversation. Les vrais problèmes n'apparaissent qu'à chaud.`,
-      dokumente:   (n) => `${n}, les papiers racontent l'histoire de la voiture. Ce qui n'est pas documenté n'existe pas.`,
-      kaufvertrag: (n) => `Dernière étape, ${n}. Après la signature, les règles changent. Prends ton temps — tu peux emporter le contrat.`,
-    },
-    verdictLabels: { stop:"Ne pas acheter", warn:"Avec prudence", go:"Positif" },
-    verdictDesc: {
-      stop: "Au moins un motif d'arrêt trouvé. Demander une expertise ou passer au prochain véhicule.",
-      warnIncomplete: "Tu as vérifié moins de la moitié des points. Ce n'est pas suffisant pour un verdict fiable.",
-      warn: "Points suspects trouvés. À clarifier, noter par écrit ou demander une réduction de prix.",
-      go:   "Au moins la moitié des points vérifiés — aucune anomalie. Lire attentivement le contrat.",
-    },
-    compareTitle: "Comparaison",
-    compareRec: (n) => `Notre recommandation pour toi, ${n}:`,
-    compareRecBest: (name) => `${name} s'en sort le mieux.`,
-    compareRecWarn: "Aucune des voitures n'est recommandable sans réserve.",
-    ansOk: "Tout va", ansNote: "Suspect", ansStop: "Critique", ansSkip: "—",
-    nothingChecked: "Rien vérifié",
-    nothingCheckedDesc: (n) => `Tu n'as évalué aucun point dans cette phase, ${n}. Es-tu sûr de vouloir tout sauter?`,
-    nothingCheckedHint: "Les points non vérifiés ne sont pas pris en compte dans l'évaluation.",
-    backCheck: "Retour — vérifier les points",
-    saveBtn: "Sauvegarder & vérifier la prochaine voiture",
-    newAuto: "Nouvelle voiture",
-    compare: "Comparer",
-    nextStep: "Prochaine étape",
-    actionPoints: "À clarifier maintenant",
-    allStopsLabel: "Tous les motifs d'arrêt",
-    allNotesLabel: "Points suspects",
+    editingLabel: "Bearbeitung",
+    badgeLabel: "Gebrauchtwagen-Begleitung",
+    editBtnTitle: "Bearbeiten",
+    summaryLabel: "Auswertung",
+    myGarageLabel: (n) => `Meine Autos (${n})`,
+    proTipsLabel: "Profi-Tipps für diese Phase",
+    phaseOf: (a,b) => `Phase ${a} von ${b}`,
+    weaknessesLabel: (name) => `${name} — Bekannte Schwachstellen`,
+    generalChecksLabel: "Allgemeine Fahrzeug-Checks",
+    verdictWarnText: (n) => `Offene Punkte klären. Alle markierten Punkte direkt beim Händler ansprechen und schriftlich im Kaufvertrag festhalten.`,
+    verdictGoText: "Gutes Zeichen. Kaufvertrag sorgfältig lesen. Alle bekannten Punkte schriftlich in den Vertrag aufnehmen.",
+    verdictStopText: "Abbrechen oder externe Begutachtung. Mit so vielen kritischen Punkten empfehlen wir diesen Kauf nicht.",
+    nextStepHd: "Nächster Schritt",
+    secActionPoints: "Jetzt klären",
+    secAllStops: "Alle Abbruchgründe",
+    secAllNotes: "Auffällige Punkte",
+    secModelIssues: (name) => `Fahrzeug-Mängel — ${name}`,
+    secCosts: "Kosten schätzen",
+    chipAllOk: "Alles OK",
+    chipStop: (n) => `${n} Abbruchgrund${n>1?"e":""}`,
+    chipNote: (n) => `${n} Auffällig`,
+    statsStop: "Stopp",
+    statsNote: "Auffällig",
+    statsPhases: "Phasen",
+    mdlBtnNote: "Auffällig",
+    fcaOk: "Alles gut",
+    fcaNote: "Auffällig",
+    fcaStop: "Kritisch",
+    garageChipNote: (n) => `${n} Auffällig`,
+    garageChipOk: "Alles OK",
+    compareColNote: "Auffällig",
+    disclaimerFull: "CHECKR ersetzt keine professionelle Begutachtung durch eine Fachperson oder einen DEKRA/TCS-Stützpunkt. Alle Einschätzungen sind unverbindlich.",
+    cancelBtnInline: "Nein",
+    tipHide: "▲ Ausblenden",
+    tipShow: "▼ Was bedeutet das?",
+    unknownVehicle: "Unbekanntes Fahrzeug",
+    compareColStop: "Abbruch",
+    compareColVerdict: "Urteil",
+    compareHint: (n) => `${n} Autos ausgewählt`,
+    compareHintDefault: "Die 3 neuesten Autos werden verglichen.",
+    renameHint: "Tippen zum Umbenennen",
+    deleteBtnLabel: "Löschen",
+    cancelBtnLabel: "Nein",
+    noGarageText: "Noch keine Autos gespeichert.",
+    startBtnFull: "Kaufprozess starten",
+    vehicleStepLabel: "Fahrzeug wählen",
+    vehicleTitle: "Welches Auto?",
+    vehicleSub: "Für bekannte Modelle laden wir automatisch die häufigsten Schwachstellen.",
   },
   en: {
     appTagline: "No risk. Just clarity.",
@@ -194,13 +190,73 @@ const T = {
     onboardStart: "Let's go",
     phasePopupCta: "Got it — let's go",
     phasePopups: {
-      inserat:     (n) => `Hey ${n}, before you drive there, let's check the listing together. Many problems are already visible here.`,
-      kontakt:     (n) => `${n}, this is about the first contact with the seller. How someone responds says more than the answers themselves.`,
-      haendler:    (n) => `${n}, this phase only applies to commercial dealers. Private sellers can skip it.`,
-      besichtigung:(n) => `You're standing at the car now, ${n}. Take your time — no serious seller will rush you. Check systematically.`,
-      probefahrt:  (n) => `${n}, now comes the test drive. At least 20 minutes, focused driving — no talking. Real problems only show up when warm.`,
-      dokumente:   (n) => `${n}, the paperwork tells the car's story. What isn't documented doesn't exist.`,
-      kaufvertrag: (n) => `Last phase, ${n}. After signing, different rules apply. Take your time — you can take the contract with you.`,
+      inserat: (n) => ({
+        intro: `Hey ${n}, before you drive there, let's check the listing together. Many problems are already visible here.`,
+        tips: [
+          "Compare the price on AutoScout24 or mobile.de — 3 similar listings are enough.",
+          "Save all listing photos locally. Sellers delete them after the sale.",
+          "Find the VIN in the listing and check it online for accidents and recalls.",
+          "First contact by message rather than phone — everything stays in writing.",
+        ]
+      }),
+      kontakt: (n) => ({
+        intro: `${n}, how someone responds says more than the answers themselves. Listen carefully.`,
+        tips: [
+          "Simple questions an honest seller can easily answer: 'Why are you selling?', 'Has the car ever been in an accident?'",
+          "Anyone who evades, distracts or pressures you usually has something to hide — cancel the appointment.",
+          "Only view in daylight. Rust, dents and paint differences disappear in poor light.",
+          "Ask for the seller's full name and address in advance. Anyone who refuses: walk away.",
+        ]
+      }),
+      haendler: (n) => ({
+        intro: `${n}, this phase only applies to commercial dealers. Private sellers can skip it.`,
+        tips: [
+          "Check the dealer in the trade register: uid.admin.ch (CH) or handelsregister.de (DE).",
+          "No fixed premises, no sign, just a parking lot or backyard — not a serious business.",
+          "Dealers are legally required to provide 2 years warranty — get this confirmed in writing.",
+          "Always compare the dealer's financing offer with your own bank.",
+        ]
+      }),
+      besichtigung: (n) => ({
+        intro: `You're at the car now, ${n}. Take at least 30 minutes — no serious seller will rush you.`,
+        tips: [
+          "Bring someone with you — four eyes see more. Your companion can keep the seller occupied while you inspect.",
+          "Always inspect in daylight: rust, dents and paint differences disappear in the shade.",
+          "Work systematically: outside first, then underneath, then engine bay, then interior.",
+          "Bring your phone torch — light up the engine bay, boot corners and undercarriage.",
+          "Photograph everything: damage, service book entries, type plate, tyre age. Evidence for later.",
+        ]
+      }),
+      probefahrt: (n) => ({
+        intro: `${n}, the test drive is your most important chance. At least 20 minutes, focused — no talking.`,
+        tips: [
+          "Choose your own route: motorway (vibrations at speed), town (gearbox and brakes), car park (full steering lock).",
+          "Music off, windows up — listening is just as important as looking.",
+          "Test everything individually: air con, every window, all USB ports, seat heating, reversing camera.",
+          "While braking, briefly loosen your grip — does the car pull to one side?",
+          "After the drive: switch off the engine, wait 2 minutes. Any smoke? Anything dripping underneath?",
+        ]
+      }),
+      dokumente: (n) => ({
+        intro: `${n}, the paperwork tells the car's story. What isn't documented doesn't exist.`,
+        tips: [
+          "Go through the service book stamp by stamp — gaps of more than 2 years are a warning sign.",
+          "Note the mileage on each stamp and compare with the current odometer. It must always go up.",
+          "The vehicle registration document (Part II) must be the original — no copies accepted.",
+          "Check recalls for the model: recalls.ch (CH) or kba.de (DE) with the VIN number.",
+          "Number of previous owners is in the registration document — more than 3 on a young car needs explaining.",
+        ]
+      }),
+      kaufvertrag: (n) => ({
+        intro: `Last phase, ${n}. Different rules apply after signing — take your time, you don't have to sign immediately.`,
+        tips: [
+          "You can take the contract home and read it at your leisure — that is your right.",
+          "All verbal promises must be in the contract: repairs, accessories, delivery date.",
+          "Have all known defects listed in the contract — even small scratches.",
+          "Payment only on handover — never in advance, never by transfer to unknown accounts.",
+          "Have a handover protocol signed: condition, mileage, keys, all documents.",
+        ]
+      }),
     },
     verdictLabels: { stop:"Don't buy", warn:"With caution", go:"Positive" },
     verdictDesc: {
@@ -225,6 +281,54 @@ const T = {
     actionPoints: "Clarify now",
     allStopsLabel: "All deal-breakers",
     allNotesLabel: "Suspicious points",
+    editingLabel: "Editing",
+    badgeLabel: "Used car guide",
+    editBtnTitle: "Edit",
+    summaryLabel: "Summary",
+    myGarageLabel: (n) => `My cars (${n})`,
+    proTipsLabel: "Pro tips for this phase",
+    phaseOf: (a,b) => `Phase ${a} of ${b}`,
+    weaknessesLabel: (name) => `${name} — Known weak points`,
+    generalChecksLabel: "General vehicle checks",
+    verdictWarnText: () => `Clarify open points. Address all flagged issues directly with the seller and have them noted in writing in the purchase contract.`,
+    verdictGoText: "Good sign. Read the contract carefully. Have all known points noted in writing in the contract.",
+    verdictStopText: "Stop or request an independent inspection. With this many critical points, we don't recommend proceeding.",
+    nextStepHd: "Next step",
+    secActionPoints: "Clarify now",
+    secAllStops: "All deal-breakers",
+    secAllNotes: "Suspicious points",
+    secModelIssues: (name) => `Vehicle issues — ${name}`,
+    secCosts: "Estimate costs",
+    chipAllOk: "All good",
+    chipStop: (n) => `${n} deal-breaker${n>1?"s":""}`,
+    chipNote: (n) => `${n} suspicious`,
+    statsStop: "Stop",
+    statsNote: "Suspicious",
+    statsPhases: "Phases",
+    mdlBtnNote: "Suspicious",
+    fcaOk: "All good",
+    fcaNote: "Suspicious",
+    fcaStop: "Critical",
+    garageChipNote: (n) => `${n} suspicious`,
+    garageChipOk: "All good",
+    compareColNote: "Suspicious",
+    disclaimerFull: "CHECKR does not replace a professional inspection. All assessments are non-binding.",
+    cancelBtnInline: "No",
+    tipHide: "▲ Hide",
+    tipShow: "▼ What does this mean?",
+    unknownVehicle: "Unknown vehicle",
+    compareColStop: "Stop",
+    compareColVerdict: "Verdict",
+    compareHint: (n) => `${n} cars selected`,
+    compareHintDefault: "The 3 most recent cars are compared.",
+    renameHint: "Tap to rename",
+    deleteBtnLabel: "Delete",
+    cancelBtnLabel: "No",
+    noGarageText: "No cars saved yet.",
+    startBtnFull: "Start buying process",
+    vehicleStepLabel: "Choose vehicle",
+    vehicleTitle: "Which car?",
+    vehicleSub: "For known models, we automatically load the most common weak points.",
   },
 };
 
@@ -1118,9 +1222,10 @@ export default function CHECKR() {
   const [obName, setObName]   = useState("");
 
   const [dark, setDark] = useState(true);
-  const t = T[onboard?.lang || "de"];
-  const LANG_FLAGS = { de: "🇩🇪", fr: "🇫🇷", en: "🇺🇸" };
-  const LANG_LABELS = { de: "Deutsch", fr: "Français", en: "English" };
+  const lang = (onboard?.lang && T[onboard.lang]) ? onboard.lang : "de";
+  const t = T[lang];
+  const LANG_FLAGS = { de: "🇩🇪", en: "🇺🇸" };
+  const LANG_LABELS = { de: "Deutsch", en: "English" };
   const userName = onboard?.name || "";
 
   const [screen, setScreen] = useState(onboard ? "welcome" : "onboard");
@@ -1322,7 +1427,7 @@ export default function CHECKR() {
                 {tob.onboardLang}
               </p>
               <div style={{display:"flex",flexDirection:"column",gap:8,marginBottom:28}}>
-                {[["de","Deutsch"],["fr","Français"],["en","English"]].map(([code,label])=>(
+                {[["de","Deutsch"],["en","English"]].map(([code,label])=>(
                   <button key={code}
                     style={{padding:"14px 18px",background:obLang===code?"var(--lime2)":"var(--bg3)",
                       border:`1px solid ${obLang===code?"var(--lime)":"var(--ln2)"}`,
@@ -1388,13 +1493,13 @@ export default function CHECKR() {
           <div style={{width:36,height:4,background:"var(--ln3)",borderRadius:2,margin:"0 auto 20px"}}/>
           <div style={{fontFamily:"var(--fd)",fontSize:12,color:"var(--lime)",marginBottom:10,
             textTransform:"uppercase",letterSpacing:"1px"}}>
-            Phase {phases.findIndex(p=>p.id===phase.id)+1} von {phases.length} — {phase.label}
+            {t.phaseOf(phases.findIndex(p=>p.id===phase.id)+1, phases.length)} — {phase.label}
           </div>
           <div style={{fontSize:15,lineHeight:1.7,color:"var(--ink)",marginBottom:tips?20:24}}>{intro}</div>
           {tips && (
             <div style={{marginBottom:24}}>
               <div style={{fontSize:11,fontWeight:700,color:"var(--ink3)",textTransform:"uppercase",
-                letterSpacing:"1px",marginBottom:12}}>Profi-Tipps für diese Phase</div>
+                letterSpacing:"1px",marginBottom:12}}>{t.proTipsLabel}</div>
               {tips.map((tip,i) => (
                 <div key={i} style={{display:"flex",gap:10,marginBottom:10,alignItems:"flex-start"}}>
                   <div style={{width:22,height:22,borderRadius:6,background:"var(--lime2)",
@@ -1451,7 +1556,7 @@ export default function CHECKR() {
               </div>
             )}
           </div>
-          <div className="wlc-badge"><div className="wlc-dot"/>Gebrauchtwagen-Begleitung</div>
+          <div className="wlc-badge"><div className="wlc-dot"/>{t.badgeLabel}</div>
           <h1 className="wlc-title">Kein Risiko.<br/><em>Nur Klarheit.</em></h1>
           <p className="wlc-sub">{t.appSub}</p>
           <div className="wlc-how">
@@ -1466,11 +1571,11 @@ export default function CHECKR() {
           <div className="wlc-btns">
             <button className="welcome-start-btn" style={{width:"100%",padding:"16px",background:"var(--lime)",color:"#09090B",border:"none",borderRadius:"14px",fontFamily:"var(--fb)",fontSize:"15px",fontWeight:700,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",gap:"10px",transition:"filter .15s"}}
               onClick={()=>setScreen("vehicle")}>
-              {IC.spark} Kaufprozess starten
+              {IC.spark} {t.startBtnFull}
             </button>
             {garage.length>0 && (
               <button className="wlc-garage-btn" onClick={()=>setScreen("garage")}>
-                {IC.car} Meine Autos
+                {IC.car} {t.myAutos}
                 <span className="garage-count">{garage.length}</span>
               </button>
             )}
@@ -1485,9 +1590,9 @@ export default function CHECKR() {
     <div className={`app${dark?"":" light-mode"}`}><style>{CSS}</style>
       <div className="vpk">
         <div className="vpk-hdr">
-          <div className="step-lbl">Fahrzeug wählen</div>
-          <div className="vpk-title">Welches Auto?</div>
-          <div className="vpk-sub">Für bekannte Modelle laden wir automatisch die häufigsten Schwachstellen.</div>
+          <div className="step-lbl">{t.vehicleStepLabel}</div>
+          <div className="vpk-title">{t.vehicleTitle}</div>
+          <div className="vpk-sub">{t.vehicleSub}</div>
         </div>
         <div className="vpk-body">
           <div className="pk-lbl">Marke</div>
@@ -1550,7 +1655,7 @@ export default function CHECKR() {
             <button onClick={()=>setDark(d=>!d)} style={{background:"none",border:"1px solid var(--ln2)",borderRadius:8,padding:"5px 10px",color:"var(--ink2)",fontSize:13,cursor:"pointer",fontFamily:"var(--fb)"}}>
               {dark?"☀️":"🌙"}
             </button>
-            {editingId && <span style={{fontSize:11,color:"var(--lime)",fontWeight:700,background:"var(--lime2)",padding:"3px 8px",borderRadius:6}}>Bearbeitung</span>}
+            {editingId && <span style={{fontSize:11,color:"var(--lime)",fontWeight:700,background:"var(--lime2)",padding:"3px 8px",borderRadius:6}}>{t.editingLabel}</span>}
             <div className="tb-back" onClick={()=>{ if(phaseIdx===0){ if(editingId){setEditingId(null);resetSession();setScreen("garage");}else{setScreen("vehicle");} } else { setPhaseIdx(i=>i-1); } }}>
               {IC.back} <span>{phaseIdx===0?"Fahrzeug":phases[phaseIdx-1].label}</span>
             </div>
@@ -1578,7 +1683,7 @@ export default function CHECKR() {
               <div className="crit-section">
                 <div className="crit-title">Wichtigste Punkte zuerst</div>
                 {critFlags.map(flag=>(
-                  <FlagCard key={flag.id} flag={flag} result={flagR[flag.id]} tipOpen={tipOpen[flag.id]}
+                  <FlagCard key={flag.id} flag={flag} t={t} result={flagR[flag.id]} tipOpen={tipOpen[flag.id]}
                     onToggleTip={()=>toggleTip(flag.id)} onSet={(v)=>setFlag(flag.id,v)}/>
                 ))}
               </div>
@@ -1599,7 +1704,7 @@ export default function CHECKR() {
             {ph.modelChecks && ph.modelChecks.length>0 && (
               <div className="mdl-checks">
                 <div className="mdl-checks-title">
-                  {vData ? `${vName} — Bekannte Schwachstellen` : "Allgemeine Fahrzeug-Checks"}
+                  {vData ? t.weaknessesLabel(vName) : t.generalChecksLabel}
                 </div>
                 {ph.modelChecks.map(c=>(
                   <div className={`mdl-card${c.crit?" crit":""}`} key={c.id}>
@@ -1609,8 +1714,8 @@ export default function CHECKR() {
                     </div>
                     <div className="mdl-btns">
                       <button className={`mdl-btn${mdlR[c.id]==="ok"?" ok":""}`} onClick={()=>setMdl(c.id,"ok")}>{IC.chk} OK</button>
-                      <button className={`mdl-btn${mdlR[c.id]==="note"?" note":""}`} onClick={()=>setMdl(c.id,"note")}>{IC.warn} Auffällig</button>
-                      <button className={`mdl-btn${mdlR[c.id]==="stop"?" stop":""}`} onClick={()=>setMdl(c.id,"stop")}>{IC.x} Kritisch</button>
+                      <button className={`mdl-btn${mdlR[c.id]==="note"?" note":""}`} onClick={()=>setMdl(c.id,"note")}>{IC.warn} {t.mdlBtnNote}</button>
+                      <button className={`mdl-btn${mdlR[c.id]==="stop"?" stop":""}`} onClick={()=>setMdl(c.id,"stop")}>{IC.x} {t.ansStop}</button>
                     </div>
                     {(noteFor===c.id||mdlNotes[c.id])
                       ? <textarea className="mdl-note" rows={2} placeholder="Notiz..."
@@ -1629,7 +1734,7 @@ export default function CHECKR() {
               <div className="grp-section" key={group.label}>
                 <div className="grp-title">{group.label}</div>
                 {group.flags.map(flag=>(
-                  <FlagCard key={flag.id} flag={flag} result={flagR[flag.id]} tipOpen={tipOpen[flag.id]}
+                  <FlagCard key={flag.id} flag={flag} t={t} result={flagR[flag.id]} tipOpen={tipOpen[flag.id]}
                     onToggleTip={()=>toggleTip(flag.id)} onSet={(v)=>setFlag(flag.id,v)}/>
                 ))}
               </div>
@@ -1647,7 +1752,7 @@ export default function CHECKR() {
               if(isLast){ setScreen("summary"); }
               else { setPhaseIdx(i=>i+1); setShowPopup(true); setScreen("phase"); }
             }}>
-              {phaseIdx === phases.length-1 ? `Auswertung ${IC.fwd}` : `Weiter ${IC.fwd}`}
+              {phaseIdx === phases.length-1 ? `${t.summaryLabel} ${IC.fwd}` : `Weiter ${IC.fwd}`}
             </button>
           </div>
         </div>
@@ -1661,7 +1766,7 @@ export default function CHECKR() {
       <div className="sum">
         <div className="topbar">
           <div className="tb-back" onClick={()=>{ setPhaseIdx(phases.length-1); setScreen("phase"); }}>{IC.back} Zurück</div>
-          <span style={{fontSize:12,color:"var(--lime)",fontWeight:700}}>Auswertung</span>
+          <span style={{fontSize:12,color:"var(--lime)",fontWeight:700}}>{t.summaryLabel}</span>
         </div>
         <div className="sum-scroll" ref={scrollRef}>
           <div className="sum-verdict">
@@ -1671,16 +1776,16 @@ export default function CHECKR() {
             <div className="sv-title">{VDICT[verdict].label}</div>
             <div className="sv-desc">{VDICT[verdict].desc}</div>
             <div className="sv-chips">
-              {totalStops>0 && <span className="sv-chip sv-chip-red">{IC.x} {totalStops} Abbruchgrund{totalStops>1?"e":""}</span>}
-              {totalNotes>0 && <span className="sv-chip sv-chip-amr">{IC.warn} {totalNotes} Auffällig{totalNotes>1?"e":""}</span>}
-              {totalStops===0&&totalNotes===0 && <span className="sv-chip sv-chip-grn">{IC.chk} Alles OK</span>}
+              {totalStops>0 && <span className="sv-chip sv-chip-red">{IC.x} {t.chipStop(totalStops)}</span>}
+              {totalNotes>0 && <span className="sv-chip sv-chip-amr">{IC.warn} {t.chipNote(totalNotes)}</span>}
+              {totalStops===0&&totalNotes===0 && <span className="sv-chip sv-chip-grn">{IC.chk} {t.chipAllOk}</span>}
             </div>
           </div>
 
           <div className="sum-stats">
-            <div className="ss-card"><div className="ss-n" style={{color:"var(--red)"}}>{totalStops}</div><div className="ss-l">Stopp</div></div>
-            <div className="ss-card"><div className="ss-n" style={{color:"var(--amr)"}}>{totalNotes}</div><div className="ss-l">Auffällig</div></div>
-            <div className="ss-card"><div className="ss-n" style={{color:"var(--lime)"}}>{phases.filter(ph=>phaseAnswered(ph)>0).length}</div><div className="ss-l">Phasen</div></div>
+            <div className="ss-card"><div className="ss-n" style={{color:"var(--red)"}}>{totalStops}</div><div className="ss-l">{t.statsStop}</div></div>
+            <div className="ss-card"><div className="ss-n" style={{color:"var(--amr)"}}>{totalNotes}</div><div className="ss-l">{t.statsNote}</div></div>
+            <div className="ss-card"><div className="ss-n" style={{color:"var(--lime)"}}>{phases.filter(ph=>phaseAnswered(ph)>0).length}</div><div className="ss-l">{t.statsPhases}</div></div>
           </div>
 
           {actionPoints.length>0 && (
@@ -1721,7 +1826,7 @@ export default function CHECKR() {
 
           {mdlIssues.length>0 && (
             <div className="sum-sec">
-              <div className="sum-sec-hd">Fahrzeug-Mängel — {vName}</div>
+              <div className="sum-sec-hd">{t.secModelIssues(vName)}</div>
               {mdlIssues.map(c=>(
                 <div className="sum-item" key={c.id}>
                   <div className={`si-ico ${mdlR[c.id]==="stop"?"red":"amr"}`}>{mdlR[c.id]==="stop"?"!":"·"}</div>
@@ -1773,11 +1878,11 @@ export default function CHECKR() {
           </>)}
 
           <div className="next-box">
-            <div className="nb-hd">Nächster Schritt</div>
+            <div className="nb-hd">{t.nextStepHd}</div>
             <div className="nb-body">
-              {verdict==="stop" && <><strong>Abbrechen oder externe Begutachtung.</strong> Mit so vielen kritischen Punkten empfehlen wir diesen Kauf nicht weiterzuführen.</>}
-              {verdict==="warn" && <><strong>Offene Punkte klären.</strong> Alle markierten Punkte direkt beim Händler ansprechen und schriftlich im Kaufvertrag festhalten.</>}
-              {verdict==="go"   && <><strong>Gutes Zeichen.</strong> Kaufvertrag sorgfältig lesen. Alle bekannten Punkte schriftlich in den Vertrag aufnehmen.</>}
+              {verdict==="stop" && <>{t.verdictStopText}</>}
+              {verdict==="warn" && <>{t.verdictWarnText()}</>}
+              {verdict==="go"   && <>{t.verdictGoText}</>}
             </div>
           </div>
 
@@ -1787,7 +1892,7 @@ export default function CHECKR() {
 
           <div className="save-btn-row">
             <button className="save-btn" onClick={saveToGarage}>
-              {IC.save} Speichern & nächstes Auto prüfen
+              {IC.save} {t.saveBtn}
             </button>
           </div>
           <div className="save-note">Auto wird gespeichert — du kannst es danach mit anderen vergleichen.</div>
@@ -1809,7 +1914,7 @@ export default function CHECKR() {
       <div className="garage">
         <div className="topbar">
           <div className="tb-back" onClick={()=>setScreen("welcome")}>{IC.back} Start</div>
-          <span style={{fontSize:12,color:"var(--lime)",fontWeight:700}}>Meine Autos ({garage.length})</span>
+          <span style={{fontSize:12,color:"var(--lime)",fontWeight:700}}>{t.myGarageLabel(garage.length)}</span>
         </div>
         <div className="garage-scroll" ref={scrollRef}>
           {garage.length===0 ? (
@@ -1847,19 +1952,19 @@ export default function CHECKR() {
                     </div>
                   ) : (
                     <div className="gc-name" onClick={()=>startRename(g)} style={{cursor:"pointer"}}
-                      title="Tippen zum Umbenennen">
+                      title={t.renameHint}>
                       {g.name} <span style={{fontSize:10,color:"var(--ink3)",marginLeft:4}}>✎</span>
                     </div>
                   )}
                   <div className="gc-meta">{g.date}</div>
                   <div className="gc-chips">
                     {g.stops>0&&<span className="gc-chip gc-chip-red">{g.stops} Stopp</span>}
-                    {g.notes>0&&<span className="gc-chip gc-chip-amr">{g.notes} Auffällig</span>}
-                    {g.stops===0&&g.notes===0&&<span className="gc-chip gc-chip-grn">Alles OK</span>}
+                    {g.notes>0&&<span className="gc-chip gc-chip-amr">{t.garageChipNote(g.notes)}</span>}
+                    {g.stops===0&&g.notes===0&&<span className="gc-chip gc-chip-grn">{t.garageChipOk}</span>}
                   </div>
                 </div>
                 <div style={{display:"flex",gap:6,flexDirection:"column"}}>
-                  <button className="gc-del" title="Bearbeiten" onClick={()=>loadForEdit(g)}
+                  <button className="gc-del" title={t.editBtnTitle} onClick={()=>loadForEdit(g)}
                     style={{background:"var(--lime2)",border:"1px solid rgba(200,236,58,.25)",color:"var(--lime)"}}>
                     ✎
                   </button>
@@ -1868,12 +1973,12 @@ export default function CHECKR() {
                       <button onClick={()=>delFromGarage(g.id)}
                         style={{background:"var(--red2)",border:"1px solid rgba(232,64,64,.3)",color:"var(--red)",
                           borderRadius:7,padding:"4px 8px",fontSize:11,fontWeight:700,cursor:"pointer",fontFamily:"var(--fb)"}}>
-                        Löschen
+                        {t.deleteBtnLabel}
                       </button>
                       <button onClick={()=>setConfirmDel(null)}
                         style={{background:"var(--bg4)",border:"1px solid var(--ln2)",color:"var(--ink3)",
                           borderRadius:7,padding:"4px 8px",fontSize:11,cursor:"pointer",fontFamily:"var(--fb)"}}>
-                        Nein
+                        {t.cancelBtnInline}
                       </button>
                     </div>
                   ) : (
@@ -1984,9 +2089,9 @@ export default function CHECKR() {
                   {/* Stats row */}
                   <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",borderTop:"1px solid var(--ln)"}}>
                     {[
-                      {l:"Abbruch",v:g.stops,c:g.stops>0?"var(--red)":"var(--grn)"},
-                      {l:"Auffällig",v:g.notes,c:g.notes>0?"var(--amr)":"var(--grn)"},
-                      {l:"Urteil",v:VDICT[g.verdict].label,c:g.verdict==="go"?"var(--grn)":g.verdict==="warn"?"var(--amr)":"var(--red)"},
+                      {l:t.compareColStop,v:g.stops,c:g.stops>0?"var(--red)":"var(--grn)"},
+                      {l:t.compareColNote,v:g.notes,c:g.notes>0?"var(--amr)":"var(--grn)"},
+                      {l:t.compareColVerdict,v:VDICT[g.verdict].label,c:g.verdict==="go"?"var(--grn)":g.verdict==="warn"?"var(--amr)":"var(--red)"},
                     ].map(({l,v,c})=>(
                       <div key={l} style={{padding:"10px 8px",textAlign:"center",borderRight:"1px solid var(--ln)"}}>
                         <div style={{fontSize:13,fontWeight:700,color:c}}>{v}</div>
@@ -2012,7 +2117,7 @@ export default function CHECKR() {
 
             {garage.length>3 && (
               <div style={{padding:"12px 20px",fontSize:11,color:"var(--ink3)",textAlign:"center"}}>
-                {selCompare.length>=2 ? `${selCompare.length} Autos ausgewählt` : "Die 3 neuesten Autos werden verglichen."}
+                {selCompare.length>=2 ? t.compareHint(selCompare.length) : t.compareHintDefault}
               </div>
             )}
             <div className="spacer"/>
@@ -2029,7 +2134,7 @@ export default function CHECKR() {
 }
 
 // ─── FLAG CARD COMPONENT ──────────────────────────────────────────────────────
-function FlagCard({ flag, result, tipOpen, onToggleTip, onSet }) {
+function FlagCard({ flag, result, tipOpen, onToggleTip, onSet, t }) {
   return (
     <div className="flag-card">
       <div className="fc-top">
@@ -2037,13 +2142,13 @@ function FlagCard({ flag, result, tipOpen, onToggleTip, onSet }) {
         <div className="fc-text">{flag.text}</div>
       </div>
       <button className="fc-tip-btn" onClick={onToggleTip}>
-        {tipOpen ? "▲ Ausblenden" : "▼ Was bedeutet das?"}
+        {tipOpen ? t.tipHide : t.tipShow}
       </button>
       {tipOpen && <div className="fc-tip">{flag.tip}</div>}
       <div className="fc-actions">
-        <button className={`fca${result==="ok"?" ok":""}`}   onClick={()=>onSet("ok")}>Alles gut</button>
-        <button className={`fca${result==="note"?" note":""}`} onClick={()=>onSet("note")}>Auffällig</button>
-        <button className={`fca${result==="stop"?" stop":""}`} onClick={()=>onSet("stop")}>Kritisch</button>
+        <button className={`fca${result==="ok"?" ok":""}`}   onClick={()=>onSet("ok")}>{t.fcaOk}</button>
+        <button className={`fca${result==="note"?" note":""}`} onClick={()=>onSet("note")}>{t.fcaNote}</button>
+        <button className={`fca${result==="stop"?" stop":""}`} onClick={()=>onSet("stop")}>{t.fcaStop}</button>
         <button className={`fca${result==="skip"?" skip":""}`} onClick={()=>onSet("skip")}>—</button>
       </div>
     </div>
