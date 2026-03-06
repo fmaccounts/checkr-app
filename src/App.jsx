@@ -109,7 +109,7 @@ const T = {
     compareRec: (n) => `Unsere Empfehlung für dich, ${n}:`,
     compareRecBest: (name) => `${name} schneidet am besten ab.`,
     compareRecWarn: "Keines der Autos ist ohne Vorbehalt empfehlenswert.",
-    ansOk: "Alles gut", ansNote: "Auffällig", ansStop: "Kritisch", ansSkip: "—",
+    ansOk: "Ja", ansStop: "Nein",
     nothingChecked: "Nichts geprüft",
     nothingCheckedDesc: (n) => `Du hast in dieser Phase keinen Punkt bewertet, ${n}. Bist du sicher, dass du alle Punkte überspringen möchtest?`,
     nothingCheckedHint: "Nicht geprüfte Punkte fliessen nicht in die Auswertung ein.",
@@ -120,7 +120,7 @@ const T = {
     nextStep: "Nächster Schritt",
     actionPoints: "Jetzt klären",
     allStopsLabel: "Kritische Punkte",
-    allNotesLabel: "Auffällige Punkte",
+    allNotesLabel: "Probleme",
     editingLabel: "Bearbeitung",
     badgeLabel: "Gebrauchtwagen-Begleitung",
     editBtnTitle: "Bearbeiten",
@@ -146,9 +146,8 @@ const T = {
     statsNote: "Auffällig",
     statsPhases: "Phasen",
     mdlBtnNote: "Auffällig",
-    fcaOk: "Alles gut",
-    fcaNote: "Auffällig",
-    fcaStop: "Kritisch",
+    fcaOk: "Ja",
+    fcaStop: "Nein",
     garageChipNote: (n) => `${n} Auffällig`,
     garageChipOk: "Alles OK",
     compareColNote: "Auffällig",
@@ -269,7 +268,7 @@ const T = {
     compareRec: (n) => `Our recommendation for you, ${n}:`,
     compareRecBest: (name) => `${name} comes out on top.`,
     compareRecWarn: "None of the cars is recommendable without reservations.",
-    ansOk: "All good", ansNote: "Suspicious", ansStop: "Critical", ansSkip: "—",
+    ansOk: "Yes", ansStop: "No",
     nothingChecked: "Nothing checked",
     nothingCheckedDesc: (n) => `You didn't rate a single point in this phase, ${n}. Are you sure you want to skip everything?`,
     nothingCheckedHint: "Unchecked points don't count in the evaluation.",
@@ -280,7 +279,7 @@ const T = {
     nextStep: "Next step",
     actionPoints: "Clarify now",
     allStopsLabel: "All deal-breakers",
-    allNotesLabel: "Suspicious points",
+    allNotesLabel: "Problems",
     editingLabel: "Editing",
     badgeLabel: "Used car guide",
     editBtnTitle: "Edit",
@@ -306,9 +305,8 @@ const T = {
     statsNote: "Suspicious",
     statsPhases: "Phases",
     mdlBtnNote: "Suspicious",
-    fcaOk: "All good",
-    fcaNote: "Suspicious",
-    fcaStop: "Critical",
+    fcaOk: "Yes",
+    fcaStop: "No",
     garageChipNote: (n) => `${n} suspicious`,
     garageChipOk: "All good",
     compareColNote: "Suspicious",
@@ -743,17 +741,17 @@ const BASE_PHASES = [
     intro:"Schau dir das Inserat kritisch an. Viele Probleme erkennst du schon hier — bevor du überhaupt zum Auto fährst.",
     groups:[
       { label:"Preis & Angebot", flags:[
-        {id:"i1",crit:true, text:"Preis mehr als 20% unter vergleichbaren Angeboten",tip:"Vergleiche 3 ähnliche Angebote auf AutoScout24 oder mobile.de. Mehr als 20% günstiger ohne Erklärung = entweder versteckter Schaden oder Betrug."},
-        {id:"i2",crit:false,text:"Behauptungen ohne Nachweis: unfallfrei, frisch ab Service, 1 Vorbesitzer",tip:"Verlange beim Termin schriftliche Belege für jede Behauptung. 'Unfallfrei laut Verkäufer' zählt rechtlich nichts — nur eine schriftliche Bestätigung im Vertrag schützt dich."},
+        {id:"i1",crit:true, text:"Ist der Preis vergleichbar mit ähnlichen Angeboten?",tip:"Vergleiche 3 ähnliche Angebote auf AutoScout24 oder mobile.de. Mehr als 20% günstiger ohne Erklärung = entweder versteckter Schaden oder Betrug."},
+        {id:"i2",crit:false,text:"Sind alle Angaben (unfallfrei, Service, Vorbesitzer) durch Dokumente belegt?",tip:"Verlange beim Termin schriftliche Belege für jede Behauptung. 'Unfallfrei laut Verkäufer' zählt rechtlich nichts — nur eine schriftliche Bestätigung im Vertrag schützt dich."},
         
       ]},
       { label:"Fotos & Inhalt", flags:[
-        {id:"i4",crit:true, text:"Fotos bei schlechtem Licht, in Halle oder unscharf",tip:"Dunkle oder unscharfe Fotos verbergen Dellen, Rost und Lackschäden. Immer auf klare Tageslichtfotos bestehen."},
-        {id:"i5",crit:false,text:"Keine Fotos vom Innenraum, Motorraum oder Unterboden",tip:"Fehlende Innenraum-, Motorraum- oder Unterbodenfotos sind kein Zufall. Verlange sie vorab per Nachricht — wer ablehnt, hat etwas zu verbergen."},
+        {id:"i4",crit:true, text:"Sind alle Fotos klar und bei Tageslicht aufgenommen?",tip:"Dunkle oder unscharfe Fotos verbergen Dellen, Rost und Lackschäden. Immer auf klare Tageslichtfotos bestehen."},
+        {id:"i5",crit:false,text:"Gibt es Fotos von Innenraum, Motorraum und Unterboden?",tip:"Fehlende Innenraum-, Motorraum- oder Unterbodenfotos sind kein Zufall. Verlange sie vorab per Nachricht — wer ablehnt, hat etwas zu verbergen."},
         
       ]},
       { label:"Verkäufer", flags:[
-        {id:"i7",crit:true, text:"Privat-Inserat wirkt wie professioneller Händler",tip:"Mehrere Inserate, professionelle Fotos, Händlersprache — aber als 'Privat' deklariert. Das ist illegal. Als Privatkäufer verlierst du alle gesetzlichen Gewährleistungsrechte. Sofort Finger weg."},
+        {id:"i7",crit:true, text:"Wirkt das Inserat wie ein echtes Privatangebot (keine Händlersprache, kein Fuhrpark)?",tip:"Mehrere Inserate, professionelle Fotos, Händlersprache — aber als 'Privat' deklariert. Das ist illegal. Als Privatkäufer verlierst du alle gesetzlichen Gewährleistungsrechte. Sofort Finger weg."},
         
       ]},
     ]
@@ -763,13 +761,13 @@ const BASE_PHASES = [
     intro:"Das erste Gespräch — ob per Telefon, WhatsApp oder Mail — sagt viel über den Verkäufer. Hör genau hin.",
     groups:[
       { label:"Druck & Taktik", flags:[
-        {id:"k1",crit:true, text:"Zeitdruck: andere Interessenten, nur heute verfügbar",tip:"Klassische Drucktaktik. Seriöse Verkäufer lassen dir immer Zeit für eine Entscheidung. Wer echten Druck macht: Termin sofort absagen — das Auto ist den Stress nicht wert."},
-        {id:"k2",crit:true, text:"Anzahlung oder Reservierung vor Besichtigung verlangt",tip:"Niemals Geld überweisen bevor du das Auto live gesehen und den Vertrag unterschrieben hast. Reservierungsgebühren sind die häufigste Betrugsmasche — auch wenn sie 'zurückerstattet' werden sollen."},
+        {id:"k1",crit:true, text:"Lässt der Verkäufer dir Zeit — kein Druck, keine 'nur heute'-Aussagen?",tip:"Klassische Drucktaktik. Seriöse Verkäufer lassen dir immer Zeit für eine Entscheidung. Wer echten Druck macht: Termin sofort absagen — das Auto ist den Stress nicht wert."},
+        {id:"k2",crit:true, text:"Wird keine Anzahlung oder Reservierung vor der Besichtigung verlangt?",tip:"Niemals Geld überweisen bevor du das Auto live gesehen und den Vertrag unterschrieben hast. Reservierungsgebühren sind die häufigste Betrugsmasche — auch wenn sie 'zurückerstattet' werden sollen."},
         
       ]},
       { label:"Auskunft & Identität", flags:[
-        {id:"k4",crit:true, text:"Ausweichende Antworten auf direkte Fragen zum Zustand",tip:"Stelle direkte Fragen: 'War das Auto in einem Unfall?', 'Warum verkaufst du?', 'Gibt es bekannte Mängel?'. Klare Antworten in Sekunden — wer zögert oder ausweicht, weiß etwas."},
-        {id:"k5",crit:true, text:"Probefahrt abgelehnt oder auf wenige Minuten begrenzt",tip:"Ohne freie Probefahrt kein Kauf. Mindestens 20 Minuten auf eigener Strecke — Autobahn, Stadt und Parkplatz. Wer die Route vorgibt oder die Zeit begrenzt, will etwas verbergen."},
+        {id:"k4",crit:true, text:"Beantwortet der Verkäufer direkte Fragen klar und ohne Ausweichen?",tip:"Stelle direkte Fragen: 'War das Auto in einem Unfall?', 'Warum verkaufst du?', 'Gibt es bekannte Mängel?'. Klare Antworten in Sekunden — wer zögert oder ausweicht, weiß etwas."},
+        {id:"k5",crit:true, text:"Ist eine freie Probefahrt von mind. 20 Minuten möglich?",tip:"Ohne freie Probefahrt kein Kauf. Mindestens 20 Minuten auf eigener Strecke — Autobahn, Stadt und Parkplatz. Wer die Route vorgibt oder die Zeit begrenzt, will etwas verbergen."},
         
       ]},
     ]
@@ -780,9 +778,9 @@ const BASE_PHASES = [
     optional: true,
     groups:[
       { label:"Seriosität", flags:[
-        {id:"h1",crit:true, text:"Kein festes Ladenlokal — nur Parkplatz oder Hinterhof",tip:"Ohne feste Adresse und Firmenschild ist der Händler im Streitfall kaum greifbar. Immer auf echtem Geschäftslokal bestehen — Hinterhöfe und Parkplätze sind ein Warnsignal."},
-        {id:"h2",crit:true, text:"Keine UID-Nummer nennbar oder im Handelsregister auffindbar",tip:"Schweiz: uid.admin.ch — Deutschland: handelsregister.de. Nicht eingetragen = Graumarkt. Ohne Eintrag hat der Verkäufer keine rechtliche Pflicht zur Gewährleistung."},
-        {id:"h3",crit:false,text:"Viele 5-Sterne Bewertungen ohne Text, Datum oder Variation",tip:"Viele Bewertungen ohne Text, gleiches Datum, nur 5 Sterne = fast immer gefälscht. Ältere negative Bewertungen mit echtem Text zeigen das wahre Bild. Auch auf Google Maps und local.ch suchen."},
+        {id:"h1",crit:true, text:"Hat der Händler ein festes Ladenlokal mit Firmenschild?",tip:"Ohne feste Adresse und Firmenschild ist der Händler im Streitfall kaum greifbar. Immer auf echtem Geschäftslokal bestehen — Hinterhöfe und Parkplätze sind ein Warnsignal."},
+        {id:"h2",crit:true, text:"Ist der Händler im Handelsregister eingetragen (uid.admin.ch / handelsregister.de)?",tip:"Schweiz: uid.admin.ch — Deutschland: handelsregister.de. Nicht eingetragen = Graumarkt. Ohne Eintrag hat der Verkäufer keine rechtliche Pflicht zur Gewährleistung."},
+        {id:"h3",crit:false,text:"Wirken die Online-Bewertungen echt (unterschiedliche Texte, Daten, auch kritische)?",tip:"Viele Bewertungen ohne Text, gleiches Datum, nur 5 Sterne = fast immer gefälscht. Ältere negative Bewertungen mit echtem Text zeigen das wahre Bild. Auch auf Google Maps und local.ch suchen."},
       ]},
       { label:"Verkaufstaktik", flags:[
         
@@ -795,18 +793,18 @@ const BASE_PHASES = [
     intro:"Nimm dir mindestens 30 Minuten. Schaue systematisch: aussen → unten → Motorraum → innen. Kein Zeitdruck akzeptieren.",
     groups:[
       { label:"Situation", flags:[
-        {id:"b1",crit:true, text:"Motor läuft bereits beim Ankommen",tip:"Beim Kaltstart hört man Kettenrasseln, Ventilklappern und Öldruckprobleme, die bei warmem Motor verschwinden. Motor muss beim Ankommen kalt sein — läuft er bereits, sofort neu terminieren."},
+        {id:"b1",crit:true, text:"War der Motor beim Ankommen kalt (nicht bereits gestartet)?",tip:"Beim Kaltstart hört man Kettenrasseln, Ventilklappern und Öldruckprobleme, die bei warmem Motor verschwinden. Motor muss beim Ankommen kalt sein — läuft er bereits, sofort neu terminieren."},
         
         
       ]},
       { label:"Karosserie & Lack", flags:[
-        {id:"b4",crit:true, text:"Spaltmaße oder Farbton ungleichmässig an Karosserie-Teilen",tip:"Spalt an Türen und Kotflügeln sollte überall gleich breit sein. Farbunterschiede im Tageslicht = Unfallreparatur. Beides aus verschiedenen Winkeln prüfen."},
+        {id:"b4",crit:true, text:"Sind Spaltmaße und Lackfarbe an allen Karosserie-Teilen gleichmässig?",tip:"Spalt an Türen und Kotflügeln sollte überall gleich breit sein. Farbunterschiede im Tageslicht = Unfallreparatur. Beides aus verschiedenen Winkeln prüfen."},
         
-        {id:"b6",crit:false,text:"Rost an Schwellern, Radkästen oder Türunterkanten",tip:"Schweller, Radkästen und Türunterkanten mit der Taschenlampe ausleuchten. Oberflächenrost = Verhandlungsargument. Blasen unter dem Lack oder weiche Stellen beim Drücken = Durchrostung = kein Kauf."},
+        {id:"b6",crit:false,text:"Sind Schweller, Radkästen und Türunterkanten rostfrei?",tip:"Schweller, Radkästen und Türunterkanten mit der Taschenlampe ausleuchten. Oberflächenrost = Verhandlungsargument. Blasen unter dem Lack oder weiche Stellen beim Drücken = Durchrostung = kein Kauf."},
       ]},
       { label:"Reifen", flags:[
         
-        {id:"b8",crit:true, text:"Reifenalter über 6 Jahre — unabhängig vom Profil",tip:"DOT-Nummer auf der Reifenflanke lesen: letzte 4 Ziffern = Produktionsdatum. Beispiel: 2319 = Woche 23, Jahr 2019. Reifen über 6 Jahre verhärten und verlieren Grip — auch bei gutem Profil. Alle 4 prüfen."},
+        {id:"b8",crit:true, text:"Sind alle Reifen jünger als 6 Jahre (DOT-Nummer auf der Flanke prüfen)?",tip:"DOT-Nummer auf der Reifenflanke lesen: letzte 4 Ziffern = Produktionsdatum. Beispiel: 2319 = Woche 23, Jahr 2019. Reifen über 6 Jahre verhärten und verlieren Grip — auch bei gutem Profil. Alle 4 prüfen."},
         
       ]},
       { label:"Bremsen", flags:[
@@ -815,12 +813,12 @@ const BASE_PHASES = [
       ]},
       { label:"Unterboden & Motorraum", flags:[
         
-        {id:"b13",crit:true, text:"Öl- oder Kühlwasserspuren im Motorraum",tip:"Motorraum mit Taschenlampe ausleuchten. Einzelner Ölfleck = oft harmlos. Nasse Stellen an Schläuchen oder weisser Belag am Kühlwasserbehälter = aktive Leckage. Kühlwasserstand prüfen — milchig = Kopfdichtungsschaden."},
+        {id:"b13",crit:true, text:"Ist der Motorraum frei von Öl- oder Kühlwasserspuren?",tip:"Motorraum mit Taschenlampe ausleuchten. Einzelner Ölfleck = oft harmlos. Nasse Stellen an Schläuchen oder weisser Belag am Kühlwasserbehälter = aktive Leckage. Kühlwasserstand prüfen — milchig = Kopfdichtungsschaden."},
         
       ]},
       { label:"Innenraum", flags:[
         
-        {id:"b16",crit:true, text:"Verschleiß passt nicht zum Kilometerstand",tip:"Fahrerpedal-Gummi, Lenkradbezug und Fahrersitz-Polster zeigen den echten Kilometerstand. Bei angeblich 60'000 km stark abgenutzt? Das Auto hat deutlich mehr gelaufen. Kilometerbetrug ist in der Schweiz strafbar."},
+        {id:"b16",crit:true, text:"Passt der Verschleiß (Pedal, Lenkrad, Sitz) zum angegebenen Kilometerstand?",tip:"Fahrerpedal-Gummi, Lenkradbezug und Fahrersitz-Polster zeigen den echten Kilometerstand. Bei angeblich 60'000 km stark abgenutzt? Das Auto hat deutlich mehr gelaufen. Kilometerbetrug ist in der Schweiz strafbar."},
         
       ]},
     ]
@@ -830,18 +828,18 @@ const BASE_PHASES = [
     intro:"Mindestens 20 Minuten. Autobahn wenn möglich. Konzentriert fahren — kein Gespräch. Erst wenn der Motor warm ist, zeigen sich viele Probleme.",
     groups:[
       { label:"Bedingungen", flags:[
-        {id:"p1",crit:true, text:"Probefahrt unter 15 Minuten oder Route vorgegeben",tip:"Motor- und Getriebeprobleme zeigen sich erst wenn alles warm ist. Eigene Strecke: Autobahn für Vibrationen bei Tempo, Stadtverkehr für Getriebe und Bremsen, Parkplatz für Lenkung bei vollem Einschlag."},
-        {id:"p2",crit:true, text:"Warnleuchten gehen kurz an und erlöschen dann",tip:"Kurz aufleuchtende und wieder erlöschende Warnleuchten bedeuten: Fehlercode wurde vor der Besichtigung mit OBD-Gerät gelöscht. Der Fehler ist noch da — er kommt nach einigen Kilometern zurück. Sofort ansprechen."},
+        {id:"p1",crit:true, text:"Konntest du mind. 20 Minuten auf eigener Strecke fahren?",tip:"Motor- und Getriebeprobleme zeigen sich erst wenn alles warm ist. Eigene Strecke: Autobahn für Vibrationen bei Tempo, Stadtverkehr für Getriebe und Bremsen, Parkplatz für Lenkung bei vollem Einschlag."},
+        {id:"p2",crit:true, text:"Bleiben alle Warnleuchten dauerhaft aus (kein kurzes Aufblinken)?",tip:"Kurz aufleuchtende und wieder erlöschende Warnleuchten bedeuten: Fehlercode wurde vor der Besichtigung mit OBD-Gerät gelöscht. Der Fehler ist noch da — er kommt nach einigen Kilometern zurück. Sofort ansprechen."},
       ]},
       { label:"Motor & Getriebe", flags:[
-        {id:"p3",crit:true, text:"Klopfen, Nageln oder Rasseln beim Kaltstart",tip:"Klopfen, Nageln oder Rasseln beim Kaltstart deutet auf Steuerkettenverschleiß oder Ventilprobleme hin. Austausch kostet 1'500–4'000. Nicht ignorieren — auch wenn es nach dem Warmlaufen besser wird."},
-        {id:"p4",crit:true, text:"Leistungsabfall, Ruckeln oder Aussetzer beim Gasgeben",tip:"Ruckeln oder Aussetzer beim Gasgeben deutet auf Zündkerzen, Einspritzventile oder Turbo hin. Kosten: 200–3'000 je nach Ursache. Lass dich nicht mit 'das wird noch besser' abspeisen."},
-        {id:"p5",crit:true, text:"Automatik oder Doppelkupplungsgetriebe ruckelt oder schlägt",tip:"DSG- und Doppelkupplungsgetriebe ruckeln bei manchen Modellen ab Werk — CHECKR zeigt dir ob dein Modell betroffen ist. Bei unbekannten Modellen: Rucken beim Anfahren oder Gangwechsel = Kupplungsverschleiß, 800–2'500."},
+        {id:"p3",crit:true, text:"Ist der Motor beim Kaltstart ruhig — kein Klopfen, Nageln oder Rasseln?",tip:"Klopfen, Nageln oder Rasseln beim Kaltstart deutet auf Steuerkettenverschleiß oder Ventilprobleme hin. Austausch kostet 1'500–4'000. Nicht ignorieren — auch wenn es nach dem Warmlaufen besser wird."},
+        {id:"p4",crit:true, text:"Beschleunigt das Auto gleichmässig ohne Ruckeln oder Aussetzer?",tip:"Ruckeln oder Aussetzer beim Gasgeben deutet auf Zündkerzen, Einspritzventile oder Turbo hin. Kosten: 200–3'000 je nach Ursache. Lass dich nicht mit 'das wird noch besser' abspeisen."},
+        {id:"p5",crit:true, text:"Schaltet das Getriebe weich — kein Rucken oder Schlagen beim Anfahren?",tip:"DSG- und Doppelkupplungsgetriebe ruckeln bei manchen Modellen ab Werk — CHECKR zeigt dir ob dein Modell betroffen ist. Bei unbekannten Modellen: Rucken beim Anfahren oder Gangwechsel = Kupplungsverschleiß, 800–2'500."},
         
         
       ]},
       { label:"Fahrwerk & Bremsen", flags:[
-        {id:"p8",crit:true, text:"Beim Bremsen: Fahrzeug zieht zur Seite oder pulsiert",tip:"Beim Bremsen die Hände kurz lockern: zieht das Auto zur Seite = Bremssattel klemmt oder Beläge ungleich. Pulsierendes Pedal = verzogene Bremsscheibe. Beides sicherheitsrelevant und muss repariert werden."},
+        {id:"p8",crit:true, text:"Bremst das Auto geradeaus — kein Ziehen zur Seite, kein Pulsieren?",tip:"Beim Bremsen die Hände kurz lockern: zieht das Auto zur Seite = Bremssattel klemmt oder Beläge ungleich. Pulsierendes Pedal = verzogene Bremsscheibe. Beides sicherheitsrelevant und muss repariert werden."},
         
         
       ]},
@@ -852,22 +850,22 @@ const BASE_PHASES = [
     intro:"Was nicht belegt ist, existiert nicht. Nimm dir Zeit für die Papiere — sie erzählen die Geschichte des Autos.",
     groups:[
       { label:"Fahrzeugpapiere", flags:[
-        {id:"d1",crit:true, text:"Fahrzeugbrief fehlt, liegt bei einer Bank oder Leasing-Gesellschaft",tip:"Ohne Fahrzeugbrief im Original kein Kauf. Liegt er bei einer Bank oder Leasinggesellschaft ist das Auto noch finanziert — du kaufst die Schulden mit. Lass dir schriftlich bestätigen dass keine Belastungen bestehen."},
-        {id:"d2",crit:false,text:"Hauptuntersuchung läuft in den nächsten 3 Monaten ab",tip:"Eine bald fällige Hauptuntersuchung kann versteckte Mängel offenbaren. Verlange eine frische Prüfung vor dem Kauf — oder kalkuliere 150–600 für Nachbesserungen ein und ziehe das vom Preis ab."},
+        {id:"d1",crit:true, text:"Liegt der Fahrzeugbrief im Original vor (nicht bei Bank oder Leasing)?",tip:"Ohne Fahrzeugbrief im Original kein Kauf. Liegt er bei einer Bank oder Leasinggesellschaft ist das Auto noch finanziert — du kaufst die Schulden mit. Lass dir schriftlich bestätigen dass keine Belastungen bestehen."},
+        {id:"d2",crit:false,text:"Ist die Hauptuntersuchung noch mindestens 3 Monate gültig?",tip:"Eine bald fällige Hauptuntersuchung kann versteckte Mängel offenbaren. Verlange eine frische Prüfung vor dem Kauf — oder kalkuliere 150–600 für Nachbesserungen ein und ziehe das vom Preis ab."},
       ]},
       { label:"Servicehistorie", flags:[
-        {id:"d3",crit:true, text:"Serviceheft fehlt oder hat Lücken von über 2 Jahren",tip:"Jede Lücke im Serviceheft über 2 Jahre ist ein Warnsignal. Stempel ohne lesbaren Werkstattnamen oder Datum sind wertlos. Fehlende Einträge = unbekannte Geschichte = erhöhtes Risiko."},
-        {id:"d4",crit:true, text:"Kilometerstand im Heft und am Tacho stimmen nicht überein",tip:"Notiere den Kilometerstand bei jedem Stempel und vergleiche mit dem aktuellen Tacho. Stände müssen immer ansteigen — jede Abweichung deutet auf Tachomanipulation hin. In der Schweiz strafbar, dennoch verbreitet."},
+        {id:"d3",crit:true, text:"Ist das Serviceheft vollständig und lückenlos (keine Lücken über 2 Jahre)?",tip:"Jede Lücke im Serviceheft über 2 Jahre ist ein Warnsignal. Stempel ohne lesbaren Werkstattnamen oder Datum sind wertlos. Fehlende Einträge = unbekannte Geschichte = erhöhtes Risiko."},
+        {id:"d4",crit:true, text:"Stimmen alle Kilometerstände im Serviceheft mit dem aktuellen Tacho überein?",tip:"Notiere den Kilometerstand bei jedem Stempel und vergleiche mit dem aktuellen Tacho. Stände müssen immer ansteigen — jede Abweichung deutet auf Tachomanipulation hin. In der Schweiz strafbar, dennoch verbreitet."},
         
       ]},
       { label:"Vorgeschichte", flags:[
-        {id:"d6",crit:true, text:"War das Auto als Taxi, Mietwagen oder Fahrschulwagen zugelassen",tip:"Auch bei niedrigem Kilometerstand: Taxi und Mietwagen bedeuten viele Kaltstarts, Dauerbetrieb und wechselnde Fahrer ohne persönliche Bindung. Verschleiß ist 2–3x höher als bei Privatnutzung."},
-        {id:"d7",crit:true, text:"Unfalldokumentation fehlt trotz sichtbarer Reparaturen",tip:"Keine Meldepflicht für Unfälle — aber sichtbare Reparaturen ohne Dokumentation sind ein Red Flag. Verlange schriftliche Bestätigung der Unfallfreiheit im Vertrag. Ohne Unterschrift des Verkäufers ist sie wertlos."},
+        {id:"d6",crit:true, text:"War das Auto nie als Taxi, Mietwagen oder Fahrschulfahrzeug zugelassen?",tip:"Auch bei niedrigem Kilometerstand: Taxi und Mietwagen bedeuten viele Kaltstarts, Dauerbetrieb und wechselnde Fahrer ohne persönliche Bindung. Verschleiß ist 2–3x höher als bei Privatnutzung."},
+        {id:"d7",crit:true, text:"Sind alle sichtbaren Reparaturen durch Dokumente belegt?",tip:"Keine Meldepflicht für Unfälle — aber sichtbare Reparaturen ohne Dokumentation sind ein Red Flag. Verlange schriftliche Bestätigung der Unfallfreiheit im Vertrag. Ohne Unterschrift des Verkäufers ist sie wertlos."},
         
       ]},
       { label:"Import & Belastungen", flags:[
-        {id:"d9",crit:true, text:"Ausländische Papiere ohne geklärten Import-Status",tip:"Import aus DE/AT in die Schweiz: Zollabgaben (ca. 4%), MWST-Nachzahlung (7.7%) und COC-Dokument nötig. 500–2'500 Gesamtkosten zusätzlich je nach Fahrzeugwert. Immer vorab kalkulieren."},
-        {id:"d10",crit:true, text:"Tacho in Meilen — Kilometerstand möglicherweise falsch",tip:"Meilen × 1.609 = Kilometer. 60'000 Meilen = knapp 100'000 km. Tacho und Serviceheft müssen übereinstimmen. Gerade bei US-Importen wird der Wert oft nicht korrekt umgerechnet dargestellt."},
+        {id:"d9",crit:true, text:"Sind ausländische Papiere vorhanden und ist der Import-Status geklärt?",tip:"Import aus DE/AT in die Schweiz: Zollabgaben (ca. 4%), MWST-Nachzahlung (7.7%) und COC-Dokument nötig. 500–2'500 Gesamtkosten zusätzlich je nach Fahrzeugwert. Immer vorab kalkulieren."},
+        {id:"d10",crit:true, text:"Zeigt der Tacho Kilometer — oder wurde ein Meilen-Stand korrekt umgerechnet?",tip:"Meilen × 1.609 = Kilometer. 60'000 Meilen = knapp 100'000 km. Tacho und Serviceheft müssen übereinstimmen. Gerade bei US-Importen wird der Wert oft nicht korrekt umgerechnet dargestellt."},
         
       ]},
     ]
@@ -877,14 +875,14 @@ const BASE_PHASES = [
     intro:"Nach der Unterschrift gelten andere Regeln. Nimm dir Zeit. Du darfst den Vertrag mitnehmen und später unterschreiben — das ist dein Recht.",
     groups:[
       { label:"Vertragsform", flags:[
-        {id:"v1",crit:true, text:"Vertrag handschriftlich, mit Bleistift oder schwer lesbar",tip:"Bleistift kann nachträglich verändert werden — niemals akzeptieren. Unleserliche Handschrift ist selten Zufall. Nur klare gedruckte Verträge akzeptieren. Im Zweifelsfall: eigene Vorlage mitbringen."},
-        {id:"v2",crit:true, text:"Preis oder Bedingungen kurz vor Unterschrift geändert",tip:"Preis kurz vor Unterschrift erhöhen ist eine bekannte Taktik. Überführungskosten, Aufbereitungspauschale oder Dokumentengebühren müssen im ursprünglichen Angebot enthalten sein — sonst ablehnen und gehen."},
-        {id:"v3",crit:true, text:"Mündliche Zusagen stehen nicht im Vertrag",tip:"Was nicht im Vertrag steht, existiert vor Gericht nicht. Reparaturzusagen, versprochenes Zubehör, zweiter Schlüssel, Winterräder — alles schriftlich und vom Verkäufer unterschrieben."},
+        {id:"v1",crit:true, text:"Ist der Vertrag gedruckt, klar lesbar und nicht mit Bleistift geschrieben?",tip:"Bleistift kann nachträglich verändert werden — niemals akzeptieren. Unleserliche Handschrift ist selten Zufall. Nur klare gedruckte Verträge akzeptieren. Im Zweifelsfall: eigene Vorlage mitbringen."},
+        {id:"v2",crit:true, text:"Entsprechen Preis und Bedingungen genau dem ursprünglichen Angebot?",tip:"Preis kurz vor Unterschrift erhöhen ist eine bekannte Taktik. Überführungskosten, Aufbereitungspauschale oder Dokumentengebühren müssen im ursprünglichen Angebot enthalten sein — sonst ablehnen und gehen."},
+        {id:"v3",crit:true, text:"Stehen alle mündlichen Zusagen (Reparaturen, Zubehör) auch im Vertrag?",tip:"Was nicht im Vertrag steht, existiert vor Gericht nicht. Reparaturzusagen, versprochenes Zubehör, zweiter Schlüssel, Winterräder — alles schriftlich und vom Verkäufer unterschrieben."},
       ]},
       { label:"Gewährleistung", flags:[
-        {id:"v4",crit:true, text:"Gekauft wie gesehen ohne schriftliche Mängelliste",tip:"'Gekauft wie gesehen' ohne Mängelliste bedeutet: du verzichtest auf alle Rechte. Bestehe auf einer schriftlichen Auflistung aller bekannten Mängel im Vertrag — auch kleiner Kratzer und fehlender Teile."},
-        {id:"v5",crit:true, text:"Händler trägt sich als Privatperson ein",tip:"Gewerblich als Privatperson zu verkaufen ist in der Schweiz und Deutschland illegal. Du verlierst dadurch 2 Jahre gesetzliche Gewährleistung. Handelsregistereintrag verlangen und im Vertrag als Händler eintragen lassen."},
-        {id:"v6",crit:false,text:"Keine Rücktrittsklausel bei versteckten Mängeln",tip:"Bei Händlerkauf: 2 Jahre Gewährleistung ist gesetzlich. Bei Privatkauf: mindestens schriftliche Bestätigung der Unfallfreiheit und bekannter Mängel verlangen. Das ist dein wichtigster Schutz."},
+        {id:"v4",crit:true, text:"Enthält der Vertrag eine schriftliche Liste aller bekannten Mängel?",tip:"'Gekauft wie gesehen' ohne Mängelliste bedeutet: du verzichtest auf alle Rechte. Bestehe auf einer schriftlichen Auflistung aller bekannten Mängel im Vertrag — auch kleiner Kratzer und fehlender Teile."},
+        {id:"v5",crit:true, text:"Ist der Händler korrekt als Unternehmen eingetragen (nicht als Privatperson)?",tip:"Gewerblich als Privatperson zu verkaufen ist in der Schweiz und Deutschland illegal. Du verlierst dadurch 2 Jahre gesetzliche Gewährleistung. Handelsregistereintrag verlangen und im Vertrag als Händler eintragen lassen."},
+        {id:"v6",crit:false,text:"Enthält der Vertrag eine Gewährleistungsklausel bei versteckten Mängeln?",tip:"Bei Händlerkauf: 2 Jahre Gewährleistung ist gesetzlich. Bei Privatkauf: mindestens schriftliche Bestätigung der Unfallfreiheit und bekannter Mängel verlangen. Das ist dein wichtigster Schutz."},
       ]},
       { label:"Zahlung & Übergabe", flags:[
         
@@ -898,10 +896,8 @@ const BASE_PHASES = [
 
 // ─── SEVERITY ─────────────────────────────────────────────────────────────────
 const ANSWERS = [
-  { id:"ok",    label:"Alles gut",    short:"Gut",     color:"#36C068", bg:"rgba(54,192,104,.13)"  },
-  { id:"note",  label:"Auffällig",   short:"Auffällig",color:"#E8A020", bg:"rgba(232,160,32,.13)" },
-  { id:"stop",  label:"Abbruchgrund",short:"Stopp",   color:"#E84040", bg:"rgba(232,64,64,.13)"   },
-  { id:"skip",  label:"Nicht geprüft",short:"—",       color:"#5A5753", bg:"rgba(90,87,83,.1)"    },
+  { id:"ok",   label:"Ja",  short:"✓", color:"#36C068", bg:"rgba(54,192,104,.13)" },
+  { id:"stop", label:"Nein",short:"✕", color:"#E84040", bg:"rgba(232,64,64,.13)"  },
 ];
 const ANS = Object.fromEntries(ANSWERS.map(a => [a.id, a]));
 
@@ -1288,7 +1284,7 @@ export default function CHECKR() {
   const mdlNoteCount = Object.values(mdlR).filter(v=>v==="note").length;
 
   const totalStops = allStops.length + mdlFails;
-  const totalNotes = allNotes.length + mdlNoteCount;
+  const totalNotes = 0; // note answer removed - Ja/Nein only
 
   // Coverage: how many total checkable flags exist vs how many were actually answered
   const totalCheckable = allFlags.length +
@@ -1303,7 +1299,7 @@ export default function CHECKR() {
   // WARN  — any Auffällig, OR checked less than 50% (can't say it's fine if you didn't look)
   // GO    — ≥50% checked AND zero stops AND zero notes
   const verdict = totalStops >= 1 ? "stop"
-    : (totalNotes >= 1 || incomplete) ? "warn"
+    : incomplete ? "warn"
     : "go";
 
   const VDICT = {
@@ -1437,12 +1433,9 @@ export default function CHECKR() {
                     onClick={()=>setObLang(code)}>{label}</button>
                 ))}
               </div>
-              <button className="welcome-start-btn"
-                style={{width:"100%",padding:"16px",background:"var(--lime)",color:"#09090B",border:"none",
-                  borderRadius:"14px",fontFamily:"var(--fb)",fontSize:"15px",fontWeight:700,cursor:"pointer",
-                  display:"flex",alignItems:"center",justifyContent:"center",gap:"10px"}}
-                onClick={()=>setObStep("name")}>
-                {IC.fwd} Weiter
+              <button className="wlc-cta" style={{width:"100%",padding:"16px",background:"var(--lime)",color:"#09090B",border:"none",borderRadius:"14px",fontFamily:"var(--fb)",fontSize:"15px",fontWeight:700,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",gap:"10px"}}
+                onClick={()=>{const ob={name:"",lang:obLang};setOnboard(ob);saveOnboard(ob);setScreen("welcome");}}>
+                {IC.spark} {tob.onboardStart}
               </button>
             </>)}
 
@@ -1465,7 +1458,7 @@ export default function CHECKR() {
                   borderRadius:"14px",fontFamily:"var(--fb)",fontSize:"15px",fontWeight:700,cursor:"pointer",
                   display:"flex",alignItems:"center",justifyContent:"center",gap:"10px"}}
                 onClick={()=>{
-                  const ob = {name:obName.trim()||"du", lang:obLang};
+                  const ob = {name:"", lang:obLang};
                   setOnboard(ob); saveOnboard(ob); setScreen("welcome");
                 }}>
                 {IC.spark} {tob.onboardStart}
@@ -1652,9 +1645,35 @@ export default function CHECKR() {
       <div className={`app${dark?"":" light-mode"}`}><style>{CSS}</style>
         <div className="ph-screen">
           <div className="topbar">
-            <button onClick={()=>setDark(d=>!d)} style={{background:"none",border:"1px solid var(--ln2)",borderRadius:8,padding:"5px 10px",color:"var(--ink2)",fontSize:13,cursor:"pointer",fontFamily:"var(--fb)"}}>
-              {dark?"☀️":"🌙"}
-            </button>
+            <div style={{display:"flex",alignItems:"center",gap:6}}>
+              <div style={{position:"relative"}}>
+                <button onClick={()=>setShowLangPicker(p=>!p)}
+                  style={{background:"none",border:"1px solid var(--ln2)",borderRadius:8,padding:"5px 8px",
+                    fontSize:16,cursor:"pointer",lineHeight:1}}>
+                  {LANG_FLAGS[lang]}
+                </button>
+                {showLangPicker && (
+                  <div style={{position:"absolute",top:"calc(100% + 4px)",left:0,background:"var(--bg2)",
+                    border:"1px solid var(--ln2)",borderRadius:10,overflow:"hidden",zIndex:100,minWidth:130,
+                    boxShadow:"0 8px 24px rgba(0,0,0,.3)"}}>
+                    {Object.entries(LANG_FLAGS).map(([code,flag])=>(
+                      <button key={code} onClick={()=>{
+                        const ob={...(onboard||{name:""}),lang:code};
+                        setOnboard(ob);saveOnboard(ob);setShowLangPicker(false);
+                      }} style={{width:"100%",display:"flex",alignItems:"center",gap:8,
+                        padding:"10px 12px",background:lang===code?"var(--lime2)":"transparent",
+                        border:"none",borderBottom:"1px solid var(--ln)",cursor:"pointer",
+                        fontFamily:"var(--fb)",fontSize:12,color:lang===code?"var(--lime)":"var(--ink2)"}}>
+                        <span style={{fontSize:16}}>{flag}</span>{LANG_LABELS[code]}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+              <button onClick={()=>setDark(d=>!d)} style={{background:"none",border:"1px solid var(--ln2)",borderRadius:8,padding:"5px 10px",color:"var(--ink2)",fontSize:13,cursor:"pointer",fontFamily:"var(--fb)"}}>
+                {dark?"☀️":"🌙"}
+              </button>
+            </div>
             {editingId && <span style={{fontSize:11,color:"var(--lime)",fontWeight:700,background:"var(--lime2)",padding:"3px 8px",borderRadius:6}}>{t.editingLabel}</span>}
             <div className="tb-back" onClick={()=>{ if(phaseIdx===0){ if(editingId){setEditingId(null);resetSession();setScreen("garage");}else{setScreen("vehicle");} } else { setPhaseIdx(i=>i-1); } }}>
               {IC.back} <span>{phaseIdx===0?"Fahrzeug":phases[phaseIdx-1].label}</span>
@@ -2147,9 +2166,7 @@ function FlagCard({ flag, result, tipOpen, onToggleTip, onSet, t }) {
       {tipOpen && <div className="fc-tip">{flag.tip}</div>}
       <div className="fc-actions">
         <button className={`fca${result==="ok"?" ok":""}`}   onClick={()=>onSet("ok")}>{t.fcaOk}</button>
-        <button className={`fca${result==="note"?" note":""}`} onClick={()=>onSet("note")}>{t.fcaNote}</button>
         <button className={`fca${result==="stop"?" stop":""}`} onClick={()=>onSet("stop")}>{t.fcaStop}</button>
-        <button className={`fca${result==="skip"?" skip":""}`} onClick={()=>onSet("skip")}>—</button>
       </div>
     </div>
   );
