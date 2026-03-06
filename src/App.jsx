@@ -11,7 +11,7 @@ const saveOnboard    = (o)  => { try { localStorage.setItem(ONBOARD_KEY, JSON.st
 // ─── I18N ─────────────────────────────────────────────────────────────────────
 const T = {
   de: {
-    appTagline: "Kein Risiko. Nur Klarheit.",
+    appTagline: "Schlau kaufen. Nichts übersehen.",
     appSub: "CHECKR begleitet dich durch den Kauf — von der ersten Anzeige bis zur Unterschrift.",
     startBtn: "Kaufprozess starten",
     myAutos: "Meine Autos",
@@ -171,7 +171,7 @@ const T = {
     vehicleSub: "Für bekannte Modelle laden wir automatisch die häufigsten Schwachstellen.",
   },
   en: {
-    appTagline: "No risk. Just clarity.",
+    appTagline: "Buy smart. Miss nothing.",
     appSub: "CHECKR guides you through the purchase — from the first listing to signing.",
     startBtn: "Start buying process",
     myAutos: "My cars",
@@ -935,11 +935,11 @@ html,body{background:var(--bg);color:var(--ink);font-family:var(--fb);font-size:
 .wlc{flex:1;display:flex;flex-direction:column;justify-content:flex-end;position:relative;min-height:100dvh;overflow:hidden}
 .wlc-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(200,236,58,.08) 0%,transparent 70%),radial-gradient(ellipse 60% 40% at 100% 100%,rgba(200,236,58,.04) 0%,transparent 60%)}
 .wlc-grid{position:absolute;inset:0;opacity:.04;background-image:linear-gradient(var(--ln2) 1px,transparent 1px),linear-gradient(90deg,var(--ln2) 1px,transparent 1px);background-size:32px 32px}
-.wlc-body{position:relative;z-index:2;padding:0 24px 40px}
+.wlc-body{position:relative;z-index:2;padding:0 24px 40px}.light-mode .wlc-bg{display:none}.light-mode .wlc-grid{display:none}
 .wlc-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--ln3);background:var(--bg3);padding:6px 12px;border-radius:20px;margin-bottom:28px;font-size:11px;color:var(--ink2);letter-spacing:.5px;text-transform:uppercase}
 .wlc-dot{width:6px;height:6px;border-radius:50%;background:var(--lime);animation:pulse 2s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
-.wlc-title{font-family:var(--fd);font-size:40px;line-height:1.08;letter-spacing:-.5px;margin-bottom:10px}
+.wlc-title{font-family:var(--fd);font-size:40px;line-height:1.08;letter-spacing:-.5px;margin-bottom:10px;color:var(--ink)}
 .wlc-title em{color:var(--lime);font-style:italic}
 .wlc-sub{font-size:14px;color:var(--ink2);line-height:1.65;margin-bottom:24px}
 .wlc-how{background:var(--bg3);border:1px solid var(--ln2);border-radius:12px;padding:14px;margin-bottom:24px}
@@ -1420,7 +1420,7 @@ export default function CHECKR() {
           <div className="wlc-bg"/><div className="wlc-grid"/>
           <div className="wlc-body">
             <div className="wlc-badge"><div className="wlc-dot"/>CHECKR</div>
-            <h1 className="wlc-title">Kein Risiko.<br/><em>Nur Klarheit.</em></h1>
+            <h1 className="wlc-title">Schlau kaufen.<br/><em>Nichts übersehen.</em></h1>
 
             {obStep==="lang" && (<>
               <p style={{fontSize:14,color:"var(--ink2)",marginBottom:20,lineHeight:1.6}}>
@@ -1557,7 +1557,7 @@ export default function CHECKR() {
             )}
           </div>
           <div className="wlc-badge"><div className="wlc-dot"/>{t.badgeLabel}</div>
-          <h1 className="wlc-title">Kein Risiko.<br/><em>Nur Klarheit.</em></h1>
+          <h1 className="wlc-title">Schlau kaufen.<br/><em>Nichts übersehen.</em></h1>
           <p className="wlc-sub">{t.appSub}</p>
           <div className="wlc-how">
             <div className="wlc-how-title">{t.howTitle}</div>
@@ -1752,7 +1752,7 @@ export default function CHECKR() {
               if(isLast){ setScreen("summary"); }
               else { setPhaseIdx(i=>i+1); setShowPopup(true); setScreen("phase"); }
             }}>
-              {phaseIdx === phases.length-1 ? `${t.summaryLabel} ${IC.fwd}` : `Weiter ${IC.fwd}`}
+              {phaseIdx === phases.length-1 ? <>{t.summaryLabel} {IC.fwd}</> : <>Weiter {IC.fwd}</>}
             </button>
           </div>
         </div>
