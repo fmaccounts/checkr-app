@@ -49,7 +49,7 @@ const T = {
     compareRec: (n) => `Unsere Empfehlung für dich, ${n}:`,
     compareRecBest: (name) => `${name} schneidet am besten ab.`,
     compareRecWarn: "Keines der Autos ist ohne Vorbehalt empfehlenswert.",
-    ansOk: "Alles gut", ansNote: "Auffällig", ansStop: "Abbruch", ansSkip: "—",
+    ansOk: "Alles gut", ansNote: "Auffällig", ansStop: "Kaufstopp", ansSkip: "—",
     nothingChecked: "Nichts geprüft",
     nothingCheckedDesc: (n) => `Du hast in dieser Phase keinen Punkt bewertet, ${n}. Bist du sicher, dass du alle Punkte überspringen möchtest?`,
     nothingCheckedHint: "Nicht geprüfte Punkte fliessen nicht in die Auswertung ein.",
@@ -59,7 +59,7 @@ const T = {
     compare: "Vergleichen",
     nextStep: "Nächster Schritt",
     actionPoints: "Jetzt klären",
-    allStopsLabel: "Alle Abbruchgründe",
+    allStopsLabel: "Kaufstopps",
     allNotesLabel: "Auffällige Punkte",
   },
   fr: {
@@ -581,7 +581,7 @@ const BASE_PHASES = [
       { label:"Preis & Angebot", flags:[
         {id:"i1",crit:true, text:"Preis mehr als 20% unter vergleichbaren Angeboten",tip:"Entweder Lockvogel-Angebot oder das Auto hat ein ernstes, nicht genanntes Problem. Vergleich auf AutoScout24 oder mobile.de."},
         {id:"i2",crit:false,text:"Behauptungen ohne Nachweis: unfallfrei, frisch ab Service, 1 Vorbesitzer",tip:"Alles was nicht belegt ist, zählt nicht. Service-Protokoll, Unfallfreiheit-Bestätigung und Anzahl Vorbesitzer im Fahrzeugausweis beim Termin verlangen."},
-        {id:"i3",crit:false,text:"Inserat mehrfach neu eingestellt oder Preis hat gewechselt",tip:"Das Auto wird seit Wochen oder Monaten nicht verkauft. Entweder stimmt etwas nicht oder der Preis ist überhöht."},
+        
       ]},
       { label:"Fotos & Inhalt", flags:[
         {id:"i4",crit:true, text:"Fotos bei schlechtem Licht, in Halle oder unscharf",tip:"Dunkle oder unscharfe Fotos verbergen Dellen, Rost und Lackschäden. Immer auf klare Tageslichtfotos bestehen."},
@@ -590,7 +590,7 @@ const BASE_PHASES = [
       ]},
       { label:"Verkäufer", flags:[
         {id:"i7",crit:true, text:"Privat-Inserat wirkt wie professioneller Händler",tip:"Mehrere Inserate, professionelle Fotos, Händlersprache — aber als Privat deklariert. Gewerblich als Privat verkaufen ist illegal. Du verlierst Gewährleistungsrechte."},
-        {id:"i8",crit:false,text:"Standort oder Details wechseln zwischen Inseraten",tip:"Manche Händler-Ringe stellen dasselbe Auto mehrfach ein. Sofort abbrechen."},
+        
       ]},
     ]
   },
@@ -606,7 +606,7 @@ const BASE_PHASES = [
       { label:"Auskunft & Identität", flags:[
         {id:"k4",crit:true, text:"Ausweichende Antworten auf direkte Fragen zum Zustand",tip:"Wer das Auto kennt und nichts zu verbergen hat, antwortet klar. Wer ausweicht, weiß etwas."},
         {id:"k5",crit:true, text:"Probefahrt abgelehnt oder auf wenige Minuten begrenzt",tip:"Ohne freie Probefahrt — mindestens 20 Minuten, gerne mit Autobahn — kein Kauf."},
-        {id:"k6",crit:false,text:"Kein vollständiger Name, keine Adresse — nur WhatsApp",tip:"Vollständiger Name und Adresse des Verkäufers vor dem Termin. Wer das verweigert, ist nicht vertrauenswürdig."},
+        
       ]},
     ]
   },
@@ -621,8 +621,8 @@ const BASE_PHASES = [
         {id:"h3",crit:false,text:"Viele 5-Sterne Bewertungen ohne Text, Datum oder Variation",tip:"Gefälschte Bewertungen. Ältere Einträge mit echtem Text lesen. Negative Bewertungen zeigen oft das wahre Bild."},
       ]},
       { label:"Verkaufstaktik", flags:[
-        {id:"h4",crit:false,text:"Sofort Finanzierungsangebot oder Ratenkauf angeboten",tip:"Provision-getrieben und oft mit überteuerten Zinsen. Eigene Finanzierung vorbereiten oder direkt Barpreis verhandeln."},
-        {id:"h5",crit:false,text:"Auto kommt frisch aus der Aufbereitung",tip:"Aufbereitung überdeckt Kratzer, Gerüche und kleine Mängel. Trotzdem alles genau prüfen — vor allem Fugen, Dachhimmel und Kofferraum."},
+        
+        
       ]},
     ]
   },
@@ -633,7 +633,7 @@ const BASE_PHASES = [
       { label:"Situation", flags:[
         {id:"b1",crit:true, text:"Motor läuft bereits beim Ankommen",tip:"Beim Kaltstart hört man viele Probleme, die danach verschwinden. Darauf bestehen, dass der Motor kalt ist — sonst neu terminieren."},
         {id:"b2",crit:true, text:"Zeitdruck oder Ablenkung durch den Verkäufer",tip:"Du hast das Recht, so lange zu schauen wie du möchtest. Wer dich unter Druck setzt, hat etwas zu verbergen."},
-        {id:"b3",crit:false,text:"Auto frisch gewaschen und stark parfümiert",tip:"Frische Wäsche ist normal. Intensiver Duft von Parfüm oder Reiniger überdeckt oft Feuchtigkeit oder Öl."},
+        
       ]},
       { label:"Karosserie & Lack", flags:[
         {id:"b4",crit:true, text:"Spaltmaße ungleichmässig an Türen, Kotflügeln oder Haube",tip:"Halte die Münze neben den Spalt — er sollte überall gleich breit sein. Unterschiede deuten auf Unfallschäden hin."},
@@ -647,12 +647,12 @@ const BASE_PHASES = [
       ]},
       { label:"Bremsen", flags:[
         {id:"b10",crit:true, text:"Bremsscheiben: tiefe Rillen oder starker Rostrand sichtbar",tip:"Durch die Felgenspeichen schauen. Tiefe Rillen und dicker Rostrand bedeuten verschlissene Scheiben. Austausch: ca. CHF 400–1'200."},
-        {id:"b11",crit:false,text:"Bei Sportwagen: Bremssättel vorne und hinten verschiedene Marken",tip:"Hochwertige Sportwagen haben oft farbige Markenbremsen. Vorne rot, hinten schwarz von anderer Marke = Umbau oder günstige Reparatur mit Fremdteilen."},
+        
       ]},
       { label:"Unterboden & Motorraum", flags:[
         {id:"b12",crit:true, text:"Unterboden-Inspektion nicht möglich oder verweigert",tip:"Rost, Unfallschäden und Reparaturen sind von unten am deutlichsten sichtbar. Kein Unterboden-Check = kein Kauf."},
         {id:"b13",crit:true, text:"Öl- oder Kühlwasserspuren im Motorraum",tip:"Ein Ölfleck ist oft harmlos. Ein nasser Motorraum oder weisser Belag beim Kühlwasser ist ernst. Deutet auf Leckagen hin."},
-        {id:"b14",crit:false,text:"Kabel oder Leitungen unsauber oder mit Klebeband geflickt",tip:"Unsaubere Elektrik deutet auf Pfusch-Reparaturen hin. Kann zu Problemen führen, die schwer zu diagnostizieren sind."},
+        
       ]},
       { label:"Innenraum", flags:[
         {id:"b15",crit:true, text:"Geruch nach Feuchtigkeit oder Schimmel",tip:"Feuchtigkeitsgeruch bedeutet Wassereintritt — durch Dach, Türdichtungen oder Heizungskasten. Das ist aufwändig zu reparieren."},
@@ -673,13 +673,13 @@ const BASE_PHASES = [
         {id:"p3",crit:true, text:"Klopfen, Nageln oder Rasseln beim Kaltstart",tip:"Klopfen und Nageln beim Start deutet auf Verschleiß im Motor hin — oft an Steuerkette oder Ventilen. Nicht ignorieren."},
         {id:"p4",crit:true, text:"Leistungsabfall, Ruckeln oder Aussetzer beim Gasgeben",tip:"Kann an Zündkerzen, Einspritzung oder dem Turbo liegen. Kosten: CHF 200–3'000 je nach Ursache."},
         {id:"p5",crit:true, text:"Automatik oder Doppelkupplungsgetriebe ruckelt oder schlägt",tip:"Ruckeln beim Anfahren oder Gangwechsel ist bei manchen Modellen ein bekanntes Problem. Bei anderen bedeutet es teure Reparatur."},
-        {id:"p6",crit:false,text:"Kupplung schleift, ruckt oder greift sehr hoch",tip:"Kupplung am Ende ihrer Lebensdauer. Austausch kostet CHF 800–2'500 je nach Modell — ein gutes Verhandlungsargument."},
-        {id:"p7",crit:false,text:"Ungewöhnlicher Rauch aus dem Auspuff",tip:"Blauer Rauch = Öl verbrennt. Weisser Rauch bei warmem Motor = Kühlwasser tritt ein. Schwarzer Rauch = zu viel Kraftstoff."},
+        
+        
       ]},
       { label:"Fahrwerk & Bremsen", flags:[
         {id:"p8",crit:true, text:"Beim Bremsen: Fahrzeug zieht zur Seite oder pulsiert",tip:"Ziehen = ein Bremssattel klemmt oder Beläge ungleich. Pulsieren = verbogene Bremsscheibe. Beides muss repariert werden."},
         {id:"p9",crit:false,text:"Klappern oder Poltern bei Bodenwellen und Kurven",tip:"Meist Stoßdämpfer, Lager oder Stabilisatoren. Ortung wichtig: kommt es vorne links oder hinten rechts?"},
-        {id:"p10",crit:false,text:"Fahrzeug zieht ohne Bremsen nach einer Seite",tip:"Achsgeometrie nach Unfall, ungleicher Luftdruck oder Reifenverschleiß. Achsvermessung kostet CHF 80–200."},
+        
       ]},
     ]
   },
@@ -694,12 +694,12 @@ const BASE_PHASES = [
       { label:"Servicehistorie", flags:[
         {id:"d3",crit:true, text:"Serviceheft fehlt oder hat Lücken von über 2 Jahren",tip:"Lücken bedeuten unbekannte Geschichte. Stempel ohne lesbaren Werkstattnamen sind nichts wert."},
         {id:"d4",crit:true, text:"Kilometerstand im Heft und am Tacho stimmen nicht überein",tip:"Die Stände im Serviceheft müssen chronologisch ansteigen. Jede Abweichung ist ein Abbruchgrund."},
-        {id:"d5",crit:false,text:"Nur autorisierte Markenwerkstatt oder nur Eigenreparaturen",tip:"Reine Eigenreparaturen sind nicht automatisch schlecht — aber ohne Belege ist die Geschichte unklar."},
+        
       ]},
       { label:"Vorgeschichte", flags:[
         {id:"d6",crit:true, text:"War das Auto als Taxi, Mietwagen oder Fahrschulwagen zugelassen",tip:"Auch bei niedrigem Kilometerstand: Taxi und Mietwagen bedeuten extreme Belastung durch viele Kaltstarts, Stadtverkehr und wechselnde Fahrer."},
         {id:"d7",crit:true, text:"Unfalldokumentation fehlt trotz sichtbarer Reparaturen",tip:"Keine Pflicht zur Meldung — aber sichtbare Spuren ohne Erklärung sind ein Red Flag. Schriftliche Bestätigung der Unfallfreiheit verlangen."},
-        {id:"d8",crit:false,text:"Mehr als 3 Vorbesitzer",tip:"Viele Vorbesitzer können auf häufige Probleme hindeuten. Die Anzahl steht im Fahrzeugausweis."},
+        
       ]},
       { label:"Import & Belastungen", flags:[
         {id:"d9",crit:true, text:"Ausländische Papiere ohne geklärten Import-Status",tip:"Import aus DE/AT in die Schweiz: Zollabgaben, Mehrwertsteuer-Nachzahlung und COC-Dokument nötig. Kann CHF 500–2'000 zusätzlich kosten."},
@@ -725,8 +725,8 @@ const BASE_PHASES = [
       { label:"Zahlung & Übergabe", flags:[
         {id:"v7",crit:true, text:"Anzahlung vor Vertragsunterzeichnung verlangt",tip:"Niemals. Erst unterschreiben, dann zahlen — oder beides gleichzeitig bei der Übergabe."},
         {id:"v8",crit:true, text:"Fahrzeugbrief wird nicht sofort übergeben",tip:"Fahrzeugbrief = vollständiges Eigentum. Wer ihn zurückhält, behält rechtlich die Kontrolle."},
-        {id:"v9",crit:false,text:"Zweitschlüssel fehlt und wird nachgesendet",tip:"Kommt selten an. Schlüssel nachmachen lassen kostet CHF 200–500. Sofort vom Kaufpreis abziehen."},
-        {id:"v10",crit:false,text:"Übergabedatum und Fahrzeugzustand nicht schriftlich festgelegt",tip:"Ohne schriftlichen Zustand bei Übergabe hat man bei späteren Streitigkeiten schlechte Karten."},
+        
+        
       ]},
     ]
   },
@@ -754,6 +754,15 @@ const CSS = `
   --amr:#E8A020;--amr2:rgba(232,160,32,.13);
   --grn:#36C068;--grn2:rgba(54,192,104,.13);
   --fb:'Archivo',sans-serif;--fd:'Libre Baskerville',serif;
+}
+.light-mode {
+  --bg:#F5F4F0;--bg2:#EDECEA;--bg3:#E5E3DE;--bg4:#DDDBD5;--bg5:#D5D2CB;
+  --ln:#D0CEC8;--ln2:#C8C5BE;--ln3:#B8B5AE;
+  --ink:#1A1917;--ink2:#4A4845;--ink3:#7A7874;
+  --lime:#7AAE00;--lime2:rgba(122,174,0,.12);--lime3:rgba(122,174,0,.06);
+  --red:#C82020;--red2:rgba(200,32,32,.1);
+  --amr:#B07000;--amr2:rgba(176,112,0,.1);
+  --grn:#1A8040;--grn2:rgba(26,128,64,.1);
 }
 html,body{background:var(--bg);color:var(--ink);font-family:var(--fb);font-size:15px;-webkit-font-smoothing:antialiased;min-height:100dvh}
 .app{max-width:430px;min-height:100dvh;margin:0 auto;background:var(--bg);display:flex;flex-direction:column}
@@ -1047,6 +1056,7 @@ export default function CHECKR() {
   const [obLang, setObLang]   = useState("de");
   const [obName, setObName]   = useState("");
 
+  const [dark, setDark] = useState(true);
   const t = T[onboard?.lang || "de"];
   const userName = onboard?.name || "";
 
@@ -1169,7 +1179,7 @@ export default function CHECKR() {
     setGarage(updated);
     saveGarage(updated);
     resetSession();
-    setScreen("garage");
+    setScreen("vehicle");
   };
 
   const delFromGarage = (id) => {
@@ -1191,7 +1201,7 @@ export default function CHECKR() {
   if (screen==="onboard") {
     const tob = T[obLang];
     return (
-      <div className="app"><style>{CSS}</style>
+      <div className={`app${dark?"":" light-mode"}`}><style>{CSS}</style>
         <div className="wlc">
           <div className="wlc-bg"/><div className="wlc-grid"/>
           <div className="wlc-body">
@@ -1280,7 +1290,7 @@ export default function CHECKR() {
   };
 
   if (screen==="welcome") return (
-    <div className="app"><style>{CSS}</style>
+    <div className={`app${dark?"":" light-mode"}`}><style>{CSS}</style>
       <div className="wlc">
         <div className="wlc-bg"/><div className="wlc-grid"/>
         <div className="wlc-body">
@@ -1315,7 +1325,7 @@ export default function CHECKR() {
 
   // ─── VEHICLE ─────────────────────────────────────────────────────────────
   if (screen==="vehicle") return (
-    <div className="app"><style>{CSS}</style>
+    <div className={`app${dark?"":" light-mode"}`}><style>{CSS}</style>
       <div className="vpk">
         <div className="vpk-hdr">
           <div className="step-lbl">Fahrzeug wählen</div>
@@ -1378,7 +1388,7 @@ export default function CHECKR() {
     const nothingChecked = checkedCount === 0;
     const isLast = phaseIdx === phases.length-1;
     return (
-      <div className="app"><style>{CSS}</style>
+      <div className={`app${dark?"":" light-mode"}`}><style>{CSS}</style>
         <div className="ph-end">
           <div className="topbar">
             <div className="tb-back" onClick={()=>setScreen("phase")}>{IC.back} Zurück</div>
@@ -1446,9 +1456,12 @@ export default function CHECKR() {
     const nonCritGroups = ph.groups.map(g=>({...g,flags:g.flags.filter(f=>!f.crit)})).filter(g=>g.flags.length>0);
 
     return (
-      <div className="app"><style>{CSS}</style>
+      <div className={`app${dark?"":" light-mode"}`}><style>{CSS}</style>
         <div className="ph-screen">
           <div className="topbar">
+            <button onClick={()=>setDark(d=>!d)} style={{background:"none",border:"1px solid var(--ln2)",borderRadius:8,padding:"5px 10px",color:"var(--ink2)",fontSize:13,cursor:"pointer",fontFamily:"var(--fb)"}}>
+              {dark?"☀️":"🌙"}
+            </button>
             <div className="tb-back" onClick={()=>{ if(phaseIdx===0) setScreen("vehicle"); else { setPhaseIdx(i=>i-1); } }}>
               {IC.back} <span>{phaseIdx===0?"Fahrzeug":phases[phaseIdx-1].label}</span>
             </div>
@@ -1508,7 +1521,7 @@ export default function CHECKR() {
                     <div className="mdl-btns">
                       <button className={`mdl-btn${mdlR[c.id]==="ok"?" ok":""}`} onClick={()=>setMdl(c.id,"ok")}>{IC.chk} OK</button>
                       <button className={`mdl-btn${mdlR[c.id]==="note"?" note":""}`} onClick={()=>setMdl(c.id,"note")}>{IC.warn} Auffällig</button>
-                      <button className={`mdl-btn${mdlR[c.id]==="stop"?" stop":""}`} onClick={()=>setMdl(c.id,"stop")}>{IC.x} Abbruch</button>
+                      <button className={`mdl-btn${mdlR[c.id]==="stop"?" stop":""}`} onClick={()=>setMdl(c.id,"stop")}>{IC.x} Kaufstopp</button>
                     </div>
                     {(noteFor===c.id||mdlNotes[c.id])
                       ? <textarea className="mdl-note" rows={2} placeholder="Notiz..."
@@ -1551,7 +1564,7 @@ export default function CHECKR() {
 
   // ─── SUMMARY ─────────────────────────────────────────────────────────────
   if (screen==="summary") return (
-    <div className="app"><style>{CSS}</style>
+    <div className={`app${dark?"":" light-mode"}`}><style>{CSS}</style>
       <div className="sum">
         <div className="topbar">
           <div className="tb-back" onClick={()=>{ setPhaseIdx(phases.length-1); setScreen("phase"); }}>{IC.back} Zurück</div>
@@ -1699,7 +1712,7 @@ export default function CHECKR() {
 
   // ─── GARAGE ──────────────────────────────────────────────────────────────
   if (screen==="garage") return (
-    <div className="app"><style>{CSS}</style>
+    <div className={`app${dark?"":" light-mode"}`}><style>{CSS}</style>
       <div className="garage">
         <div className="topbar">
           <div className="tb-back" onClick={()=>setScreen("welcome")}>{IC.back} Start</div>
@@ -1762,7 +1775,7 @@ export default function CHECKR() {
     const allBad = items.every(g=>g.verdict==="stop");
 
     return (
-      <div className="app"><style>{CSS}</style>
+      <div className={`app${dark?"":" light-mode"}`}><style>{CSS}</style>
         <div className="compare">
           <div className="topbar">
             <div className="tb-back" onClick={()=>setScreen("garage")}>{IC.back} Garage</div>
@@ -1890,7 +1903,7 @@ function FlagCard({ flag, result, tipOpen, onToggleTip, onSet }) {
       <div className="fc-actions">
         <button className={`fca${result==="ok"?" ok":""}`}   onClick={()=>onSet("ok")}>Alles gut</button>
         <button className={`fca${result==="note"?" note":""}`} onClick={()=>onSet("note")}>Auffällig</button>
-        <button className={`fca${result==="stop"?" stop":""}`} onClick={()=>onSet("stop")}>Abbruch</button>
+        <button className={`fca${result==="stop"?" stop":""}`} onClick={()=>onSet("stop")}>Kaufstopp</button>
         <button className={`fca${result==="skip"?" skip":""}`} onClick={()=>onSet("skip")}>—</button>
       </div>
     </div>
